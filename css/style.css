@@ -229,15 +229,27 @@ p { margin: 0; }
     transition: max-height 0.25s ease;
     border-bottom: 1px solid rgba(247,246,243,0.1);
   }
-  .site-nav__links.is-open { max-height: 480px; }
+  .site-nav__links.is-open { max-height: 560px; }
   .site-nav__links a {
     padding: 16px 24px;
     border-top: 1px solid rgba(247,246,243,0.08);
   }
   .site-nav__cta { margin: 16px 24px 20px; text-align: center; }
+  .site-nav__links .lang-switch {
+    justify-content: center;
+    gap: 18px;
+    padding: 18px 24px;
+    border-top: 1px solid rgba(247,246,243,0.08);
+  }
+  .site-nav__links .lang-switch button { font-size: 14px; }
 }
 @media (min-width: 901px) {
   .site-nav__toggle { display: none; }
+  .site-nav__links .lang-switch {
+    padding-left: 10px;
+    margin-left: 4px;
+    border-left: 1px solid rgba(247,246,243,0.16);
+  }
 }
 
 /* Offset anchored sections so the fixed nav doesn't cover their heading */
@@ -261,7 +273,19 @@ p { margin: 0; }
 @media (min-width: 901px) {
   .hero { min-height: 90vh; }
 }
+@media (max-width: 640px) {
+  .hero { background-position: 72% center; }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(14,14,16,0.4);
+    pointer-events: none;
+  }
+}
 .hero__inner {
+  position: relative;
+  z-index: 1;
   padding-top: 110px;
   padding-bottom: 64px;
   max-width: 680px;
