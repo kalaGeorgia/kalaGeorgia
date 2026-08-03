@@ -532,9 +532,14 @@
     });
   }
 
+  function getInitialLang() {
+    if (window.KALA_FORCE_LANG && I18N[window.KALA_FORCE_LANG]) return window.KALA_FORCE_LANG;
+    return getSavedLang();
+  }
+
   window.KALA = window.KALA || {};
   window.KALA.applyLanguage = applyLanguage;
-  window.KALA.currentLang = getSavedLang();
+  window.KALA.currentLang = getInitialLang();
 
   function loadRemoteContent() {
     fetch('/api/content', { cache: 'no-store' })
@@ -551,7 +556,7 @@
 
   function init() {
     initLangSwitch();
-    applyLanguage(getSavedLang());
+    applyLanguage(getInitialLang());
     loadRemoteContent();
   }
 
