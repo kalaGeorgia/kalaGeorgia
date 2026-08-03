@@ -20,6 +20,9 @@
     });
   }
 
+  window.KALA = window.KALA || {};
+  window.KALA.refreshWaLinks = initWaLinks;
+
   function initTelLinks() {
     var links = document.querySelectorAll('.js-tel');
     links.forEach(function (el) {
