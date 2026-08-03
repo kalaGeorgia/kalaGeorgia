@@ -2,9 +2,19 @@ const defaultContent = require('../content.default.json');
 const { readContent, writeContent } = require('../lib/blob');
 const { isAuthorized } = require('../lib/auth');
 
+function mergeWithDefaults(stored) {
+  if (!stored || typeof stored !== 'object') return defaultContent;
+  const merged = { images: Object.assign({}, defaultContent.images, stored.images || {}) };
+  ['en', 'ka', 'ru'].forEach(function (lang) {
+    merged[lang] = Object.assign({}, defaultContent[lang], stored[lang] || {});
+  });
+  return merged;
+}
+
 module.exports = async function handler(req, res) {
   if (req.method === 'GET') {
-    const content = await readContent(defaultContent);
+    const stored = await readContent(null);
+    const content = mergeWithDefaults(stored);
     res.setHeader('Cache-Control', 'no-store');
     res.status(200).json(content);
     return;

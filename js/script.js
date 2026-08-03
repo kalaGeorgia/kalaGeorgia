@@ -86,6 +86,35 @@
     });
   }
 
+  // ---- Top nav: mobile toggle + solid background on scroll ----
+  function initNav() {
+    var nav = document.getElementById('siteNav');
+    var toggle = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
+    if (!nav || !toggle || !links) return;
+
+    function closeMenu() {
+      toggle.setAttribute('aria-expanded', 'false');
+      links.classList.remove('is-open');
+    }
+
+    toggle.addEventListener('click', function () {
+      var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+      links.classList.toggle('is-open', !isOpen);
+    });
+
+    links.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', closeMenu);
+    });
+
+    function updateScrolled() {
+      nav.classList.toggle('is-scrolled', window.scrollY > 12);
+    }
+    updateScrolled();
+    window.addEventListener('scroll', updateScrolled, { passive: true });
+  }
+
   // ---- Sticky mobile bar: show after first viewport of scroll ----
   function initStickyBar() {
     var bar = document.getElementById('stickyBar');
@@ -106,6 +135,7 @@
     initTelLinks();
     initFaq();
     initSlider();
+    initNav();
     initStickyBar();
   }
 

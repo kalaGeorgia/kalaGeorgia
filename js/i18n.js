@@ -138,6 +138,7 @@
       nav_process: "How it works",
       nav_b2b: "For business",
       nav_faq: "FAQ",
+      nav_cta: "WhatsApp",
 
       footer_contacts: "Contacts",
       footer_hours_title: "Hours & Coverage",
@@ -280,6 +281,7 @@
       nav_process: "როგორ ვმუშაობთ",
       nav_b2b: "ბიზნესისთვის",
       nav_faq: "კითხვები",
+      nav_cta: "WhatsApp",
 
       footer_contacts: "კონტაქტი",
       footer_hours_title: "სამუშაო საათები და გეოგრაფია",
@@ -422,6 +424,7 @@
       nav_process: "Как мы работаем",
       nav_b2b: "Для бизнеса",
       nav_faq: "Вопросы",
+      nav_cta: "WhatsApp",
 
       footer_contacts: "Контакты",
       footer_hours_title: "График и география",
