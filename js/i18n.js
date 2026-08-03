@@ -131,6 +131,14 @@
       final_call: "or call:",
       final_micro: "English / ქართული / Русский. Fast replies, even on the road.",
 
+      footer_nav_title: "Navigate",
+      nav_services: "Services",
+      nav_fleet: "Fleet",
+      nav_pricing: "Pricing",
+      nav_process: "How it works",
+      nav_b2b: "For business",
+      nav_faq: "FAQ",
+
       footer_contacts: "Contacts",
       footer_hours_title: "Hours & Coverage",
       footer_hours1: "Daily 08:00–23:00",
@@ -264,6 +272,14 @@
       final_cta: "მოგვწერეთ WhatsApp-ზე",
       final_call: "ან დაგვირეკეთ:",
       final_micro: "English / ქართული / Русский. სწრაფი პასუხი გზაშიც კი.",
+
+      footer_nav_title: "ნავიგაცია",
+      nav_services: "სერვისები",
+      nav_fleet: "პარკი",
+      nav_pricing: "ფასები",
+      nav_process: "როგორ ვმუშაობთ",
+      nav_b2b: "ბიზნესისთვის",
+      nav_faq: "კითხვები",
 
       footer_contacts: "კონტაქტი",
       footer_hours_title: "სამუშაო საათები და გეოგრაფია",
@@ -399,6 +415,14 @@
       final_call: "или позвоните:",
       final_micro: "English / ქართული / Русский. Быстрые ответы даже в дороге.",
 
+      footer_nav_title: "Навигация",
+      nav_services: "Услуги",
+      nav_fleet: "Автопарк",
+      nav_pricing: "Цены",
+      nav_process: "Как мы работаем",
+      nav_b2b: "Для бизнеса",
+      nav_faq: "Вопросы",
+
       footer_contacts: "Контакты",
       footer_hours_title: "График и география",
       footer_hours1: "Ежедневно 08:00–23:00",
@@ -422,6 +446,10 @@
 
   var STORAGE_KEY = 'kala_lang';
   var DEFAULT_LANG = 'en';
+  var HERO_GRADIENT = "linear-gradient(90deg, rgba(14,14,16,0.94) 0%, rgba(14,14,16,0.75) 42%, rgba(14,14,16,0.35) 75%, rgba(14,14,16,0.15) 100%)";
+
+  var REMOTE_CONTENT = null;
+  var REMOTE_IMAGES = null;
 
   function getSavedLang() {
     try {
@@ -431,9 +459,37 @@
     return DEFAULT_LANG;
   }
 
+  function mergedDict(lang) {
+    var base = I18N[lang] || I18N[DEFAULT_LANG];
+    var remote = REMOTE_CONTENT && REMOTE_CONTENT[lang];
+    return remote ? Object.assign({}, base, remote) : base;
+  }
+
+  function applyImages() {
+    var images = REMOTE_IMAGES;
+    if (!images) return;
+
+    var hero = document.getElementById('top');
+    if (hero && images.slot3) {
+      hero.style.backgroundImage = HERO_GRADIENT + ", url('" + images.slot3 + "')";
+    }
+
+    var slotKeys = { 1: 'slot1', 2: 'slot2', 3: 'slot3', 4: 'slot4', 5: 'slot5', 6: 'bonus' };
+    document.querySelectorAll('.slider__slide[data-slot]').forEach(function (slide) {
+      var slot = slide.getAttribute('data-slot');
+      var key = slotKeys[slot];
+      var url = key && images[key];
+      var img = slide.querySelector('img');
+      if (url && img) {
+        img.src = url;
+        img.style.display = '';
+      }
+    });
+  }
+
   function applyLanguage(lang) {
     if (!I18N[lang]) lang = DEFAULT_LANG;
-    var dict = I18N[lang];
+    var dict = mergedDict(lang);
 
     document.documentElement.setAttribute('lang', lang);
     if (META[lang]) {
@@ -477,9 +533,23 @@
   window.KALA.applyLanguage = applyLanguage;
   window.KALA.currentLang = getSavedLang();
 
+  function loadRemoteContent() {
+    fetch('/api/content', { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        if (!data || typeof data !== 'object') return;
+        REMOTE_CONTENT = data;
+        REMOTE_IMAGES = data.images || null;
+        applyLanguage(window.KALA.currentLang);
+        applyImages();
+      })
+      .catch(function () { /* keep built-in defaults */ });
+  }
+
   function init() {
     initLangSwitch();
     applyLanguage(getSavedLang());
+    loadRemoteContent();
   }
 
   if (document.readyState === 'loading') {
