@@ -57,6 +57,45 @@
     setStatus('Есть несохранённые изменения');
   }
 
+  // ---- Stats ----
+  function renderStats(stats) {
+    var grid = document.getElementById('statsGrid');
+    grid.innerHTML = '';
+
+    var days = stats.days || {};
+    var dayKeys = Object.keys(days).sort();
+    var todayKey = new Date().toISOString().slice(0, 10);
+    var todayCount = days[todayKey] || 0;
+
+    var last7 = dayKeys.slice(-7);
+    var last7Total = last7.reduce(function (sum, k) { return sum + (days[k] || 0); }, 0);
+
+    [
+      { value: stats.total || 0, label: 'Всего просмотров' },
+      { value: todayCount, label: 'Сегодня' },
+      { value: last7Total, label: 'За последние 7 дней' }
+    ].forEach(function (item) {
+      grid.appendChild(el('div', { class: 'stat-card' }, [
+        el('div', { class: 'stat-card__value' }, [document.createTextNode(String(item.value))]),
+        el('div', { class: 'stat-card__label' }, [document.createTextNode(item.label)])
+      ]));
+    });
+
+    if (last7.length) {
+      var list = el('div', { class: 'stats-days' }, []);
+      last7.slice().reverse().forEach(function (k) {
+        var item = el('div', { class: 'stats-days__item' }, []);
+        var b = el('b', {}, [document.createTextNode(String(days[k]))]);
+        item.appendChild(b);
+        item.appendChild(document.createTextNode(' — ' + k));
+        list.appendChild(item);
+      });
+      grid.parentNode.appendChild(list);
+    }
+
+    document.getElementById('statsBlock').hidden = false;
+  }
+
   // ---- Photos ----
   function renderPhotos() {
     var grid = document.getElementById('photoGrid');
@@ -252,6 +291,11 @@
       .catch(function () {
         document.getElementById('editorLoading').textContent = 'Не удалось загрузить контент.';
       });
+
+    fetch('/api/stats', { cache: 'no-store' })
+      .then(function (r) { return r.json(); })
+      .then(function (data) { renderStats(data || { total: 0, days: {} }); })
+      .catch(function () {});
   }
 
   function initLogin() {

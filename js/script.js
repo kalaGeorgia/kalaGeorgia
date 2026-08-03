@@ -130,6 +130,12 @@
     window.addEventListener('resize', function () { threshold = window.innerHeight * 0.9; update(); });
   }
 
+  function trackVisit() {
+    try {
+      fetch('/api/track', { method: 'POST' }).catch(function () {});
+    } catch (e) { /* ignore — never affect the visitor experience */ }
+  }
+
   function init() {
     initWaLinks();
     initTelLinks();
@@ -137,6 +143,7 @@
     initSlider();
     initNav();
     initStickyBar();
+    trackVisit();
   }
 
   if (document.readyState === 'loading') {

@@ -140,6 +140,45 @@ button { font-family: inherit; cursor: pointer; }
   max-width: 640px;
 }
 
+/* ---- Stats ---- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.stat-card {
+  background: rgba(247,246,243,0.04);
+  border: 1px solid var(--color-border-dark);
+  border-radius: 10px;
+  padding: 18px;
+}
+.stat-card__value {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--color-gold);
+}
+.stat-card__label {
+  font-size: 12px;
+  color: var(--color-text-muted-dark);
+  margin-top: 4px;
+}
+.stats-days {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.stats-days__item {
+  background: rgba(247,246,243,0.04);
+  border: 1px solid var(--color-border-dark);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: var(--color-text-muted-dark);
+}
+.stats-days__item b { color: var(--color-text-dark); }
+
 /* ---- Photos ---- */
 .photo-grid {
   display: grid;
