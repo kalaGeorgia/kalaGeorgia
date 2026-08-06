@@ -4,11 +4,14 @@
   var content = null;
   var activeLang = 'en';
   var dirty = false;
+  var tours = [];
+  var toursDirty = false;
 
   var PHOTO_SLOTS = [
+    { key: 'hero', label: 'Hero — фон главного экрана (независимо от слайдера)' },
     { key: 'slot1', label: 'Слот 1 — салон (ambient-подсветка)' },
     { key: 'slot2', label: 'Слот 2 — экстерьер спереди' },
-    { key: 'slot3', label: 'Слот 3 — профиль с открытыми дверями (фон Hero)' },
+    { key: 'slot3', label: 'Слот 3 — профиль с открытыми дверями' },
     { key: 'slot4', label: 'Слот 4 — панель / руль' },
     { key: 'slot5', label: 'Слот 5 — багажник' },
     { key: 'bonus', label: 'Бонус — экстерьер сзади' }
@@ -23,6 +26,7 @@
     if (key.indexOf('process_') === 0 || key.indexOf('step') === 0) return 'Как мы работаем';
     if (key.indexOf('b2b_') === 0) return 'Для бизнеса (B2B)';
     if (key.indexOf('faq_') === 0) return 'Вопросы (FAQ)';
+    if (key.indexOf('tours_') === 0) return 'Страница туров (текст)';
     if (key.indexOf('final_') === 0) return 'Финальный блок';
     if (key.indexOf('footer_') === 0) return 'Футер';
     if (key.indexOf('sticky_') === 0) return 'Мобильная панель';
@@ -172,6 +176,134 @@
     });
   }
 
+  // ---- Tours ----
+  function newTourId() {
+    return 't' + Date.now() + Math.random().toString(36).slice(2, 7);
+  }
+
+  function setToursStatus(msg, isError) {
+    var status = document.getElementById('toursStatus');
+    if (!status) return;
+    status.textContent = msg || '';
+    status.style.color = isError ? '#ff8080' : '';
+  }
+
+  function markToursDirty() {
+    toursDirty = true;
+    setToursStatus('Есть несохранённые изменения');
+  }
+
+  function renderTours() {
+    var grid = document.getElementById('toursGrid');
+    grid.innerHTML = '';
+
+    tours.forEach(function (tour, index) {
+      var img = el('img', { class: 'tour-editor__preview', src: tour.image || '', alt: 'Фото тура' });
+      var photoStatus = el('p', { class: 'photo-card__status' }, []);
+      var fileInput = el('input', { type: 'file', accept: 'image/*', style: 'display:none' }, []);
+
+      fileInput.addEventListener('change', function () {
+        var file = fileInput.files && fileInput.files[0];
+        if (!file) return;
+        photoStatus.textContent = 'Обрабатываю…';
+        resizeImageToDataUrl(file, 1600, 0.82)
+          .then(function (dataUrl) {
+            photoStatus.textContent = 'Загружаю…';
+            return fetch('/api/upload', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ dataUrl: dataUrl, filename: 'tour-' + tour.id + '.jpg' })
+            });
+          })
+          .then(function (r) { return r.json().then(function (data) { return { ok: r.ok, data: data }; }); })
+          .then(function (res) {
+            if (!res.ok) throw new Error((res.data && res.data.error) || 'Ошибка загрузки');
+            tour.image = res.data.url;
+            img.src = res.data.url;
+            photoStatus.textContent = 'Загружено';
+            markToursDirty();
+          })
+          .catch(function (err) {
+            photoStatus.textContent = 'Ошибка: ' + err.message;
+          });
+      });
+
+      var photoBtn = el('button', { type: 'button', class: 'photo-card__btn' }, [document.createTextNode('Заменить фото')]);
+      photoBtn.addEventListener('click', function () { fileInput.click(); });
+
+      var fieldsWrap = el('div', { class: 'tour-editor__fields' }, []);
+      ['en', 'ka', 'ru'].forEach(function (lang) {
+        var titleInput = el('input', { type: 'text', placeholder: 'Название (' + lang.toUpperCase() + ')' }, []);
+        titleInput.value = tour.title[lang] || '';
+        titleInput.addEventListener('input', function () {
+          tour.title[lang] = titleInput.value;
+          markToursDirty();
+        });
+        var descInput = el('textarea', { placeholder: 'Описание (' + lang.toUpperCase() + ')' }, []);
+        descInput.value = tour.description[lang] || '';
+        descInput.addEventListener('input', function () {
+          tour.description[lang] = descInput.value;
+          markToursDirty();
+        });
+        fieldsWrap.appendChild(el('div', { class: 'field-row' }, [
+          el('label', {}, [document.createTextNode('Название (' + lang.toUpperCase() + ')')]),
+          titleInput
+        ]));
+        fieldsWrap.appendChild(el('div', { class: 'field-row' }, [
+          el('label', {}, [document.createTextNode('Описание (' + lang.toUpperCase() + ')')]),
+          descInput
+        ]));
+      });
+
+      var removeBtn = el('button', { type: 'button', class: 'photo-card__btn tour-editor__remove' }, [document.createTextNode('Удалить тур')]);
+      removeBtn.addEventListener('click', function () {
+        if (!confirm('Удалить этот тур?')) return;
+        tours.splice(index, 1);
+        markToursDirty();
+        renderTours();
+      });
+
+      var card = el('div', { class: 'tour-editor' }, [
+        el('div', { class: 'tour-editor__photo' }, [img, photoBtn, fileInput, photoStatus]),
+        fieldsWrap,
+        removeBtn
+      ]);
+      grid.appendChild(card);
+    });
+
+    document.getElementById('toursBlock').hidden = false;
+  }
+
+  function initTours() {
+    document.getElementById('addTourBtn').addEventListener('click', function () {
+      tours.push({ id: newTourId(), image: '', title: { en: '', ka: '', ru: '' }, description: { en: '', ka: '', ru: '' } });
+      markToursDirty();
+      renderTours();
+    });
+
+    document.getElementById('saveToursBtn').addEventListener('click', function () {
+      var btn = document.getElementById('saveToursBtn');
+      btn.disabled = true;
+      setToursStatus('Сохраняю…');
+      fetch('/api/tours', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(tours)
+      })
+        .then(function (r) { return r.json().then(function (data) { return { ok: r.ok, data: data }; }); })
+        .then(function (res) {
+          btn.disabled = false;
+          if (!res.ok) throw new Error((res.data && res.data.error) || 'Ошибка сохранения');
+          toursDirty = false;
+          setToursStatus('Сохранено ✓');
+        })
+        .catch(function (err) {
+          btn.disabled = false;
+          setToursStatus('Ошибка: ' + err.message, true);
+        });
+    });
+  }
+
   // ---- Text fields ----
   function renderFields() {
     var wrap = document.getElementById('fieldsWrap');
@@ -262,7 +394,7 @@
     });
 
     window.addEventListener('beforeunload', function (e) {
-      if (dirty) { e.preventDefault(); e.returnValue = ''; }
+      if (dirty || toursDirty) { e.preventDefault(); e.returnValue = ''; }
     });
   }
 
@@ -295,6 +427,15 @@
     fetch('/api/stats', { cache: 'no-store' })
       .then(function (r) { return r.json(); })
       .then(function (data) { renderStats(data || { total: 0, days: {} }); })
+      .catch(function () {});
+
+    fetch('/api/tours', { cache: 'no-store' })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        tours = Array.isArray(data) ? data : [];
+        initTours();
+        renderTours();
+      })
       .catch(function () {});
   }
 

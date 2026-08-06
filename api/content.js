@@ -6,7 +6,12 @@ function mergeWithDefaults(stored) {
   if (!stored || typeof stored !== 'object') return defaultContent;
   const merged = { images: Object.assign({}, defaultContent.images, stored.images || {}) };
   ['en', 'ka', 'ru'].forEach(function (lang) {
-    merged[lang] = Object.assign({}, defaultContent[lang], stored[lang] || {});
+    const out = {};
+    const storedLang = stored[lang] || {};
+    Object.keys(defaultContent[lang]).forEach(function (key) {
+      out[key] = storedLang[key] !== undefined ? storedLang[key] : defaultContent[lang][key];
+    });
+    merged[lang] = out;
   });
   return merged;
 }

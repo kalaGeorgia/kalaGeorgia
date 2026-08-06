@@ -31,4 +31,10 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/" />
   </url>
+  <url>
+    <loc>https://kala-georgia.com/tours.html</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

@@ -43,8 +43,21 @@
 
     <section class="editor-block" id="photosBlock" hidden>
       <h2>Фотографии</h2>
-      <p class="editor-block__hint">Фото используются в слайдере блока «Автопарк». Слот 3 также служит фоном для главного экрана. Загружайте JPG/PNG — файл сожмётся автоматически.</p>
+      <p class="editor-block__hint">Hero — отдельное фото фона главного экрана. Остальные слоты используются в слайдере блока «Автопарк». Загружайте JPG/PNG — файл сожмётся автоматически.</p>
       <div class="photo-grid" id="photoGrid"></div>
+    </section>
+
+    <section class="editor-block" id="toursBlock" hidden>
+      <h2>Туры</h2>
+      <p class="editor-block__hint">Список туров на странице «tours.html». Название и описание задаются на трёх языках, фото загружается отдельно для каждого тура.</p>
+      <div class="tours-grid" id="toursGrid"></div>
+      <div class="tours-actions">
+        <button type="button" id="addTourBtn" class="btn-ghost">+ Добавить тур</button>
+        <div class="tours-actions__save">
+          <span class="save-bar__status" id="toursStatus"></span>
+          <button type="button" id="saveToursBtn">Сохранить туры</button>
+        </div>
+      </div>
     </section>
 
     <section class="editor-block" id="textsBlock" hidden>

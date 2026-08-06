@@ -3,16 +3,16 @@
 
   var META = {
     en: {
-      title: 'KALA Georgia — Private VIP Transport, Escort & Transfers in Georgia',
-      description: 'Private transport in Georgia: meet & greet for partners and delegations, transfers anywhere in the country, VIP escort and personal security, guided tours on request. Business-class Toyota Alphard.'
+      title: 'KALA Georgia — Private VIP Transport, Tours & Escort in Georgia',
+      description: 'Airport meet & greet, hotel booking, personal escort, transfers anywhere in Georgia, group transport, signature tours, guided hikes, and VIP security on request. Business-class Toyota Alphard.'
     },
     ka: {
-      title: 'KALA Georgia — პირადი VIP ტრანსპორტი, ესკორტი და ტრანსფერები საქართველოში',
-      description: 'პირადი ტრანსპორტი საქართველოში: შეხვედრა პარტნიორებისა და დელეგაციებისთვის, ტრანსფერები ქვეყნის ნებისმიერ წერტილში, VIP ესკორტი და პირადი დაცვა, ტურები გიდთან მოთხოვნისას. ბიზნეს-კლასის Toyota Alphard.'
+      title: 'KALA Georgia — პირადი VIP ტრანსპორტი, ტურები და ესკორტი საქართველოში',
+      description: 'შეხვედრა აეროპორტში, სასტუმროს დაჯავშნა, პირადი თანხლება, ტრანსფერები საქართველოს ნებისმიერ წერტილში, ჯგუფების გადაყვანა, საავტორო ტურები, ლაშქრობები გიდთან და VIP დაცვა მოთხოვნისას. ბიზნეს-კლასის Toyota Alphard.'
     },
     ru: {
-      title: 'KALA Georgia — персональный VIP-транспорт, сопровождение и трансферы по Грузии',
-      description: 'Персональный транспорт по Грузии: встреча партнёров и делегаций, трансферы в любую точку страны, VIP-сопровождение и личная охрана, экскурсии с гидом по запросу. Toyota Alphard бизнес-класса.'
+      title: 'KALA Georgia — персональный VIP-транспорт, туры и сопровождение по Грузии',
+      description: 'Встреча в аэропорту, подбор отеля, личное сопровождение, трансферы в любую точку Грузии, перевозка групп, авторские туры, походы с гидом и VIP-охрана по запросу. Toyota Alphard бизнес-класса.'
     }
   };
 
@@ -32,17 +32,23 @@
       hero_trust: "Tbilisi and all of Georgia · Contracts and invoicing for companies",
 
       services_eyebrow: "What we do",
-      services_title: "Five things we handle every day",
-      svc1_title: "Meet & Greet for Partners and Delegations",
-      svc1_text: "We meet your partners and delegations at the airport or venue and manage transportation for the full visit. One briefed driver, one point of contact for your team.",
-      svc2_title: "Private Transfers Anywhere in Georgia",
-      svc2_text: "Airport transfers in Tbilisi and Kutaisi, and point-to-point travel to any city or region — Batumi, Kazbegi, Gudauri, Kakheti and beyond. Flight tracked, route fixed before you land.",
-      svc3_title: "VIP Escort and Personal Security",
-      svc3_text: "For principals and delegations who need more than a driver — trained personal escort and security, arranged discreetly alongside your transport.",
-      svc4_title: "Guided Tours on Request",
-      svc4_text: "A private driver-guide for day trips at your pace — Kazbegi, Kakheti, Mtskheta, Borjomi. Arranged on request, not offered as a default package.",
-      svc5_title: "Confidentiality as Standard",
-      svc5_text: "Unbranded vehicle on request, no name on the arrival board unless you ask for one, and drivers briefed on discretion — the default, not an add-on.",
+      services_title: "Full support, from arrival to departure",
+      svc_meet_title: "Airport Meet & Greet and Farewell",
+      svc_meet_text: "We meet you at arrivals with a name board and help with luggage, and see you off at departure — on time, every time.",
+      svc_hotel_title: "Hotel Selection & Booking",
+      svc_hotel_text: "Tell us your dates, budget and preferences, and we'll shortlist and book the right hotel for your trip — no time lost comparing options yourself.",
+      svc_escort_title: "Personal Escort Throughout Your Stay",
+      svc_escort_text: "One driver stays with you for the full visit — city moves, meetings, evenings out — so you never have to explain your plans twice.",
+      svc_transfer_title: "Transfers Anywhere in Georgia",
+      svc_transfer_text: "Airport transfers in Tbilisi and Kutaisi, and point-to-point travel to any city or region — Batumi, Kazbegi, Gudauri, Kakheti and beyond.",
+      svc_group_title: "Group and Delegation Transportation",
+      svc_group_text: "Coordinated transport for groups of any size — matched vehicles, a single schedule, one point of contact for your team.",
+      svc_tours_title: "Signature Tours",
+      svc_tours_text: "Curated day trips built around your interests, not a fixed itinerary — Kazbegi, Kakheti, Mtskheta, Borjomi and beyond, with a private driver-guide.",
+      svc_hike_title: "Guided Hikes",
+      svc_hike_text: "Trekking routes across Georgia's mountains with an experienced guide — matched to your fitness level and time on the ground.",
+      svc_vip_title: "VIP Escort & Personal Security — On Request",
+      svc_vip_text: "For principals and delegations who need more than a driver — trained personal escort and security, arranged discreetly alongside your transport.",
       svc_link: "Ask on WhatsApp →",
 
       pricing_eyebrow: "Fixed price — no surprises",
@@ -138,7 +144,13 @@
       nav_process: "How it works",
       nav_b2b: "For business",
       nav_faq: "FAQ",
+      nav_tours: "Tours",
       nav_cta: "WhatsApp",
+
+      tours_title: "Our Tours",
+      tours_intro: "Signature day trips and guided hikes across Georgia, planned around you. Message us on WhatsApp for dates and details on any tour below.",
+      tours_empty: "New tours are being added — message us on WhatsApp and we'll build one around your dates.",
+      tours_cta: "Ask About a Tour",
 
       footer_contacts: "Contacts",
       footer_hours_title: "Hours & Coverage",
@@ -151,11 +163,14 @@
       sticky_call: "Call",
 
       wa_generic: "Hello! I'd like to get a quote. Task: ___ Date: ___",
-      wa_meet: "Hello! I need meet & greet / transportation for partners or a delegation. Dates and format: ___",
+      wa_meet: "Hello! I need airport meet & greet or farewell. Date and flight: ___",
+      wa_hotel: "Hello! I'd like help selecting and booking a hotel. Dates and budget: ___",
+      wa_escort: "Hello! I'm interested in a personal escort/driver for my stay. Dates: ___",
       wa_transfer: "Hello! I need a transfer. From/To: ___ Date and time: ___",
+      wa_group: "Hello! I need transport for a group or delegation. Number of people and dates: ___",
+      wa_tours: "Hello! I'm interested in a signature tour. Destination: ___ Date: ___",
+      wa_hike: "Hello! I'm interested in a guided hike. Route and dates: ___",
       wa_vip: "Hello! I'm interested in VIP escort / personal security. Details: ___",
-      wa_tours: "Hello! I'm interested in a guided tour. Destination: ___ Date: ___",
-      wa_confidential: "Hello! I'd like to discuss confidentiality arrangements for my trip.",
       wa_b2b: "Hello! I'm writing on behalf of company ___. Interested in corporate terms.",
       wa_hello: "Hello!"
     },
@@ -175,17 +190,23 @@
       hero_trust: "თბილისი და მთელი საქართველო · ხელშეკრულება და ინვოისები კომპანიებისთვის",
 
       services_eyebrow: "რას ვაკეთებთ",
-      services_title: "ხუთი მიმართულება, რომელზეც ყოველდღე ვმუშაობთ",
-      svc1_title: "შეხვედრა და ტრანსპორტირება პარტნიორებისთვის და დელეგაციებისთვის",
-      svc1_text: "ვხვდებით თქვენს პარტნიორებსა და დელეგაციებს აეროპორტში თუ ღონისძიების ადგილას და ვმართავთ ტრანსპორტს მთელი ვიზიტის განმავლობაში. ერთი გაფრთხილებული მძღოლი, ერთი საკონტაქტო პირი თქვენი გუნდისთვის.",
-      svc2_title: "კერძო ტრანსფერები საქართველოს ნებისმიერ წერტილში",
-      svc2_text: "ტრანსფერები თბილისისა და ქუთაისის აეროპორტებიდან და მოგზაურობა ნებისმიერ ქალაქსა თუ რეგიონში — ბათუმი, ყაზბეგი, გუდაური, კახეთი და სხვა. ფრენას ვადევნებთ თვალს, მარშრუტი დგინდება წინასწარ.",
-      svc3_title: "VIP ესკორტი და პირადი დაცვა",
-      svc3_text: "მათთვის, ვისაც მძღოლზე მეტი სჭირდება — გამოცდილი პირადი ესკორტი და დაცვა, დისკრეტულად, ტრანსპორტთან ერთად.",
-      svc4_title: "ტურები გიდთან — მოთხოვნის შემთხვევაში",
-      svc4_text: "კერძო მძღოლ-გიდი ერთდღიანი მოგზაურობებისთვის თქვენს ტემპში — ყაზბეგი, კახეთი, მცხეთა, ბორჯომი. ეწყობა მოთხოვნისას, არა როგორც ნაგულისხმევი პაკეტი.",
-      svc5_title: "კონფიდენციალურობა ნაგულისხმევად",
-      svc5_text: "ავტომობილი ბრენდირების გარეშე მოთხოვნისას, დაფაზე სახელის გარეშე, თუ არ მოითხოვთ, და მძღოლები გაფრთხილებულნი დისკრეციაზე — ეს სტანდარტია, არა დამატება.",
+      services_title: "სრული მხარდაჭერა ჩამოსვლიდან გამგზავრებამდე",
+      svc_meet_title: "აეროპორტში შეხვედრა და გაცილება",
+      svc_meet_text: "გხვდებით ჩამოსვლისას სახელიანი დაფით და გეხმარებით ბარგში, ასევე გაცილებთ გამგზავრებისას — ყოველთვის დროულად.",
+      svc_hotel_title: "სასტუმროს შერჩევა და დაჯავშნა",
+      svc_hotel_text: "გვითხარით თარიღები, ბიუჯეტი და პრეფერენციები — შევარჩევთ და დავჯავშნით შესაფერის სასტუმროს, თქვენ დრო არ დაგჭირდებათ ვარიანტების შედარებაზე.",
+      svc_escort_title: "პირადი თანხლება მთელი ვიზიტის განმავლობაში",
+      svc_escort_text: "ერთი მძღოლი რჩება თქვენთან მთელი ვიზიტის განმავლობაში — გადაადგილება ქალაქში, შეხვედრები, საღამოები — გეგმების ორჯერ ახსნა აღარ დაგჭირდებათ.",
+      svc_transfer_title: "ტრანსფერები საქართველოს ნებისმიერ წერტილში",
+      svc_transfer_text: "ტრანსფერები თბილისისა და ქუთაისის აეროპორტებიდან და მოგზაურობა ნებისმიერ ქალაქსა თუ რეგიონში — ბათუმი, ყაზბეგი, გუდაური, კახეთი და სხვა.",
+      svc_group_title: "ჯგუფებისა და დელეგაციების გადაყვანა",
+      svc_group_text: "კოორდინირებული ტრანსპორტი ნებისმიერი ზომის ჯგუფისთვის — შესაფერისი ავტომობილები, ერთიანი გრაფიკი, ერთი საკონტაქტო პირი თქვენი გუნდისთვის.",
+      svc_tours_title: "საავტორო ტურები",
+      svc_tours_text: "თქვენს ინტერესებზე მორგებული ერთდღიანი მოგზაურობები, ფიქსირებული პროგრამის გარეშე — ყაზბეგი, კახეთი, მცხეთა, ბორჯომი და სხვა, კერძო მძღოლ-გიდთან ერთად.",
+      svc_hike_title: "ლაშქრობები გიდთან",
+      svc_hike_text: "სამთო მარშრუტები საქართველოს მასშტაბით გამოცდილ გიდთან ერთად — თქვენი ფიზიკური მომზადებისა და დროის გათვალისწინებით.",
+      svc_vip_title: "VIP ესკორტი და პირადი დაცვა — მოთხოვნის შემთხვევაში",
+      svc_vip_text: "მათთვის, ვისაც მძღოლზე მეტი სჭირდება — გამოცდილი პირადი ესკორტი და დაცვა, დისკრეტულად, ტრანსპორტთან ერთად.",
       svc_link: "ჰკითხეთ WhatsApp-ზე →",
 
       pricing_eyebrow: "ფიქსირებული ფასი — უსიურპრიზოდ",
@@ -281,7 +302,13 @@
       nav_process: "როგორ ვმუშაობთ",
       nav_b2b: "ბიზნესისთვის",
       nav_faq: "კითხვები",
+      nav_tours: "ტურები",
       nav_cta: "WhatsApp",
+
+      tours_title: "ჩვენი ტურები",
+      tours_intro: "საავტორო ერთდღიანი მოგზაურობები და ლაშქრობები საქართველოში, თქვენზე მორგებული. მოგვწერეთ WhatsApp-ზე ნებისმიერი ტურის თარიღებისა და დეტალებისთვის.",
+      tours_empty: "ტურების სია ივსება — მოგვწერეთ WhatsApp-ზე და შევარჩევთ თქვენი თარიღებისთვის.",
+      tours_cta: "ტურის შესახებ კითხვა",
 
       footer_contacts: "კონტაქტი",
       footer_hours_title: "სამუშაო საათები და გეოგრაფია",
@@ -294,11 +321,14 @@
       sticky_call: "დარეკვა",
 
       wa_generic: "გამარჯობა! მსურს ღირებულების გაგება. დავალება: ___ თარიღი: ___",
-      wa_meet: "გამარჯობა! საჭიროა შეხვედრა/ტრანსპორტი პარტნიორებისთვის ან დელეგაციისთვის. თარიღები და ფორმატი: ___",
+      wa_meet: "გამარჯობა! საჭიროა შეხვედრა/გაცილება აეროპორტში. თარიღი და რეისი: ___",
+      wa_hotel: "გამარჯობა! მჭირდება დახმარება სასტუმროს შერჩევასა და დაჯავშნაში. თარიღები და ბიუჯეტი: ___",
+      wa_escort: "გამარჯობა! მაინტერესებს პირადი თანხლება/მძღოლი ვიზიტის განმავლობაში. თარიღები: ___",
       wa_transfer: "გამარჯობა! საჭიროა ტრანსფერი. საიდან/სად: ___ თარიღი და დრო: ___",
+      wa_group: "გამარჯობა! საჭიროა ტრანსპორტი ჯგუფისთვის ან დელეგაციისთვის. ადამიანების რაოდენობა და თარიღები: ___",
+      wa_tours: "გამარჯობა! მაინტერესებს საავტორო ტური. მიმართულება: ___ თარიღი: ___",
+      wa_hike: "გამარჯობა! მაინტერესებს ლაშქრობა გიდთან. მარშრუტი და თარიღები: ___",
       wa_vip: "გამარჯობა! მაინტერესებს VIP ესკორტი/პირადი დაცვა. დეტალები: ___",
-      wa_tours: "გამარჯობა! მაინტერესებს ტური გიდთან. მიმართულება: ___ თარიღი: ___",
-      wa_confidential: "გამარჯობა! მსურს განვიხილო კონფიდენციალურობის პირობები ჩემი მოგზაურობისთვის.",
       wa_b2b: "გამარჯობა! ვწერ კომპანია ___-დან. მაინტერესებს კორპორატიული პირობები.",
       wa_hello: "გამარჯობა!"
     },
@@ -318,17 +348,23 @@
       hero_trust: "Тбилиси и вся Грузия · Договор и счета для компаний",
 
       services_eyebrow: "Чем мы занимаемся",
-      services_title: "Пять направлений, с которыми мы работаем каждый день",
-      svc1_title: "Встреча и транспортировка партнёров и делегаций",
-      svc1_text: "Встречаем ваших партнёров и делегации в аэропорту или на месте мероприятия и ведём транспорт на протяжении всего визита. Один проинструктированный водитель, один контакт для вашей команды.",
-      svc2_title: "Частные трансферы в любую точку Грузии",
-      svc2_text: "Трансферы из аэропортов Тбилиси и Кутаиси, поездки в любой город или регион — Батуми, Казбеги, Гудаури, Кахетия и другие. Отслеживаем рейс, маршрут согласован заранее.",
-      svc3_title: "VIP-сопровождение и личная охрана",
-      svc3_text: "Для тех, кому нужно больше, чем водитель — опытное личное сопровождение и охрана, организованные деликатно вместе с транспортом.",
-      svc4_title: "Экскурсии с гидом — по запросу",
-      svc4_text: "Персональный водитель-гид для однодневных поездок в вашем темпе: Казбеги, Кахетия, Мцхета, Боржоми. Организуется по запросу, не как стандартный пакет.",
-      svc5_title: "Конфиденциальность по умолчанию",
-      svc5_text: "Автомобиль без брендинга по запросу, без имени на табличке, если не попросите иначе, водители проинструктированы о деликатности — это стандарт, а не опция.",
+      services_title: "Полное сопровождение — от прилёта до отъезда",
+      svc_meet_title: "Встреча и проводы в аэропорту",
+      svc_meet_text: "Встречаем вас в зале прилёта с табличкой и помогаем с багажом, провожаем при вылете — всегда вовремя.",
+      svc_hotel_title: "Подбор и бронирование отеля",
+      svc_hotel_text: "Назовите даты, бюджет и пожелания — подберём и забронируем подходящий отель, вам не придётся тратить время на сравнение вариантов.",
+      svc_escort_title: "Личное сопровождение на всё время визита",
+      svc_escort_text: "Один водитель остаётся с вами на весь визит — перемещения по городу, встречи, вечерние поездки — не нужно объяснять планы дважды.",
+      svc_transfer_title: "Трансферы в любую точку Грузии",
+      svc_transfer_text: "Трансферы из аэропортов Тбилиси и Кутаиси, поездки в любой город или регион — Батуми, Казбеги, Гудаури, Кахетия и другие.",
+      svc_group_title: "Перевозка групп и делегаций",
+      svc_group_text: "Скоординированный транспорт для групп любого размера — подобранные автомобили, единый график, один контакт для вашей команды.",
+      svc_tours_title: "Авторские туры",
+      svc_tours_text: "Однодневные поездки, выстроенные вокруг ваших интересов, а не по фиксированной программе — Казбеги, Кахетия, Мцхета, Боржоми и другие направления, с личным водителем-гидом.",
+      svc_hike_title: "Походы с гидом",
+      svc_hike_text: "Треккинговые маршруты по горам Грузии с опытным гидом — с учётом вашей физической подготовки и времени на месте.",
+      svc_vip_title: "VIP-сопровождение и охрана — по запросу",
+      svc_vip_text: "Для тех, кому нужно больше, чем водитель — опытное личное сопровождение и охрана, организованные деликатно вместе с транспортом.",
       svc_link: "Уточнить в WhatsApp →",
 
       pricing_eyebrow: "Фиксированная цена — без сюрпризов",
@@ -424,7 +460,13 @@
       nav_process: "Как мы работаем",
       nav_b2b: "Для бизнеса",
       nav_faq: "Вопросы",
+      nav_tours: "Туры",
       nav_cta: "WhatsApp",
+
+      tours_title: "Наши туры",
+      tours_intro: "Авторские однодневные поездки и походы по Грузии, выстроенные вокруг вас. Напишите в WhatsApp, чтобы уточнить даты и детали любого тура.",
+      tours_empty: "Список туров пополняется — напишите в WhatsApp, и мы подберём тур под ваши даты.",
+      tours_cta: "Спросить про тур",
 
       footer_contacts: "Контакты",
       footer_hours_title: "График и география",
@@ -437,11 +479,14 @@
       sticky_call: "Позвонить",
 
       wa_generic: "Здравствуйте! Хочу рассчитать стоимость. Задача: ___ Дата: ___",
-      wa_meet: "Здравствуйте! Нужна встреча/транспорт для партнёров или делегации. Даты и формат: ___",
+      wa_meet: "Здравствуйте! Нужна встреча/проводы в аэропорту. Дата и рейс: ___",
+      wa_hotel: "Здравствуйте! Нужна помощь с подбором и бронированием отеля. Даты и бюджет: ___",
+      wa_escort: "Здравствуйте! Интересует личное сопровождение/водитель на время визита. Даты: ___",
       wa_transfer: "Здравствуйте! Нужен трансфер. Откуда/куда: ___ Дата и время: ___",
+      wa_group: "Здравствуйте! Нужен транспорт для группы или делегации. Количество человек и даты: ___",
+      wa_tours: "Здравствуйте! Интересует авторский тур. Направление: ___ Дата: ___",
+      wa_hike: "Здравствуйте! Интересует поход с гидом. Маршрут и даты: ___",
       wa_vip: "Здравствуйте! Интересует VIP-сопровождение/личная охрана. Детали: ___",
-      wa_tours: "Здравствуйте! Интересует экскурсия с гидом. Направление: ___ Дата: ___",
-      wa_confidential: "Здравствуйте! Хочу обсудить условия конфиденциальности поездки.",
       wa_b2b: "Здравствуйте! Пишу от компании ___. Интересуют корпоративные условия.",
       wa_hello: "Здравствуйте!"
     }
@@ -473,8 +518,9 @@
     if (!images) return;
 
     var hero = document.getElementById('top');
-    if (hero && images.slot3) {
-      hero.style.backgroundImage = HERO_GRADIENT + ", url('" + images.slot3 + "')";
+    var heroImg = images.hero || images.slot3;
+    if (hero && heroImg) {
+      hero.style.backgroundImage = HERO_GRADIENT + ", url('" + heroImg + "')";
     }
 
     var slotKeys = { 1: 'slot1', 2: 'slot2', 3: 'slot3', 4: 'slot4', 5: 'slot5', 6: 'bonus' };
@@ -520,6 +566,9 @@
     if (window.KALA && typeof window.KALA.refreshWaLinks === 'function') {
       window.KALA.refreshWaLinks();
     }
+
+    window.KALA.currentLang = lang;
+    window.dispatchEvent(new CustomEvent('kala:langchange', { detail: { lang: lang } }));
   }
 
   function initLangSwitch() {
