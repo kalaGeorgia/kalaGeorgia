@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tours — KALA Georgia</title>
-<meta name="description" content="Signature day trips and guided hikes across Georgia with KALA Georgia — Kazbegi, Kakheti, Mtskheta, Borjomi and beyond, planned around you.">
+<title>Gallery — KALA Georgia</title>
+<meta name="description" content="Photos and videos from trips, tours and transfers across Georgia with KALA Georgia.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0E0E10">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="canonical" href="https://kala-georgia.com/tours.html">
+<link rel="canonical" href="https://kala-georgia.com/gallery.html">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500&display=swap">
@@ -53,22 +53,37 @@
 <!-- ==================== PAGE HEADER ==================== -->
 <header class="page-header">
   <div class="container">
-    <h1 data-i18n="tours_title">Our Tours</h1>
-    <p class="page-header__intro" data-i18n="tours_intro">Signature day trips and guided hikes across Georgia, planned around you. Message us on WhatsApp for dates and details on any tour below.</p>
+    <h1 data-i18n="gallery_title">Gallery</h1>
+    <p class="page-header__intro" data-i18n="gallery_intro">Photos and videos from trips, tours and transfers across Georgia.</p>
   </div>
 </header>
 
-<!-- ==================== TOURS GRID ==================== -->
-<section class="tours" id="tours">
+<!-- ==================== GALLERY ==================== -->
+<section class="gallery" id="gallery">
   <div class="container">
-    <p class="tours__loading" id="toursLoading">Loading…</p>
-    <div class="tours__grid" id="toursGrid" hidden></div>
-    <p class="tours__empty" id="toursEmpty" data-i18n="tours_empty" hidden>New tours are being added — message us on WhatsApp and we'll build one around your dates.</p>
-    <div class="tours__cta">
-      <a href="#" class="btn btn-gold js-wa" data-i18n-wa="wa_tours"><span data-i18n="tours_cta">Ask About a Tour</span></a>
+    <div class="gallery__tabs" id="galleryTabs">
+      <button type="button" class="is-active" data-tab="photos" data-i18n="gallery_tab_photos">Photos</button>
+      <button type="button" data-tab="videos" data-i18n="gallery_tab_videos">Videos</button>
+    </div>
+
+    <div class="gallery__panel is-active" data-panel="photos">
+      <p class="gallery__loading" id="galleryPhotosLoading">…</p>
+      <div class="gallery__photo-grid" id="galleryPhotoGrid" hidden></div>
+      <p class="gallery__empty" id="galleryPhotosEmpty" data-i18n="gallery_photos_empty" hidden>Photos are being added — check back soon.</p>
+    </div>
+
+    <div class="gallery__panel" data-panel="videos">
+      <p class="gallery__loading" id="galleryVideosLoading">…</p>
+      <div class="gallery__video-grid" id="galleryVideoGrid" hidden></div>
+      <p class="gallery__empty" id="galleryVideosEmpty" data-i18n="gallery_videos_empty" hidden>Videos are being added — check back soon.</p>
     </div>
   </div>
 </section>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button type="button" class="lightbox__close" id="lightboxClose" aria-label="Close">&times;</button>
+  <div class="lightbox__body" id="lightboxBody"></div>
+</div>
 
 <!-- ==================== FOOTER ==================== -->
 <footer class="site-footer">
@@ -140,6 +155,6 @@
 
 <script src="js/script.js"></script>
 <script src="js/i18n.js"></script>
-<script src="js/tours.js"></script>
+<script src="js/gallery.js"></script>
 </body>
 </html>

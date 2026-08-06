@@ -60,6 +60,27 @@
       </div>
     </section>
 
+    <section class="editor-block" id="galleryBlock" hidden>
+      <h2>Галерея</h2>
+      <p class="editor-block__hint">Фото и видео на странице «gallery.html». Видео добавляются ссылкой на YouTube — плеер встраивается автоматически.</p>
+
+      <h3 class="editor-subtitle">Фото</h3>
+      <div class="gallery-photo-grid" id="galleryPhotoGrid"></div>
+      <button type="button" id="addGalleryPhotoBtn" class="btn-ghost">+ Добавить фото</button>
+
+      <h3 class="editor-subtitle">Видео</h3>
+      <div class="gallery-video-list" id="galleryVideoList"></div>
+      <button type="button" id="addGalleryVideoBtn" class="btn-ghost">+ Добавить видео</button>
+
+      <div class="tours-actions">
+        <span></span>
+        <div class="tours-actions__save">
+          <span class="save-bar__status" id="galleryStatus"></span>
+          <button type="button" id="saveGalleryBtn">Сохранить галерею</button>
+        </div>
+      </div>
+    </section>
+
     <section class="editor-block" id="textsBlock" hidden>
       <h2>Тексты сайта</h2>
       <div class="lang-tabs" id="langTabs">

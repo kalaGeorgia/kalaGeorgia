@@ -295,6 +295,59 @@ button { font-family: inherit; cursor: pointer; }
 #saveToursBtn:hover { background: var(--color-gold-hover); }
 #saveToursBtn:disabled { opacity: 0.6; cursor: default; }
 
+/* ---- Gallery ---- */
+.editor-subtitle {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--color-text-dark);
+  margin: 24px 0 14px;
+}
+.gallery-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.gallery-video-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.gallery-video-editor {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 20px;
+  background: rgba(247,246,243,0.04);
+  border: 1px solid var(--color-border-dark);
+  border-radius: 10px;
+  padding: 16px;
+}
+@media (max-width: 640px) {
+  .gallery-video-editor { grid-template-columns: 1fr; }
+}
+.gallery-video-editor__thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #1a1a1c;
+  display: block;
+}
+.gallery-video-editor__fields {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  align-content: start;
+}
+.gallery-video-editor__fields .field-row:first-child {
+  grid-column: 1 / -1;
+}
+@media (max-width: 900px) {
+  .gallery-video-editor__fields { grid-template-columns: 1fr; }
+}
+
 /* ---- Lang tabs ---- */
 .lang-tabs {
   display: flex;

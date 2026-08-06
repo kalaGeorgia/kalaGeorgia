@@ -6,6 +6,8 @@
   var dirty = false;
   var tours = [];
   var toursDirty = false;
+  var gallery = { photos: [], videos: [] };
+  var galleryDirty = false;
 
   var PHOTO_SLOTS = [
     { key: 'hero', label: 'Hero — фон главного экрана (независимо от слайдера)' },
@@ -27,6 +29,7 @@
     if (key.indexOf('b2b_') === 0) return 'Для бизнеса (B2B)';
     if (key.indexOf('faq_') === 0) return 'Вопросы (FAQ)';
     if (key.indexOf('tours_') === 0) return 'Страница туров (текст)';
+    if (key.indexOf('gallery_') === 0) return 'Страница галереи (текст)';
     if (key.indexOf('final_') === 0) return 'Финальный блок';
     if (key.indexOf('footer_') === 0) return 'Футер';
     if (key.indexOf('sticky_') === 0) return 'Мобильная панель';
@@ -304,6 +307,185 @@
     });
   }
 
+  // ---- Gallery ----
+  function newGalleryId(prefix) {
+    return prefix + Date.now() + Math.random().toString(36).slice(2, 7);
+  }
+
+  function extractYouTubeId(url) {
+    if (!url) return '';
+    var m = String(url).match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+    return m ? m[1] : '';
+  }
+
+  function setGalleryStatus(msg, isError) {
+    var status = document.getElementById('galleryStatus');
+    if (!status) return;
+    status.textContent = msg || '';
+    status.style.color = isError ? '#ff8080' : '';
+  }
+
+  function markGalleryDirty() {
+    galleryDirty = true;
+    setGalleryStatus('Есть несохранённые изменения');
+  }
+
+  function renderGalleryPhotos() {
+    var grid = document.getElementById('galleryPhotoGrid');
+    grid.innerHTML = '';
+
+    gallery.photos.forEach(function (photo, index) {
+      var img = el('img', { class: 'photo-card__preview', src: photo.url || '', alt: 'Фото галереи' });
+      var status = el('p', { class: 'photo-card__status' }, []);
+      var fileInput = el('input', { type: 'file', accept: 'image/*', style: 'display:none' }, []);
+
+      fileInput.addEventListener('change', function () {
+        var file = fileInput.files && fileInput.files[0];
+        if (!file) return;
+        status.textContent = 'Обрабатываю…';
+        resizeImageToDataUrl(file, 1600, 0.82)
+          .then(function (dataUrl) {
+            status.textContent = 'Загружаю…';
+            return fetch('/api/upload', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ dataUrl: dataUrl, filename: 'gallery-' + photo.id + '.jpg' })
+            });
+          })
+          .then(function (r) { return r.json().then(function (data) { return { ok: r.ok, data: data }; }); })
+          .then(function (res) {
+            if (!res.ok) throw new Error((res.data && res.data.error) || 'Ошибка загрузки');
+            photo.url = res.data.url;
+            img.src = res.data.url;
+            status.textContent = 'Загружено';
+            markGalleryDirty();
+          })
+          .catch(function (err) {
+            status.textContent = 'Ошибка: ' + err.message;
+          });
+      });
+
+      var uploadBtn = el('button', { type: 'button', class: 'photo-card__btn' }, [document.createTextNode('Заменить фото')]);
+      uploadBtn.addEventListener('click', function () { fileInput.click(); });
+
+      photo.caption = photo.caption || { en: '', ka: '', ru: '' };
+      var captionInputs = ['en', 'ka', 'ru'].map(function (lang) {
+        var input = el('input', { type: 'text', placeholder: 'Подпись (' + lang.toUpperCase() + ')' }, []);
+        input.value = photo.caption[lang] || '';
+        input.addEventListener('input', function () {
+          photo.caption[lang] = input.value;
+          markGalleryDirty();
+        });
+        return input;
+      });
+
+      var removeBtn = el('button', { type: 'button', class: 'photo-card__btn tour-editor__remove' }, [document.createTextNode('Удалить')]);
+      removeBtn.addEventListener('click', function () {
+        if (!confirm('Удалить это фото?')) return;
+        gallery.photos.splice(index, 1);
+        markGalleryDirty();
+        renderGalleryPhotos();
+      });
+
+      var card = el('div', { class: 'photo-card' }, [
+        img,
+        el('div', { class: 'photo-card__body' }, [uploadBtn, fileInput, status].concat(captionInputs, [removeBtn]))
+      ]);
+      grid.appendChild(card);
+    });
+  }
+
+  function renderGalleryVideos() {
+    var list = document.getElementById('galleryVideoList');
+    list.innerHTML = '';
+
+    gallery.videos.forEach(function (video, index) {
+      var videoId = extractYouTubeId(video.youtubeUrl);
+      var thumb = el('img', {
+        class: 'gallery-video-editor__thumb',
+        src: videoId ? ('https://img.youtube.com/vi/' + videoId + '/hqdefault.jpg') : '',
+        alt: 'Превью видео'
+      });
+
+      var urlInput = el('input', { type: 'text', placeholder: 'Ссылка на YouTube' }, []);
+      urlInput.value = video.youtubeUrl || '';
+      urlInput.addEventListener('input', function () {
+        video.youtubeUrl = urlInput.value;
+        var id = extractYouTubeId(urlInput.value);
+        thumb.src = id ? ('https://img.youtube.com/vi/' + id + '/hqdefault.jpg') : '';
+        markGalleryDirty();
+      });
+
+      video.title = video.title || { en: '', ka: '', ru: '' };
+      var titleRows = ['en', 'ka', 'ru'].map(function (lang) {
+        var input = el('input', { type: 'text', placeholder: 'Название (' + lang.toUpperCase() + ')' }, []);
+        input.value = video.title[lang] || '';
+        input.addEventListener('input', function () {
+          video.title[lang] = input.value;
+          markGalleryDirty();
+        });
+        return el('div', { class: 'field-row' }, [
+          el('label', {}, [document.createTextNode('Название (' + lang.toUpperCase() + ')')]),
+          input
+        ]);
+      });
+
+      var removeBtn = el('button', { type: 'button', class: 'photo-card__btn tour-editor__remove' }, [document.createTextNode('Удалить видео')]);
+      removeBtn.addEventListener('click', function () {
+        if (!confirm('Удалить это видео?')) return;
+        gallery.videos.splice(index, 1);
+        markGalleryDirty();
+        renderGalleryVideos();
+      });
+
+      var fieldsWrap = el('div', { class: 'gallery-video-editor__fields' },
+        [el('div', { class: 'field-row' }, [el('label', {}, [document.createTextNode('Ссылка на YouTube')]), urlInput])]
+          .concat(titleRows, [removeBtn])
+      );
+
+      var card = el('div', { class: 'gallery-video-editor' }, [thumb, fieldsWrap]);
+      list.appendChild(card);
+    });
+  }
+
+  function initGallery() {
+    document.getElementById('addGalleryPhotoBtn').addEventListener('click', function () {
+      gallery.photos.push({ id: newGalleryId('p'), url: '', caption: { en: '', ka: '', ru: '' } });
+      markGalleryDirty();
+      renderGalleryPhotos();
+    });
+
+    document.getElementById('addGalleryVideoBtn').addEventListener('click', function () {
+      gallery.videos.push({ id: newGalleryId('v'), youtubeUrl: '', title: { en: '', ka: '', ru: '' } });
+      markGalleryDirty();
+      renderGalleryVideos();
+    });
+
+    document.getElementById('saveGalleryBtn').addEventListener('click', function () {
+      var btn = document.getElementById('saveGalleryBtn');
+      btn.disabled = true;
+      setGalleryStatus('Сохраняю…');
+      fetch('/api/gallery', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(gallery)
+      })
+        .then(function (r) { return r.json().then(function (data) { return { ok: r.ok, data: data }; }); })
+        .then(function (res) {
+          btn.disabled = false;
+          if (!res.ok) throw new Error((res.data && res.data.error) || 'Ошибка сохранения');
+          galleryDirty = false;
+          setGalleryStatus('Сохранено ✓');
+        })
+        .catch(function (err) {
+          btn.disabled = false;
+          setGalleryStatus('Ошибка: ' + err.message, true);
+        });
+    });
+
+    document.getElementById('galleryBlock').hidden = false;
+  }
+
   // ---- Text fields ----
   function renderFields() {
     var wrap = document.getElementById('fieldsWrap');
@@ -394,7 +576,7 @@
     });
 
     window.addEventListener('beforeunload', function (e) {
-      if (dirty || toursDirty) { e.preventDefault(); e.returnValue = ''; }
+      if (dirty || toursDirty || galleryDirty) { e.preventDefault(); e.returnValue = ''; }
     });
   }
 
@@ -435,6 +617,19 @@
         tours = Array.isArray(data) ? data : [];
         initTours();
         renderTours();
+      })
+      .catch(function () {});
+
+    fetch('/api/gallery', { cache: 'no-store' })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        gallery = {
+          photos: Array.isArray(data && data.photos) ? data.photos : [],
+          videos: Array.isArray(data && data.videos) ? data.videos : []
+        };
+        initGallery();
+        renderGalleryPhotos();
+        renderGalleryVideos();
       })
       .catch(function () {});
   }

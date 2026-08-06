@@ -495,6 +495,186 @@ p { margin: 0; }
 }
 
 /* ==========================================================================
+   GALLERY
+   ========================================================================== */
+.gallery {
+  background: #fff;
+  padding: 40px 0 88px;
+}
+.gallery__tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.gallery__tabs button {
+  padding: 10px 24px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: transparent;
+  color: var(--color-text-muted-light);
+  font-weight: 600;
+  font-size: 14px;
+}
+.gallery__tabs button.is-active {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  background: rgba(201,162,39,0.08);
+}
+.gallery__panel { display: none; }
+.gallery__panel.is-active { display: block; }
+
+.gallery__photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+@media (min-width: 640px) {
+  .gallery__photo-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+}
+@media (min-width: 960px) {
+  .gallery__photo-grid { grid-template-columns: repeat(4, 1fr); }
+}
+.gallery__photo {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  background: #eee;
+  display: block;
+}
+.gallery__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.25s ease;
+}
+@media (hover: hover) {
+  .gallery__photo:hover img { transform: scale(1.05); }
+}
+
+.gallery__video-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+@media (min-width: 640px) {
+  .gallery__video-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+}
+@media (min-width: 960px) {
+  .gallery__video-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.gallery__video {
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  background: none;
+  text-align: left;
+  display: block;
+  width: 100%;
+}
+.gallery__video-thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #1a1a1c;
+}
+.gallery__video-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.gallery__video-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gallery__video-play span {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(14,14,16,0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+@media (hover: hover) {
+  .gallery__video:hover .gallery__video-play span { transform: scale(1.08); background: var(--color-gold); }
+}
+.gallery__video-title {
+  margin-top: 10px;
+  font-size: 14.5px;
+  color: var(--color-text-light);
+  font-weight: 500;
+}
+
+.gallery__empty,
+.gallery__loading {
+  text-align: center;
+  padding: 40px 24px;
+  color: var(--color-text-muted-light);
+  font-size: 15px;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(14,14,16,0.92);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.lightbox__body {
+  max-width: 1000px;
+  width: 100%;
+}
+.lightbox__body img {
+  width: 100%;
+  height: auto;
+  max-height: 85vh;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  border-radius: 6px;
+}
+.lightbox__video-frame {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+}
+.lightbox__video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 6px;
+}
+.lightbox__close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* ==========================================================================
    FLEET
    ========================================================================== */
 .fleet {
