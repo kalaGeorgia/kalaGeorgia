@@ -168,7 +168,10 @@
       footer_hours2: "Night flight pickups by advance booking",
       footer_hours3: "Tbilisi, serving all of Georgia",
       footer_links_title: "Links",
+      footer_facebook: "Facebook",
       footer_google: "Google Profile",
+      footer_share: "Share",
+      share_copied: "Link copied",
       footer_bottom: "KALA Georgia · Tbilisi, Georgia · 2026",
       sticky_call: "Call",
 
@@ -336,7 +339,10 @@
       footer_hours2: "ღამის ფრენების შეხვედრა — წინასწარი ჯავშნით",
       footer_hours3: "თბილისი, ვმუშაობთ მთელ საქართველოში",
       footer_links_title: "ბმულები",
+      footer_facebook: "Facebook",
       footer_google: "Google პროფილი",
+      footer_share: "გაზიარება",
+      share_copied: "ბმული დაკოპირდა",
       footer_bottom: "KALA Georgia · თბილისი, საქართველო · 2026",
       sticky_call: "დარეკვა",
 
@@ -503,7 +509,10 @@
       footer_hours2: "Встречи ночных рейсов — по предварительной брони",
       footer_hours3: "Тбилиси, работа по всей Грузии",
       footer_links_title: "Ссылки",
+      footer_facebook: "Facebook",
       footer_google: "Google-профиль",
+      footer_share: "Поделиться",
+      share_copied: "Ссылка скопирована",
       footer_bottom: "KALA Georgia · Тбилиси, Грузия · 2026",
       sticky_call: "Позвонить",
 

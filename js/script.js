@@ -130,6 +130,33 @@
     window.addEventListener('resize', function () { threshold = window.innerHeight * 0.9; update(); });
   }
 
+  // ---- Share button: native share sheet, falls back to copy-link ----
+  var SHARE_COPIED = { en: 'Link copied', ka: 'ბმული დაკოპირდა', ru: 'Ссылка скопирована' };
+
+  function initShareButtons() {
+    var buttons = document.querySelectorAll('.js-share');
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        var url = window.location.href;
+
+        if (navigator.share) {
+          navigator.share({ title: document.title, url: url }).catch(function () {});
+          return;
+        }
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(function () {
+            var lang = (window.KALA && window.KALA.currentLang) || 'en';
+            var original = btn.textContent;
+            btn.textContent = SHARE_COPIED[lang] || SHARE_COPIED.en;
+            setTimeout(function () { btn.textContent = original; }, 1800);
+          }).catch(function () {});
+        }
+      });
+    });
+  }
+
   function trackVisit() {
     try {
       fetch('/api/track', { method: 'POST' }).catch(function () {});
@@ -143,6 +170,7 @@
     initSlider();
     initNav();
     initStickyBar();
+    initShareButtons();
     trackVisit();
   }
 
