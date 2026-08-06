@@ -84,22 +84,6 @@
     },
     {
       "@type": "Question",
-      "name": "Как вы обеспечиваете конфиденциальность?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Деликатность — это стандарт: автомобиль без брендинга по желанию, без имени на табличке, если не попросите иначе, водители проинструктированы не обсуждать пассажиров и маршрут."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Вы даёте отчётные документы?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Да. Для частных клиентов — чек. Для компаний — работа по договору, счёт и полная документация для бухгалтерии."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Какие гарантии, что машина точно приедет?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -108,10 +92,34 @@
     },
     {
       "@type": "Question",
-      "name": "Как забронировать поездку на группу или делегацию?",
+      "name": "Как работают авторские туры — маршрут фиксированный?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Напишите в WhatsApp число людей, дату и формат. Мы предложим состав транспорта, график подач и координацию для вашего мероприятия."
+        "text": "Нет. Туры выстраиваются вокруг ваших интересов и времени пребывания в Грузии — назовите даты и что хотели бы увидеть, и мы предложим маршрут с личным водителем-гидом."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Гид входит в стоимость тура, можно ли добавить поход?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Каждый тур проходит с личным водителем-гидом, и мы можем включить поход или остановку в любом месте по желанию. Темп и сложность подбираем под вашу группу."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Поможете с выбором и бронированием отеля?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Назовите даты, бюджет и пожелания — подберём и забронируем подходящий отель, вам не придётся тратить время на сравнение вариантов."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как забронировать и даёте ли вы документы для компаний?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Напишите в WhatsApp маршрут, тур или запрос на отель — подтвердим детали в переписке. Частным клиентам — чек. Компаниям — договор, счёт и полная документация для бухгалтерии."
       }
     }
   ]
@@ -468,51 +476,61 @@
 
       <div class="faq__item" data-open="true">
         <button class="faq__question" aria-expanded="true" aria-controls="faq-a1" id="faq-q1">
-          <span data-i18n="faq_q1">Что будет, если мой рейс задержится?</span>
+          <span data-i18n="faq_q_flight">Что будет, если мой рейс задержится?</span>
           <span class="faq__icon" aria-hidden="true"></span>
         </button>
         <div class="faq__answer" id="faq-a1" role="region" aria-labelledby="faq-q1">
-          <div class="faq__answer-inner"><p data-i18n="faq_a1">Мы отслеживаем рейс по номеру и подстраиваем подачу под фактическое время прилёта. Ожидание при задержке рейса бесплатное — это часть услуги, а не опция.</p></div>
+          <div class="faq__answer-inner"><p data-i18n="faq_a_flight">Мы отслеживаем рейс по номеру и подстраиваем подачу под фактическое время прилёта. Ожидание при задержке рейса бесплатное — это часть услуги, а не опция.</p></div>
         </div>
       </div>
 
       <div class="faq__item" data-open="false">
         <button class="faq__question" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">
-          <span data-i18n="faq_q2">Как вы обеспечиваете конфиденциальность?</span>
+          <span data-i18n="faq_q_guarantee">Какие гарантии, что машина точно приедет?</span>
           <span class="faq__icon" aria-hidden="true"></span>
         </button>
         <div class="faq__answer" id="faq-a2" role="region" aria-labelledby="faq-q2">
-          <div class="faq__answer-inner"><p data-i18n="faq_a2">Деликатность — это стандарт: автомобиль без брендинга по желанию, без имени на табличке, если не попросите иначе, водители проинструктированы не обсуждать пассажиров и маршрут.</p></div>
+          <div class="faq__answer-inner"><p data-i18n="faq_a_guarantee">Бронь подтверждается сообщением с датой, временем и адресом — это письменная договорённость. Водитель выезжает с запасом по времени, за час до подачи вы получаете контакт водителя. На важные события держим резервный автомобиль партнёров.</p></div>
         </div>
       </div>
 
       <div class="faq__item" data-open="false">
         <button class="faq__question" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">
-          <span data-i18n="faq_q3">Вы даёте отчётные документы?</span>
+          <span data-i18n="faq_q_tourcustom">Как работают авторские туры — маршрут фиксированный?</span>
           <span class="faq__icon" aria-hidden="true"></span>
         </button>
         <div class="faq__answer" id="faq-a3" role="region" aria-labelledby="faq-q3">
-          <div class="faq__answer-inner"><p data-i18n="faq_a3">Да. Для частных клиентов — чек. Для компаний — работа по договору, счёт и полная документация для бухгалтерии.</p></div>
+          <div class="faq__answer-inner"><p data-i18n="faq_a_tourcustom">Нет. Туры выстраиваются вокруг ваших интересов и времени пребывания в Грузии — назовите даты и что хотели бы увидеть, и мы предложим маршрут с личным водителем-гидом.</p></div>
         </div>
       </div>
 
       <div class="faq__item" data-open="false">
         <button class="faq__question" aria-expanded="false" aria-controls="faq-a4" id="faq-q4">
-          <span data-i18n="faq_q4">Какие гарантии, что машина точно приедет?</span>
+          <span data-i18n="faq_q_tourguide">Гид входит в стоимость тура, можно ли добавить поход?</span>
           <span class="faq__icon" aria-hidden="true"></span>
         </button>
         <div class="faq__answer" id="faq-a4" role="region" aria-labelledby="faq-q4">
-          <div class="faq__answer-inner"><p data-i18n="faq_a4">Бронь подтверждается сообщением с датой, временем и адресом — это письменная договорённость. Водитель выезжает с запасом по времени, за час до подачи вы получаете контакт водителя. На важные события держим резервный автомобиль партнёров.</p></div>
+          <div class="faq__answer-inner"><p data-i18n="faq_a_tourguide">Каждый тур проходит с личным водителем-гидом, и мы можем включить поход или остановку в любом месте по желанию. Темп и сложность подбираем под вашу группу.</p></div>
         </div>
       </div>
 
       <div class="faq__item" data-open="false">
         <button class="faq__question" aria-expanded="false" aria-controls="faq-a5" id="faq-q5">
-          <span data-i18n="faq_q5">Как забронировать поездку на группу или делегацию?</span>
+          <span data-i18n="faq_q_hotel">Поможете с выбором и бронированием отеля?</span>
           <span class="faq__icon" aria-hidden="true"></span>
         </button>
         <div class="faq__answer" id="faq-a5" role="region" aria-labelledby="faq-q5">
-          <div class="faq__answer-inner"><p data-i18n="faq_a5">Напишите в WhatsApp число людей, дату и формат. Мы предложим состав транспорта, график подач и координацию для вашего мероприятия.</p></div>
+          <div class="faq__answer-inner"><p data-i18n="faq_a_hotel">Да. Назовите даты, бюджет и пожелания — подберём и забронируем подходящий отель, вам не придётся тратить время на сравнение вариантов.</p></div>
+        </div>
+      </div>
+
+      <div class="faq__item" data-open="false">
+        <button class="faq__question" aria-expanded="false" aria-controls="faq-a6" id="faq-q6">
+          <span data-i18n="faq_q_booking">Как забронировать и даёте ли вы документы для компаний?</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__answer" id="faq-a6" role="region" aria-labelledby="faq-q6">
+          <div class="faq__answer-inner"><p data-i18n="faq_a_booking">Напишите в WhatsApp маршрут, тур или запрос на отель — подтвердим детали в переписке. Частным клиентам — чек. Компаниям — договор, счёт и полная документация для бухгалтерии.</p></div>
         </div>
       </div>
 
