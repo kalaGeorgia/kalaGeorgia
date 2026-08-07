@@ -115,11 +115,11 @@
     window.addEventListener('scroll', updateScrolled, { passive: true });
   }
 
-  // ---- Sticky mobile bar: show after first viewport of scroll ----
+  // ---- Sticky mobile bar: show early so a WhatsApp CTA is reachable fast ----
   function initStickyBar() {
     var bar = document.getElementById('stickyBar');
     if (!bar) return;
-    var threshold = window.innerHeight * 0.9;
+    var threshold = window.innerHeight * 0.25;
 
     function update() {
       bar.style.transform = window.scrollY > threshold ? 'translateY(0)' : 'translateY(100%)';
@@ -127,7 +127,7 @@
     bar.style.transition = 'transform 0.25s ease';
     update();
     window.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', function () { threshold = window.innerHeight * 0.9; update(); });
+    window.addEventListener('resize', function () { threshold = window.innerHeight * 0.25; update(); });
   }
 
   // ---- Share button: native share sheet, falls back to copy-link ----
