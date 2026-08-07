@@ -90,17 +90,35 @@
       btn.type = 'button';
       btn.className = 'gallery__photo';
 
+      var thumb = document.createElement('div');
+      thumb.className = 'gallery__photo-thumb';
       var img = document.createElement('img');
       img.src = photo.url || '';
       img.alt = caption;
       img.loading = 'lazy';
-      btn.appendChild(img);
+      thumb.appendChild(img);
+      btn.appendChild(thumb);
+
+      if (caption) {
+        var captionEl = document.createElement('div');
+        captionEl.className = 'gallery__photo-caption';
+        captionEl.textContent = caption;
+        btn.appendChild(captionEl);
+      }
 
       btn.addEventListener('click', function () {
+        var wrap = document.createElement('div');
         var fullImg = document.createElement('img');
         fullImg.src = photo.url || '';
         fullImg.alt = caption;
-        openLightbox(fullImg);
+        wrap.appendChild(fullImg);
+        if (caption) {
+          var lightboxCaption = document.createElement('p');
+          lightboxCaption.className = 'lightbox__caption';
+          lightboxCaption.textContent = caption;
+          wrap.appendChild(lightboxCaption);
+        }
+        openLightbox(wrap);
       });
 
       grid.appendChild(btn);
