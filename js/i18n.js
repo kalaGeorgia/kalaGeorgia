@@ -466,7 +466,7 @@
 
   var STORAGE_KEY = 'kala_lang';
   var DEFAULT_LANG = 'en';
-  var HERO_GRADIENT = "linear-gradient(90deg, rgba(14,14,16,0.94) 0%, rgba(14,14,16,0.75) 42%, rgba(14,14,16,0.35) 75%, rgba(14,14,16,0.15) 100%)";
+  var HERO_GRADIENT = "linear-gradient(90deg, rgba(14,14,16,0.60) 0%, rgba(14,14,16,0.38) 38%, rgba(14,14,16,0.16) 68%, rgba(14,14,16,0.04) 100%)";
 
   var REMOTE_CONTENT = null;
   var REMOTE_IMAGES = null;
