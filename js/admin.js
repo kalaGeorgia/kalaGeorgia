@@ -6,17 +6,25 @@
   var dirty = false;
   var tours = [];
   var toursDirty = false;
+  var fleet = [];
+  var fleetDirty = false;
   var gallery = { photos: [], videos: [] };
   var galleryDirty = false;
 
+  var FLEET_CATEGORIES = [
+    { value: 'sedan', label: 'Седан' },
+    { value: 'minivan', label: 'Минивэн' },
+    { value: 'minibus', label: 'Микроавтобус' },
+    { value: 'bus', label: 'Автобус' }
+  ];
+  var FLEET_COLORS = [
+    { value: '', label: '— не указан' },
+    { value: 'black', label: 'Чёрный' },
+    { value: 'white', label: 'Белый' }
+  ];
+
   var PHOTO_SLOTS = [
-    { key: 'hero', label: 'Hero — фон главного экрана (независимо от слайдера)' },
-    { key: 'slot1', label: 'Слот 1 — салон (ambient-подсветка)' },
-    { key: 'slot2', label: 'Слот 2 — экстерьер спереди' },
-    { key: 'slot3', label: 'Слот 3 — профиль с открытыми дверями' },
-    { key: 'slot4', label: 'Слот 4 — панель / руль' },
-    { key: 'slot5', label: 'Слот 5 — багажник' },
-    { key: 'bonus', label: 'Бонус — экстерьер сзади' }
+    { key: 'hero', label: 'Hero — фон главного экрана' }
   ];
 
   function sectionFor(key) {
@@ -306,6 +314,156 @@
     });
   }
 
+  // ---- Fleet ----
+  function newFleetId() {
+    return 'f' + Date.now() + Math.random().toString(36).slice(2, 7);
+  }
+
+  function setFleetStatus(msg, isError) {
+    var status = document.getElementById('fleetStatus');
+    if (!status) return;
+    status.textContent = msg || '';
+    status.style.color = isError ? '#ff8080' : '';
+  }
+
+  function markFleetDirty() {
+    fleetDirty = true;
+    setFleetStatus('Есть несохранённые изменения');
+  }
+
+  function fleetTextField(labelText, value, onChange, opts) {
+    var input = el('input', { type: (opts && opts.type) || 'text', placeholder: labelText }, []);
+    input.value = value || '';
+    input.addEventListener('input', function () {
+      onChange(input.value);
+      markFleetDirty();
+    });
+    var row = el('div', { class: 'field-row' + (opts && opts.full ? ' field-row--full' : '') }, [
+      el('label', {}, [document.createTextNode(labelText)]),
+      input
+    ]);
+    return row;
+  }
+
+  function fleetSelectField(labelText, value, options, onChange) {
+    var select = el('select', {}, []);
+    options.forEach(function (opt) {
+      var optionEl = el('option', { value: opt.value }, [document.createTextNode(opt.label)]);
+      if (opt.value === value) optionEl.setAttribute('selected', 'selected');
+      select.appendChild(optionEl);
+    });
+    select.addEventListener('change', function () {
+      onChange(select.value);
+      markFleetDirty();
+    });
+    var row = el('div', { class: 'field-row' }, [
+      el('label', {}, [document.createTextNode(labelText)]),
+      select
+    ]);
+    return row;
+  }
+
+  function renderFleet() {
+    var grid = document.getElementById('fleetGrid');
+    grid.innerHTML = '';
+
+    fleet.forEach(function (car, index) {
+      var img = el('img', { class: 'fleet-editor__preview', src: car.image || '', alt: car.name || 'Фото автомобиля' });
+      var photoStatus = el('p', { class: 'photo-card__status' }, []);
+      var fileInput = el('input', { type: 'file', accept: 'image/*', style: 'display:none' }, []);
+
+      fileInput.addEventListener('change', function () {
+        var file = fileInput.files && fileInput.files[0];
+        if (!file) return;
+        photoStatus.textContent = 'Обрабатываю…';
+        resizeImageToDataUrl(file, 1600, 0.82)
+          .then(function (dataUrl) {
+            photoStatus.textContent = 'Загружаю…';
+            return fetch('/api/upload', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ dataUrl: dataUrl, filename: 'fleet-' + car.id + '.jpg' })
+            });
+          })
+          .then(function (r) { return r.json().then(function (data) { return { ok: r.ok, data: data }; }); })
+          .then(function (res) {
+            if (!res.ok) throw new Error((res.data && res.data.error) || 'Ошибка загрузки');
+            car.image = res.data.url;
+            img.src = res.data.url;
+            photoStatus.textContent = 'Загружено';
+            markFleetDirty();
+          })
+          .catch(function (err) {
+            photoStatus.textContent = 'Ошибка: ' + err.message;
+          });
+      });
+
+      var photoBtn = el('button', { type: 'button', class: 'photo-card__btn' }, [document.createTextNode('Заменить фото')]);
+      photoBtn.addEventListener('click', function () { fileInput.click(); });
+
+      var fieldsWrap = el('div', { class: 'fleet-editor__fields' }, []);
+      fieldsWrap.appendChild(fleetTextField('Название модели', car.name, function (v) { car.name = v; }, { full: true }));
+      fieldsWrap.appendChild(fleetTextField('Год', car.year, function (v) { car.year = v; }));
+      fieldsWrap.appendChild(fleetSelectField('Цвет', car.color, FLEET_COLORS, function (v) { car.color = v; }));
+      fieldsWrap.appendChild(fleetSelectField('Категория', car.category, FLEET_CATEGORIES, function (v) { car.category = v; }));
+      fieldsWrap.appendChild(fleetTextField('Мест (Max)', car.max, function (v) { car.max = v; }));
+      fieldsWrap.appendChild(fleetTextField('Аэропорт ↔ Тбилиси, GEL', car.priceAirport, function (v) { car.priceAirport = v; }));
+      fieldsWrap.appendChild(fleetTextField('Тбилиси ↔ Гудаури, GEL', car.priceGudauri, function (v) { car.priceGudauri = v; }));
+      fieldsWrap.appendChild(fleetTextField('Кутаиси ↔ Гудаури, GEL', car.priceKutaisi, function (v) { car.priceKutaisi = v; }));
+      fieldsWrap.appendChild(fleetTextField('Весь день, GEL (необязательно)', car.priceFullday, function (v) { car.priceFullday = v; }));
+
+      var removeBtn = el('button', { type: 'button', class: 'photo-card__btn fleet-editor__remove' }, [document.createTextNode('Удалить автомобиль')]);
+      removeBtn.addEventListener('click', function () {
+        if (!confirm('Удалить этот автомобиль из автопарка?')) return;
+        fleet.splice(index, 1);
+        markFleetDirty();
+        renderFleet();
+      });
+
+      var card = el('div', { class: 'fleet-editor' }, [
+        el('div', { class: 'fleet-editor__photo' }, [img, photoBtn, fileInput, photoStatus]),
+        fieldsWrap,
+        removeBtn
+      ]);
+      grid.appendChild(card);
+    });
+
+    document.getElementById('fleetBlock').hidden = false;
+  }
+
+  function initFleet() {
+    document.getElementById('addFleetBtn').addEventListener('click', function () {
+      fleet.push({
+        id: newFleetId(), image: '', name: '', year: '', color: '', category: 'sedan', max: '',
+        priceAirport: '', priceGudauri: '', priceKutaisi: '', priceFullday: ''
+      });
+      markFleetDirty();
+      renderFleet();
+    });
+
+    document.getElementById('saveFleetBtn').addEventListener('click', function () {
+      var btn = document.getElementById('saveFleetBtn');
+      btn.disabled = true;
+      setFleetStatus('Сохраняю…');
+      fetch('/api/fleet', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(fleet)
+      })
+        .then(function (r) { return r.json().then(function (data) { return { ok: r.ok, data: data }; }); })
+        .then(function (res) {
+          btn.disabled = false;
+          if (!res.ok) throw new Error((res.data && res.data.error) || 'Ошибка сохранения');
+          fleetDirty = false;
+          setFleetStatus('Сохранено ✓');
+        })
+        .catch(function (err) {
+          btn.disabled = false;
+          setFleetStatus('Ошибка: ' + err.message, true);
+        });
+    });
+  }
+
   // ---- Gallery ----
   function newGalleryId(prefix) {
     return prefix + Date.now() + Math.random().toString(36).slice(2, 7);
@@ -575,7 +733,7 @@
     });
 
     window.addEventListener('beforeunload', function (e) {
-      if (dirty || toursDirty || galleryDirty) { e.preventDefault(); e.returnValue = ''; }
+      if (dirty || toursDirty || fleetDirty || galleryDirty) { e.preventDefault(); e.returnValue = ''; }
     });
   }
 
@@ -616,6 +774,15 @@
         tours = Array.isArray(data) ? data : [];
         initTours();
         renderTours();
+      })
+      .catch(function () {});
+
+    fetch('/api/fleet', { cache: 'no-store' })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        fleet = Array.isArray(data) ? data : [];
+        initFleet();
+        renderFleet();
       })
       .catch(function () {});
 

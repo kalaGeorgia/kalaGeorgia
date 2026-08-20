@@ -43,8 +43,21 @@
 
     <section class="editor-block" id="photosBlock" hidden>
       <h2>Фотографии</h2>
-      <p class="editor-block__hint">Hero — отдельное фото фона главного экрана. Остальные слоты используются в слайдере блока «Автопарк». Загружайте JPG/PNG — файл сожмётся автоматически.</p>
+      <p class="editor-block__hint">Фото фона главного экрана (Hero). Загружайте JPG/PNG — файл сожмётся автоматически.</p>
       <div class="photo-grid" id="photoGrid"></div>
+    </section>
+
+    <section class="editor-block" id="fleetBlock" hidden>
+      <h2>Автопарк</h2>
+      <p class="editor-block__hint">Карточки автомобилей на главной странице, блок «Автопарк». Название, год, цвет и цены — общие для всех языков; категория и цвет переводятся автоматически.</p>
+      <div class="fleet-grid" id="fleetGrid"></div>
+      <div class="tours-actions">
+        <button type="button" id="addFleetBtn" class="btn-ghost">+ Добавить автомобиль</button>
+        <div class="tours-actions__save">
+          <span class="save-bar__status" id="fleetStatus"></span>
+          <button type="button" id="saveFleetBtn">Сохранить автопарк</button>
+        </div>
+      </div>
     </section>
 
     <section class="editor-block" id="toursBlock" hidden>

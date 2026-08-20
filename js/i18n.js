@@ -490,7 +490,7 @@
     if (!images) return;
 
     var hero = document.getElementById('top');
-    var heroImg = images.hero || images.slot3;
+    var heroImg = images.hero;
     if (hero && heroImg) {
       hero.style.backgroundImage = HERO_GRADIENT + ", url('" + heroImg + "')";
     }
@@ -549,6 +549,10 @@
   window.KALA = window.KALA || {};
   window.KALA.applyLanguage = applyLanguage;
   window.KALA.currentLang = getInitialLang();
+  window.KALA.t = function (key) {
+    var dict = mergedDict(window.KALA.currentLang);
+    return dict[key] !== undefined ? dict[key] : key;
+  };
 
   function loadRemoteContent() {
     fetch('/api/content', { cache: 'no-store' })

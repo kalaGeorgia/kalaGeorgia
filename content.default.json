@@ -405,12 +405,6 @@
     "wa_hello": "Здравствуйте!"
   },
   "images": {
-    "hero": "images/hero-tbilisi.jpg",
-    "slot1": "images/slot-1-interior-ambient.jpg",
-    "slot2": "images/slot-2-exterior-front.jpg",
-    "slot3": "images/slot-3-side-open-doors.jpg",
-    "slot4": "images/slot-4-dashboard-wood.jpg",
-    "slot5": "images/slot-5-trunk-open.jpg",
-    "bonus": "images/bonus-exterior-rear.jpg"
+    "hero": "images/hero-tbilisi.jpg"
   }
 }

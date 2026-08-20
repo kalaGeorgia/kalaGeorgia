@@ -271,6 +271,57 @@ button { font-family: inherit; cursor: pointer; }
   color: #ff8080;
 }
 .tour-editor__remove:hover { background: rgba(255,128,128,0.1); }
+
+/* ---- Fleet ---- */
+.fleet-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.fleet-editor {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 20px;
+  background: rgba(247,246,243,0.04);
+  border: 1px solid var(--color-border-dark);
+  border-radius: 10px;
+  padding: 16px;
+}
+@media (max-width: 640px) {
+  .fleet-editor { grid-template-columns: 1fr; }
+}
+.fleet-editor__photo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.fleet-editor__preview {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #1a1a1c;
+  display: block;
+}
+.fleet-editor__fields {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  align-content: start;
+}
+.fleet-editor__fields .field-row--full { grid-column: 1 / -1; }
+@media (max-width: 900px) {
+  .fleet-editor__fields { grid-template-columns: repeat(2, 1fr); }
+}
+.fleet-editor__remove {
+  grid-column: 1 / -1;
+  justify-self: start;
+  border-color: #ff8080;
+  color: #ff8080;
+}
+.fleet-editor__remove:hover { background: rgba(255,128,128,0.1); }
+
 .tours-actions {
   display: flex;
   align-items: center;
@@ -283,7 +334,8 @@ button { font-family: inherit; cursor: pointer; }
   align-items: center;
   gap: 16px;
 }
-#saveToursBtn {
+#saveToursBtn,
+#saveFleetBtn {
   padding: 10px 20px;
   border-radius: 999px;
   border: none;
@@ -292,8 +344,10 @@ button { font-family: inherit; cursor: pointer; }
   font-weight: 600;
   font-size: 14px;
 }
-#saveToursBtn:hover { background: var(--color-gold-hover); }
-#saveToursBtn:disabled { opacity: 0.6; cursor: default; }
+#saveToursBtn:hover,
+#saveFleetBtn:hover { background: var(--color-gold-hover); }
+#saveToursBtn:disabled,
+#saveFleetBtn:disabled { opacity: 0.6; cursor: default; }
 
 /* ---- Gallery ---- */
 .editor-subtitle {
@@ -396,7 +450,8 @@ button { font-family: inherit; cursor: pointer; }
   margin-bottom: 4px;
 }
 .field-row input,
-.field-row textarea {
+.field-row textarea,
+.field-row select {
   width: 100%;
   padding: 10px 12px;
   border-radius: 6px;
@@ -408,8 +463,10 @@ button { font-family: inherit; cursor: pointer; }
   resize: vertical;
 }
 .field-row input:focus,
-.field-row textarea:focus { outline: 2px solid var(--color-gold); }
+.field-row textarea:focus,
+.field-row select:focus { outline: 2px solid var(--color-gold); }
 .field-row textarea { min-height: 72px; }
+.field-row select { cursor: pointer; }
 
 /* ---- Save bar ---- */
 .save-bar {
