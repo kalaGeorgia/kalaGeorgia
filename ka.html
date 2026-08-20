@@ -273,54 +273,212 @@
 <!-- ==================== FLEET ==================== -->
 <section class="fleet" id="fleet">
   <div class="container">
+    <span class="section-eyebrow" data-i18n="fleet_eyebrow">8 ავტომობილი, ერთი სტანდარტი</span>
+    <h2 class="section-title" data-i18n="fleet_title">ჩვენი პარკი</h2>
     <p class="fleet__honesty" data-i18n="fleet_honesty">რეალური ავტომობილი, რეალური ფოტოები — არა სტოკი.</p>
-    <div class="fleet__grid">
 
-      <div class="slider" id="fleetSlider">
-        <div class="slider__track" id="sliderTrack">
-          <div class="slider__slide" style="background:linear-gradient(160deg,#2a2a2d,#0e0e10) center/cover;" data-slot="1">
-            <img src="images/slot-1-interior-ambient.jpg" alt="Toyota Alphard cabin with ambient lighting" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
-            <div class="slider__slide-caption" data-i18n="slide1">სალონი ატმოსფერული განათებით</div>
-          </div>
-          <div class="slider__slide" style="background:linear-gradient(160deg,#2a2a2d,#0e0e10) center/cover;" data-slot="2">
-            <img src="images/slot-2-exterior-front.jpg" alt="Toyota Alphard, front exterior" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
-            <div class="slider__slide-caption" data-i18n="slide2">ექსტერიერი</div>
-          </div>
-          <div class="slider__slide" style="background:linear-gradient(160deg,#2a2a2d,#0e0e10) center/cover;" data-slot="3">
-            <img src="images/slot-3-side-open-doors.jpg" alt="Toyota Alphard, side profile with open doors" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
-            <div class="slider__slide-caption" data-i18n="slide3">სავარძლები და სალონი ერთ კადრში</div>
-          </div>
-          <div class="slider__slide" style="background:linear-gradient(160deg,#2a2a2d,#0e0e10) center/cover;" data-slot="4">
-            <img src="images/slot-4-dashboard-wood.jpg" alt="Toyota Alphard dashboard" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
-            <div class="slider__slide-caption" data-i18n="slide4">სალონის მოპირკეთება</div>
-          </div>
-          <div class="slider__slide" style="background:linear-gradient(160deg,#2a2a2d,#0e0e10) center/cover;" data-slot="5">
-            <img src="images/slot-5-trunk-open.jpg" alt="Toyota Alphard, open trunk" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
-            <div class="slider__slide-caption" data-i18n="slide5">საბარგული — ადგილი ყველას ბარგისთვის</div>
-          </div>
-          <div class="slider__slide" style="background:linear-gradient(160deg,#2a2a2d,#0e0e10) center/cover;" data-slot="6">
-            <img src="images/bonus-exterior-rear.jpg" alt="Toyota Alphard, rear view" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
-            <div class="slider__slide-caption" data-i18n="slide6">ხედი უკნიდან</div>
-          </div>
+    <div class="fleet__cards">
+      <article class="fleet-card">
+        <div class="fleet-card__media">
+          <img src="images/Toyota%20Camry.jpg" alt="Toyota Camry" loading="lazy">
+          <span class="fleet-card__badge" data-i18n="fleet_cat_sedan">სედანი</span>
         </div>
-        <button class="slider__nav slider__nav--prev" aria-label="Previous photo">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <button class="slider__nav slider__nav--next" aria-label="Next photo">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <div class="slider__dots" id="sliderDots"></div>
-      </div>
+        <div class="fleet-card__body">
+          <h3 class="fleet-card__name">Toyota Camry</h3>
+          <div class="fleet-card__meta">
+            <span>2020</span>
+            <span class="dot">·</span>
+            <span data-i18n="fleet_color_black">შავი</span>
+            <span class="dot">·</span>
+            <span><span data-i18n="fleet_max_label">მაქს.</span> 2</span>
+            <span class="dot">·</span>
+            <span data-i18n="fleet_city_tbilisi">თბილისი</span>
+          </div>
+          <ul class="fleet-card__prices">
+          <li><span data-i18n="fleet_route_airport">აეროპორტი ↔ სასტუმრო თბილისში</span><b>100 GEL</b></li>
+          <li><span data-i18n="fleet_route_gudauri">თბილისი ↔ გუდაური</span><b>350 GEL</b></li>
+          <li><span data-i18n="fleet_route_kutaisi">ქუთაისი ↔ გუდაური</span><b>600 GEL</b></li>
+          <li class="fleet-card__price-full"><span data-i18n="fleet_route_fullday">სრული დღე — თბილისი</span><b>400 GEL</b></li>
+          </ul>
+          <a href="#" class="btn btn-whatsapp fleet-card__cta js-wa" data-i18n-wa="wa_generic"><span data-i18n="fleet_book">დაჯავშნა</span></a>
+        </div>
+      </article>
 
-      <div class="fleet__specs">
-        <h2 data-i18n="fleet_title">ჩვენი პარკი</h2>
-        <p data-i18n="fleet_text">იაპონური ბიზნეს-კლასის მინივენი, 2018 წელი. 6 მგზავრამდე ბარგით. ღია ტყავის სალონი, დასაკეცი კაპიტნის სავარძლები მეორე რიგში, მრავალზონიანი კლიმატ-კონტროლი, ატმოსფერული განათება, JBL აკუსტიკა. სივრცე, სადაც მარტივია ზარის გაკეთება, შეხვედრისთვის მომზადება — ან უბრალოდ დასვენება. დიდი ჯგუფებისთვის ვიზიდავთ შემოწმებულ პარტნიორ მინივენებსა და მიკროავტობუსებს იმავე სტანდარტით.</p>
-        <div class="fleet__chips">
-          <span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M5 17H3v-5l2-5h9l4 4h1a2 2 0 0 1 2 2v4h-2" stroke-linecap="round" stroke-linejoin="round"/></svg> <span data-i18n="fleet_chip1">6 ადგილი · 4–6 ჩემოდანი</span></span>
-          <span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 12h18" stroke-linecap="round"/></svg> <span data-i18n="fleet_chip2">მრავალზონიანი კლიმატ-კონტროლი</span></span>
-          <span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18" /></svg> <span data-i18n="fleet_chip3">Wi-Fi და დამტენები</span></span>
+      <article class="fleet-card">
+        <div class="fleet-card__media">
+          <img src="images/Mercedes-Benz%20S-Class%20VIP.jpg" alt="Mercedes-Benz S-Class VIP" loading="lazy">
+          <span class="fleet-card__badge" data-i18n="fleet_cat_sedan">სედანი</span>
         </div>
-      </div>
+        <div class="fleet-card__body">
+          <h3 class="fleet-card__name">Mercedes-Benz S-Class VIP</h3>
+          <div class="fleet-card__meta">
+            <span>2018</span>
+            <span class="dot">·</span>
+            <span data-i18n="fleet_color_black">შავი</span>
+            <span class="dot">·</span>
+            <span><span data-i18n="fleet_max_label">მაქს.</span> 3</span>
+            <span class="dot">·</span>
+            <span data-i18n="fleet_city_tbilisi">თბილისი</span>
+          </div>
+          <ul class="fleet-card__prices">
+          <li><span data-i18n="fleet_route_airport">აეროპორტი ↔ სასტუმრო თბილისში</span><b>300 GEL</b></li>
+          <li><span data-i18n="fleet_route_gudauri">თბილისი ↔ გუდაური</span><b>700 GEL</b></li>
+          <li><span data-i18n="fleet_route_kutaisi">ქუთაისი ↔ გუდაური</span><b>1400 GEL</b></li>
+          <li class="fleet-card__price-full"><span data-i18n="fleet_route_fullday">სრული დღე — თბილისი</span><b>750 GEL</b></li>
+          </ul>
+          <a href="#" class="btn btn-whatsapp fleet-card__cta js-wa" data-i18n-wa="wa_generic"><span data-i18n="fleet_book">დაჯავშნა</span></a>
+        </div>
+      </article>
+
+      <article class="fleet-card">
+        <div class="fleet-card__media">
+          <img src="images/Toyota%20Alphard%202018%20Business.webp" alt="Toyota Alphard Business" loading="lazy">
+          <span class="fleet-card__badge" data-i18n="fleet_cat_minivan">მინივენი</span>
+        </div>
+        <div class="fleet-card__body">
+          <h3 class="fleet-card__name">Toyota Alphard Business</h3>
+          <div class="fleet-card__meta">
+            <span>2018</span>
+            <span class="dot">·</span>
+            <span data-i18n="fleet_color_black">შავი</span>
+            <span class="dot">·</span>
+            <span><span data-i18n="fleet_max_label">მაქს.</span> 5</span>
+            <span class="dot">·</span>
+            <span data-i18n="fleet_city_tbilisi">თბილისი</span>
+          </div>
+          <ul class="fleet-card__prices">
+          <li><span data-i18n="fleet_route_airport">აეროპორტი ↔ სასტუმრო თბილისში</span><b>120 GEL</b></li>
+          <li><span data-i18n="fleet_route_gudauri">თბილისი ↔ გუდაური</span><b>350 GEL</b></li>
+          <li><span data-i18n="fleet_route_kutaisi">ქუთაისი ↔ გუდაური</span><b>600 GEL</b></li>
+          </ul>
+          <a href="#" class="btn btn-whatsapp fleet-card__cta js-wa" data-i18n-wa="wa_generic"><span data-i18n="fleet_book">დაჯავშნა</span></a>
+        </div>
+      </article>
+
+      <article class="fleet-card">
+        <div class="fleet-card__media">
+          <img src="images/Mercedes-Benz%20VITO.webp" alt="Mercedes-Benz VITO" loading="lazy">
+          <span class="fleet-card__badge" data-i18n="fleet_cat_minivan">მინივენი</span>
+        </div>
+        <div class="fleet-card__body">
+          <h3 class="fleet-card__name">Mercedes-Benz VITO</h3>
+          <div class="fleet-card__meta">
+            <span>2013</span>
+            <span class="dot">·</span>
+            <span><span data-i18n="fleet_max_label">მაქს.</span> 6</span>
+            <span class="dot">·</span>
+            <span data-i18n="fleet_city_tbilisi">თბილისი</span>
+          </div>
+          <ul class="fleet-card__prices">
+          <li><span data-i18n="fleet_route_airport">აეროპორტი ↔ სასტუმრო თბილისში</span><b>150 GEL</b></li>
+          <li><span data-i18n="fleet_route_gudauri">თბილისი ↔ გუდაური</span><b>450 GEL</b></li>
+          <li><span data-i18n="fleet_route_kutaisi">ქუთაისი ↔ გუდაური</span><b>800 GEL</b></li>
+          </ul>
+          <a href="#" class="btn btn-whatsapp fleet-card__cta js-wa" data-i18n-wa="wa_generic"><span data-i18n="fleet_book">დაჯავშნა</span></a>
+        </div>
+      </article>
+
+      <article class="fleet-card">
+        <div class="fleet-card__media">
+          <img src="images/Mercedes-Benz%20V-CLASS%20VIP.png" alt="Mercedes-Benz V-Class VIP" loading="lazy">
+          <span class="fleet-card__badge" data-i18n="fleet_cat_minivan">მინივენი</span>
+        </div>
+        <div class="fleet-card__body">
+          <h3 class="fleet-card__name">Mercedes-Benz V-Class VIP</h3>
+          <div class="fleet-card__meta">
+            <span>2018</span>
+            <span class="dot">·</span>
+            <span data-i18n="fleet_color_black">შავი</span>
+            <span class="dot">·</span>
+            <span><span data-i18n="fleet_max_label">მაქს.</span> 6</span>
+            <span class="dot">·</span>
+            <span data-i18n="fleet_city_tbilisi">თბილისი</span>
+          </div>
+          <ul class="fleet-card__prices">
+          <li><span data-i18n="fleet_route_airport">აეროპორტი ↔ სასტუმრო თბილისში</span><b>250 GEL</b></li>
+          <li><span data-i18n="fleet_route_gudauri">თბილისი ↔ გუდაური</span><b>600 GEL</b></li>
+          <li><span data-i18n="fleet_route_kutaisi">ქუთაისი ↔ გუდაური</span><b>1000 GEL</b></li>
+          <li class="fleet-card__price-full"><span data-i18n="fleet_route_fullday">სრული დღე — თბილისი</span><b>550 GEL</b></li>
+          </ul>
+          <a href="#" class="btn btn-whatsapp fleet-card__cta js-wa" data-i18n-wa="wa_generic"><span data-i18n="fleet_book">დაჯავშნა</span></a>
+        </div>
+      </article>
+
+      <article class="fleet-card">
+        <div class="fleet-card__media">
+          <img src="images/Mercedes-Benz%20SPRINTER.jpg" alt="Mercedes-Benz Sprinter" loading="lazy">
+          <span class="fleet-card__badge" data-i18n="fleet_cat_minibus">მიკროავტობუსი</span>
+        </div>
+        <div class="fleet-card__body">
+          <h3 class="fleet-card__name">Mercedes-Benz Sprinter</h3>
+          <div class="fleet-card__meta">
+            <span>2016</span>
+            <span class="dot">·</span>
+            <span data-i18n="fleet_color_white">თეთრი</span>
+            <span class="dot">·</span>
+            <span><span data-i18n="fleet_max_label">მაქს.</span> 12</span>
+            <span class="dot">·</span>
+            <span data-i18n="fleet_city_tbilisi">თბილისი</span>
+          </div>
+          <ul class="fleet-card__prices">
+          <li><span data-i18n="fleet_route_airport">აეროპორტი ↔ სასტუმრო თბილისში</span><b>200 GEL</b></li>
+          <li><span data-i18n="fleet_route_gudauri">თბილისი ↔ გუდაური</span><b>600 GEL</b></li>
+          <li><span data-i18n="fleet_route_kutaisi">ქუთაისი ↔ გუდაური</span><b>1000 GEL</b></li>
+          <li class="fleet-card__price-full"><span data-i18n="fleet_route_fullday">სრული დღე — თბილისი</span><b>500 GEL</b></li>
+          </ul>
+          <a href="#" class="btn btn-whatsapp fleet-card__cta js-wa" data-i18n-wa="wa_generic"><span data-i18n="fleet_book">დაჯავშნა</span></a>
+        </div>
+      </article>
+
+      <article class="fleet-card">
+        <div class="fleet-card__media">
+          <img src="images/Mercedes-Benz%20SPRINTER%20LONG.jpg" alt="Mercedes-Benz Sprinter Long" loading="lazy">
+          <span class="fleet-card__badge" data-i18n="fleet_cat_bus">ავტობუსი</span>
+        </div>
+        <div class="fleet-card__body">
+          <h3 class="fleet-card__name">Mercedes-Benz Sprinter Long</h3>
+          <div class="fleet-card__meta">
+            <span>2015</span>
+            <span class="dot">·</span>
+            <span><span data-i18n="fleet_max_label">მაქს.</span> 20</span>
+            <span class="dot">·</span>
+            <span data-i18n="fleet_city_tbilisi">თბილისი</span>
+          </div>
+          <ul class="fleet-card__prices">
+          <li><span data-i18n="fleet_route_airport">აეროპორტი ↔ სასტუმრო თბილისში</span><b>250 GEL</b></li>
+          <li><span data-i18n="fleet_route_gudauri">თბილისი ↔ გუდაური</span><b>700 GEL</b></li>
+          <li><span data-i18n="fleet_route_kutaisi">ქუთაისი ↔ გუდაური</span><b>1200 GEL</b></li>
+          <li class="fleet-card__price-full"><span data-i18n="fleet_route_fullday">სრული დღე — თბილისი</span><b>550 GEL</b></li>
+          </ul>
+          <a href="#" class="btn btn-whatsapp fleet-card__cta js-wa" data-i18n-wa="wa_generic"><span data-i18n="fleet_book">დაჯავშნა</span></a>
+        </div>
+      </article>
+
+      <article class="fleet-card">
+        <div class="fleet-card__media">
+          <img src="images/Mercedes-Benz%20SPRINTER%20VIP.png" alt="Mercedes-Benz Sprinter VIP" loading="lazy">
+          <span class="fleet-card__badge" data-i18n="fleet_cat_bus">ავტობუსი</span>
+        </div>
+        <div class="fleet-card__body">
+          <h3 class="fleet-card__name">Mercedes-Benz Sprinter VIP</h3>
+          <div class="fleet-card__meta">
+            <span>2022</span>
+            <span class="dot">·</span>
+            <span data-i18n="fleet_color_black">შავი</span>
+            <span class="dot">·</span>
+            <span><span data-i18n="fleet_max_label">მაქს.</span> 16</span>
+            <span class="dot">·</span>
+            <span data-i18n="fleet_city_tbilisi">თბილისი</span>
+          </div>
+          <ul class="fleet-card__prices">
+          <li><span data-i18n="fleet_route_airport">აეროპორტი ↔ სასტუმრო თბილისში</span><b>350 GEL</b></li>
+          <li><span data-i18n="fleet_route_gudauri">თბილისი ↔ გუდაური</span><b>1000 GEL</b></li>
+          <li><span data-i18n="fleet_route_kutaisi">ქუთაისი ↔ გუდაური</span><b>1700 GEL</b></li>
+          <li class="fleet-card__price-full"><span data-i18n="fleet_route_fullday">სრული დღე — თბილისი</span><b>750 GEL</b></li>
+          </ul>
+          <a href="#" class="btn btn-whatsapp fleet-card__cta js-wa" data-i18n-wa="wa_generic"><span data-i18n="fleet_book">დაჯავშნა</span></a>
+        </div>
+      </article>
     </div>
 
     <div class="standards">

@@ -46,46 +46,6 @@
     });
   }
 
-  // ---- Fleet slider ----
-  function initSlider() {
-    var track = document.getElementById('sliderTrack');
-    var dotsWrap = document.getElementById('sliderDots');
-    if (!track || !dotsWrap) return;
-
-    var slides = Array.prototype.slice.call(track.children);
-    var index = 0;
-
-    slides.forEach(function (_, i) {
-      var dot = document.createElement('button');
-      dot.className = 'slider__dot' + (i === 0 ? ' is-active' : '');
-      dot.setAttribute('aria-label', 'Фото ' + (i + 1));
-      dot.addEventListener('click', function () { goTo(i); });
-      dotsWrap.appendChild(dot);
-    });
-    var dots = Array.prototype.slice.call(dotsWrap.children);
-
-    function goTo(i) {
-      index = (i + slides.length) % slides.length;
-      track.style.transform = 'translateX(-' + (index * 100) + '%)';
-      dots.forEach(function (d, di) { d.classList.toggle('is-active', di === index); });
-    }
-
-    var prevBtn = document.querySelector('.slider__nav--prev');
-    var nextBtn = document.querySelector('.slider__nav--next');
-    if (prevBtn) prevBtn.addEventListener('click', function () { goTo(index - 1); });
-    if (nextBtn) nextBtn.addEventListener('click', function () { goTo(index + 1); });
-
-    // swipe on touch devices
-    var startX = null;
-    track.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
-    track.addEventListener('touchend', function (e) {
-      if (startX === null) return;
-      var diff = e.changedTouches[0].clientX - startX;
-      if (Math.abs(diff) > 40) goTo(diff > 0 ? index - 1 : index + 1);
-      startX = null;
-    });
-  }
-
   // ---- Top nav: mobile toggle + solid background on scroll ----
   function initNav() {
     var nav = document.getElementById('siteNav');
@@ -167,7 +127,6 @@
     initWaLinks();
     initTelLinks();
     initFaq();
-    initSlider();
     initNav();
     initStickyBar();
     initShareButtons();

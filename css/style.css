@@ -706,109 +706,96 @@ p { margin: 0; }
   color: var(--color-text-muted-light);
   margin-bottom: 40px;
 }
-.fleet__grid {
+.fleet__cards {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 40px;
-  align-items: center;
+  gap: 28px;
+  margin-bottom: 56px;
 }
-@media (min-width: 901px) {
-  .fleet__grid { grid-template-columns: 1.1fr 0.9fr; gap: 56px; }
+@media (min-width: 640px) {
+  .fleet__cards { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
 }
-
-/* slider */
-.slider {
-  position: relative;
+.fleet-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
   border-radius: var(--radius);
   overflow: hidden;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+@media (hover: hover) {
+  .fleet-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
+}
+.fleet-card__media {
+  position: relative;
   aspect-ratio: 4 / 3;
-  background: #111;
+  background: #eee;
 }
-.slider__track {
-  display: flex;
-  height: 100%;
-  transition: transform 0.4s ease;
-}
-.slider__slide {
-  flex: 0 0 100%;
-  height: 100%;
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  color: #fff;
-}
-.slider__slide-caption {
-  position: relative;
-  z-index: 1;
-  padding: 20px;
-  font-size: 13px;
-  background: linear-gradient(180deg, transparent, rgba(0,0,0,0.75));
+.fleet-card__media img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
-.slider__nav {
+.fleet-card__badge {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(14,14,16,0.55);
-  color: #fff;
-  border: none;
+  top: 12px;
+  left: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(14,14,16,0.72);
+  color: var(--color-gold);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.fleet-card__body {
+  padding: 22px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
+  flex-direction: column;
+  flex: 1;
 }
-.slider__nav:hover { background: rgba(14,14,16,0.8); }
-.slider__nav--prev { left: 12px; }
-.slider__nav--next { right: 12px; }
-@media (max-width: 900px) {
-  .slider__nav { display: none; }
+.fleet-card__name {
+  font-size: 18px;
+  margin-bottom: 10px;
 }
-.slider__dots {
-  position: absolute;
-  bottom: 14px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 8px;
-  z-index: 2;
-}
-.slider__dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.45);
-  border: none;
-  padding: 0;
-}
-.slider__dot.is-active { background: var(--color-gold); }
-
-.fleet__specs h2 { font-size: clamp(22px, 3vw, 30px); margin-bottom: 16px; }
-.fleet__specs > p {
-  font-size: 15px;
-  color: var(--color-text-muted-light);
-  margin-bottom: 24px;
-}
-.fleet__chips {
+.fleet-card__meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 8px;
-}
-.chip {
-  display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: var(--color-light);
-  border: 1px solid rgba(0,0,0,0.08);
   font-size: 13px;
-  font-weight: 500;
+  color: var(--color-text-muted-light);
+  margin-bottom: 16px;
 }
-.chip svg { color: var(--color-gold); }
+.fleet-card__meta .dot { color: var(--color-gold); }
+.fleet-card__prices {
+  list-style: none;
+  margin-bottom: 18px;
+}
+.fleet-card__prices li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 0;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  font-size: 13.5px;
+}
+.fleet-card__prices li span { color: var(--color-text-muted-light); }
+.fleet-card__prices li b { font-family: var(--font-heading); white-space: nowrap; }
+.fleet-card__prices li.fleet-card__price-full {
+  border-top: 1px dashed rgba(201,162,39,0.4);
+}
+.fleet-card__prices li.fleet-card__price-full b { color: var(--color-gold); }
+.fleet-card__cta {
+  margin-top: auto;
+  padding: 12px 20px;
+  font-size: 13.5px;
+}
 
 .standards {
   margin-top: 56px;
