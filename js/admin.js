@@ -24,7 +24,6 @@
     if (key.indexOf('services_') === 0 || key.indexOf('svc') === 0) return 'Услуги (карточки)';
     if (key.indexOf('standards') === 0) return 'Автопарк — стандарт подготовки';
     if (key.indexOf('fleet_') === 0 || key.indexOf('slide') === 0) return 'Автопарк';
-    if (key.indexOf('pricing_') === 0) return 'Цены';
     if (key.indexOf('process_') === 0 || key.indexOf('step') === 0) return 'Как мы работаем';
     if (key.indexOf('b2b_') === 0) return 'Для бизнеса (B2B)';
     if (key.indexOf('faq_') === 0) return 'Вопросы (FAQ)';
