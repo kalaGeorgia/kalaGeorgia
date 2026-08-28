@@ -1,0 +1,8 @@
+# Authoring tooling — needed to build the site, never needed to serve it.
+# Without this they are published as static files and are publicly fetchable.
+seo/
+scripts/
+docs/
+
+# Local agent config
+.claude/
