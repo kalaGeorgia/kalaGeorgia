@@ -2,44 +2,344 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://kala-georgia.com/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <loc>https://kala-georgia.com/en/</loc>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/" />
-    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka.html" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/" />
   </url>
   <url>
-    <loc>https://kala-georgia.com/ka.html</loc>
-    <lastmod>2026-08-03</lastmod>
+    <loc>https://kala-georgia.com/ru/</loc>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/" />
-    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka.html" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/" />
   </url>
   <url>
-    <loc>https://kala-georgia.com/ru.html</loc>
-    <lastmod>2026-08-03</lastmod>
+    <loc>https://kala-georgia.com/ka/</loc>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/" />
-    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka.html" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/en/airport-transfer-tbilisi/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/airport-transfer-tbilisi/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/transfer-iz-aeroporta-tbilisi/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/tbilisis-aeroportis-transferi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/airport-transfer-tbilisi/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/ru/transfer-iz-aeroporta-tbilisi/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/airport-transfer-tbilisi/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/transfer-iz-aeroporta-tbilisi/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/tbilisis-aeroportis-transferi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/airport-transfer-tbilisi/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/ka/tbilisis-aeroportis-transferi/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/airport-transfer-tbilisi/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/transfer-iz-aeroporta-tbilisi/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/tbilisis-aeroportis-transferi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/airport-transfer-tbilisi/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/en/private-driver-georgia/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/private-driver-georgia/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/individualnyy-voditel-gruziya/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/piradi-mdzgholi-saqartveloshi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/private-driver-georgia/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/ru/individualnyy-voditel-gruziya/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/private-driver-georgia/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/individualnyy-voditel-gruziya/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/piradi-mdzgholi-saqartveloshi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/private-driver-georgia/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/ka/piradi-mdzgholi-saqartveloshi/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/private-driver-georgia/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/individualnyy-voditel-gruziya/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/piradi-mdzgholi-saqartveloshi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/private-driver-georgia/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/en/private-transfers-georgia/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/private-transfers-georgia/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/individualnye-transfery-gruziya/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/individualuri-transferebi-saqartveloshi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/private-transfers-georgia/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/ru/individualnye-transfery-gruziya/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/private-transfers-georgia/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/individualnye-transfery-gruziya/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/individualuri-transferebi-saqartveloshi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/private-transfers-georgia/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/ka/individualuri-transferebi-saqartveloshi/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/private-transfers-georgia/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/individualnye-transfery-gruziya/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/individualuri-transferebi-saqartveloshi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/private-transfers-georgia/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/en/transfers/tbilisi-kazbegi/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/transfers/tbilisi-kazbegi/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/transfery/tbilisi-kazbegi/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/transferebi/tbilisi-yazbegi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/transfers/tbilisi-kazbegi/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/ru/transfery/tbilisi-kazbegi/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/transfers/tbilisi-kazbegi/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/transfery/tbilisi-kazbegi/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/transferebi/tbilisi-yazbegi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/transfers/tbilisi-kazbegi/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/ka/transferebi/tbilisi-yazbegi/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/transfers/tbilisi-kazbegi/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/transfery/tbilisi-kazbegi/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/transferebi/tbilisi-yazbegi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/transfers/tbilisi-kazbegi/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/en/transfers/tbilisi-gudauri/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/transfers/tbilisi-gudauri/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/transfery/tbilisi-gudauri/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/transferebi/tbilisi-gudauri/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/transfers/tbilisi-gudauri/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/ru/transfery/tbilisi-gudauri/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/transfers/tbilisi-gudauri/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/transfery/tbilisi-gudauri/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/transferebi/tbilisi-gudauri/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/transfers/tbilisi-gudauri/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/ka/transferebi/tbilisi-gudauri/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/transfers/tbilisi-gudauri/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/transfery/tbilisi-gudauri/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/transferebi/tbilisi-gudauri/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/transfers/tbilisi-gudauri/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/en/transfers/tbilisi-borjomi/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/transfers/tbilisi-borjomi/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/transfery/tbilisi-borjomi/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/transferebi/tbilisi-borjomi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/transfers/tbilisi-borjomi/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/ru/transfery/tbilisi-borjomi/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/transfers/tbilisi-borjomi/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/transfery/tbilisi-borjomi/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/transferebi/tbilisi-borjomi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/transfers/tbilisi-borjomi/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/ka/transferebi/tbilisi-borjomi/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/transfers/tbilisi-borjomi/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/transfery/tbilisi-borjomi/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/transferebi/tbilisi-borjomi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/transfers/tbilisi-borjomi/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/en/transfers/tbilisi-batumi/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/transfers/tbilisi-batumi/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/transfery/tbilisi-batumi/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/transferebi/tbilisi-batumi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/transfers/tbilisi-batumi/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/ru/transfery/tbilisi-batumi/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/transfers/tbilisi-batumi/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/transfery/tbilisi-batumi/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/transferebi/tbilisi-batumi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/transfers/tbilisi-batumi/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/ka/transferebi/tbilisi-batumi/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/transfers/tbilisi-batumi/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/transfery/tbilisi-batumi/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/transferebi/tbilisi-batumi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/transfers/tbilisi-batumi/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/en/private-tours-georgia/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/private-tours-georgia/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/individualnye-tury-gruziya/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/individualuri-turebi-saqartveloshi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/private-tours-georgia/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/ru/individualnye-tury-gruziya/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/private-tours-georgia/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/individualnye-tury-gruziya/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/individualuri-turebi-saqartveloshi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/private-tours-georgia/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/ka/individualuri-turebi-saqartveloshi/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/private-tours-georgia/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/individualnye-tury-gruziya/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/individualuri-turebi-saqartveloshi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/private-tours-georgia/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/en/tours/kazbegi/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/tours/kazbegi/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/tury/kazbegi/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/turebi/yazbegi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/tours/kazbegi/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/ru/tury/kazbegi/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/tours/kazbegi/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/tury/kazbegi/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/turebi/yazbegi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/tours/kazbegi/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/ka/turebi/yazbegi/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/tours/kazbegi/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/tury/kazbegi/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/turebi/yazbegi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/tours/kazbegi/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/en/corporate-transport-georgia/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/corporate-transport-georgia/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/korporativnyy-transport-gruziya/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/korporatiuli-transporti-saqartveloshi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/corporate-transport-georgia/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/ru/korporativnyy-transport-gruziya/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/corporate-transport-georgia/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/korporativnyy-transport-gruziya/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/korporatiuli-transporti-saqartveloshi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/corporate-transport-georgia/" />
+  </url>
+  <url>
+    <loc>https://kala-georgia.com/ka/korporatiuli-transporti-saqartveloshi/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kala-georgia.com/en/corporate-transport-georgia/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kala-georgia.com/ru/korporativnyy-transport-gruziya/" />
+    <xhtml:link rel="alternate" hreflang="ka" href="https://kala-georgia.com/ka/korporatiuli-transporti-saqartveloshi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kala-georgia.com/en/corporate-transport-georgia/" />
   </url>
   <url>
     <loc>https://kala-georgia.com/tours.html</loc>
-    <lastmod>2026-08-04</lastmod>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kala-georgia.com/gallery.html</loc>
-    <lastmod>2026-08-04</lastmod>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

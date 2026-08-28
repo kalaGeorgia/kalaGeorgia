@@ -1,5 +1,199 @@
 {
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/en/",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/en/",
+      "permanent": true
+    },
+    {
+      "source": "/ru.html",
+      "destination": "/ru/",
+      "permanent": true
+    },
+    {
+      "source": "/ka.html",
+      "destination": "/ka/",
+      "permanent": true
+    },
+    {
+      "source": "/en",
+      "destination": "/en/",
+      "permanent": true
+    },
+    {
+      "source": "/ru",
+      "destination": "/ru/",
+      "permanent": true
+    },
+    {
+      "source": "/ka",
+      "destination": "/ka/",
+      "permanent": true
+    },
+    {
+      "source": "/en/airport-transfer-tbilisi",
+      "destination": "/en/airport-transfer-tbilisi/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/transfer-iz-aeroporta-tbilisi",
+      "destination": "/ru/transfer-iz-aeroporta-tbilisi/",
+      "permanent": true
+    },
+    {
+      "source": "/ka/tbilisis-aeroportis-transferi",
+      "destination": "/ka/tbilisis-aeroportis-transferi/",
+      "permanent": true
+    },
+    {
+      "source": "/en/private-driver-georgia",
+      "destination": "/en/private-driver-georgia/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/individualnyy-voditel-gruziya",
+      "destination": "/ru/individualnyy-voditel-gruziya/",
+      "permanent": true
+    },
+    {
+      "source": "/ka/piradi-mdzgholi-saqartveloshi",
+      "destination": "/ka/piradi-mdzgholi-saqartveloshi/",
+      "permanent": true
+    },
+    {
+      "source": "/en/private-transfers-georgia",
+      "destination": "/en/private-transfers-georgia/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/individualnye-transfery-gruziya",
+      "destination": "/ru/individualnye-transfery-gruziya/",
+      "permanent": true
+    },
+    {
+      "source": "/ka/individualuri-transferebi-saqartveloshi",
+      "destination": "/ka/individualuri-transferebi-saqartveloshi/",
+      "permanent": true
+    },
+    {
+      "source": "/en/transfers/tbilisi-kazbegi",
+      "destination": "/en/transfers/tbilisi-kazbegi/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/transfery/tbilisi-kazbegi",
+      "destination": "/ru/transfery/tbilisi-kazbegi/",
+      "permanent": true
+    },
+    {
+      "source": "/ka/transferebi/tbilisi-yazbegi",
+      "destination": "/ka/transferebi/tbilisi-yazbegi/",
+      "permanent": true
+    },
+    {
+      "source": "/en/transfers/tbilisi-gudauri",
+      "destination": "/en/transfers/tbilisi-gudauri/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/transfery/tbilisi-gudauri",
+      "destination": "/ru/transfery/tbilisi-gudauri/",
+      "permanent": true
+    },
+    {
+      "source": "/ka/transferebi/tbilisi-gudauri",
+      "destination": "/ka/transferebi/tbilisi-gudauri/",
+      "permanent": true
+    },
+    {
+      "source": "/en/transfers/tbilisi-borjomi",
+      "destination": "/en/transfers/tbilisi-borjomi/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/transfery/tbilisi-borjomi",
+      "destination": "/ru/transfery/tbilisi-borjomi/",
+      "permanent": true
+    },
+    {
+      "source": "/ka/transferebi/tbilisi-borjomi",
+      "destination": "/ka/transferebi/tbilisi-borjomi/",
+      "permanent": true
+    },
+    {
+      "source": "/en/transfers/tbilisi-batumi",
+      "destination": "/en/transfers/tbilisi-batumi/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/transfery/tbilisi-batumi",
+      "destination": "/ru/transfery/tbilisi-batumi/",
+      "permanent": true
+    },
+    {
+      "source": "/ka/transferebi/tbilisi-batumi",
+      "destination": "/ka/transferebi/tbilisi-batumi/",
+      "permanent": true
+    },
+    {
+      "source": "/en/private-tours-georgia",
+      "destination": "/en/private-tours-georgia/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/individualnye-tury-gruziya",
+      "destination": "/ru/individualnye-tury-gruziya/",
+      "permanent": true
+    },
+    {
+      "source": "/ka/individualuri-turebi-saqartveloshi",
+      "destination": "/ka/individualuri-turebi-saqartveloshi/",
+      "permanent": true
+    },
+    {
+      "source": "/en/tours/kazbegi",
+      "destination": "/en/tours/kazbegi/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/tury/kazbegi",
+      "destination": "/ru/tury/kazbegi/",
+      "permanent": true
+    },
+    {
+      "source": "/ka/turebi/yazbegi",
+      "destination": "/ka/turebi/yazbegi/",
+      "permanent": true
+    },
+    {
+      "source": "/en/corporate-transport-georgia",
+      "destination": "/en/corporate-transport-georgia/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/korporativnyy-transport-gruziya",
+      "destination": "/ru/korporativnyy-transport-gruziya/",
+      "permanent": true
+    },
+    {
+      "source": "/ka/korporatiuli-transporti-saqartveloshi",
+      "destination": "/ka/korporatiuli-transporti-saqartveloshi/",
+      "permanent": true
+    }
+  ],
   "rewrites": [
-    { "source": "/admin", "destination": "/admin.html" }
+    {
+      "source": "/admin",
+      "destination": "/admin.html"
+    },
+    {
+      "source": "/admin/",
+      "destination": "/admin.html"
+    }
   ]
 }
