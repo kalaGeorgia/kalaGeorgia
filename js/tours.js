@@ -55,7 +55,7 @@
 
       var img = document.createElement('img');
       img.className = 'tour-card__photo';
-      img.src = tour.image || '';
+      img.src = (window.KALA && window.KALA.assetUrl) ? window.KALA.assetUrl(tour.image) : (tour.image || '');
       img.alt = textFor(tour.title, lang);
       img.loading = 'lazy';
       card.appendChild(img);

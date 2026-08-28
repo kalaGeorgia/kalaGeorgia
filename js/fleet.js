@@ -49,7 +49,7 @@
     var media = document.createElement('div');
     media.className = 'fleet-card__media';
     var img = document.createElement('img');
-    img.src = car.image || '';
+    img.src = (window.KALA && window.KALA.assetUrl) ? window.KALA.assetUrl(car.image) : (car.image || '');
     img.alt = car.name || '';
     img.loading = 'lazy';
     media.appendChild(img);

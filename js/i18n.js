@@ -491,6 +491,7 @@
 
     var hero = document.getElementById('top');
     var heroImg = images.hero;
+    if (window.KALA && window.KALA.assetUrl) heroImg = window.KALA.assetUrl(heroImg);
     if (hero && heroImg) {
       hero.style.backgroundImage = HERO_GRADIENT + ", url('" + heroImg + "')";
     }

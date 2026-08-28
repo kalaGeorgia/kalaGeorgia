@@ -23,6 +23,18 @@
   window.KALA = window.KALA || {};
   window.KALA.refreshWaLinks = initWaLinks;
 
+  // Image paths come from the API and from admin-saved data, where older
+  // entries are stored relative ("images/car.jpg"). Pages now live in
+  // /en/, /ru/, /ka/ and deeper, so a relative path would resolve against
+  // the directory and 404. Anchor anything that is not already absolute.
+  function assetUrl(path) {
+    if (!path) return '';
+    if (/^(https?:)?\/\//.test(path) || path.charAt(0) === '/' || path.indexOf('data:') === 0) return path;
+    return '/' + path;
+  }
+
+  window.KALA.assetUrl = assetUrl;
+
   function initTelLinks() {
     var links = document.querySelectorAll('.js-tel');
     links.forEach(function (el) {

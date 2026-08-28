@@ -405,6 +405,6 @@
     "wa_hello": "Здравствуйте!"
   },
   "images": {
-    "hero": "images/hero-tbilisi.jpg"
+    "hero": "/images/hero-tbilisi.jpg"
   }
 }
