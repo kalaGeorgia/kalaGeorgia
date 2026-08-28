@@ -1,6 +1,27 @@
 (function () {
   'use strict';
 
+  // A failing serverless function answers with Vercel's HTML error page, so
+  // response.json() rejects with a SyntaxError that tells the operator
+  // nothing. Read the body as text first and only then try to parse it, so a
+  // platform-level failure still produces a message worth reading.
+  function readJson(r) {
+    return r.text().then(function (text) {
+      var data;
+      try {
+        data = text ? JSON.parse(text) : {};
+      } catch (e) {
+        data = {
+          error:
+            'Сервер вернул не JSON (HTTP ' + r.status + '). ' +
+            'Скорее всего упала серверная функция — проверьте логи в Vercel. ' +
+            'Ответ: ' + text.slice(0, 120)
+        };
+      }
+      return { ok: r.ok, data: data };
+    });
+  }
+
   var content = null;
   var activeLang = 'en';
   var dirty = false;
@@ -132,7 +153,7 @@
               body: JSON.stringify({ dataUrl: dataUrl, filename: slot.key + '.jpg' })
             });
           })
-          .then(function (r) { return r.json().then(function (data) { return { ok: r.ok, data: data }; }); })
+          .then(function (r) { return readJson(r); })
           .then(function (res) {
             if (!res.ok) throw new Error((res.data && res.data.error) || 'Ошибка загрузки');
             content.images[slot.key] = res.data.url;
@@ -225,7 +246,7 @@
               body: JSON.stringify({ dataUrl: dataUrl, filename: 'tour-' + tour.id + '.jpg' })
             });
           })
-          .then(function (r) { return r.json().then(function (data) { return { ok: r.ok, data: data }; }); })
+          .then(function (r) { return readJson(r); })
           .then(function (res) {
             if (!res.ok) throw new Error((res.data && res.data.error) || 'Ошибка загрузки');
             tour.image = res.data.url;
@@ -300,7 +321,7 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(tours)
       })
-        .then(function (r) { return r.json().then(function (data) { return { ok: r.ok, data: data }; }); })
+        .then(function (r) { return readJson(r); })
         .then(function (res) {
           btn.disabled = false;
           if (!res.ok) throw new Error((res.data && res.data.error) || 'Ошибка сохранения');
@@ -385,7 +406,7 @@
               body: JSON.stringify({ dataUrl: dataUrl, filename: 'fleet-' + car.id + '.jpg' })
             });
           })
-          .then(function (r) { return r.json().then(function (data) { return { ok: r.ok, data: data }; }); })
+          .then(function (r) { return readJson(r); })
           .then(function (res) {
             if (!res.ok) throw new Error((res.data && res.data.error) || 'Ошибка загрузки');
             car.image = res.data.url;
@@ -450,7 +471,7 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(fleet)
       })
-        .then(function (r) { return r.json().then(function (data) { return { ok: r.ok, data: data }; }); })
+        .then(function (r) { return readJson(r); })
         .then(function (res) {
           btn.disabled = false;
           if (!res.ok) throw new Error((res.data && res.data.error) || 'Ошибка сохранения');
@@ -509,7 +530,7 @@
               body: JSON.stringify({ dataUrl: dataUrl, filename: 'gallery-' + photo.id + '.jpg' })
             });
           })
-          .then(function (r) { return r.json().then(function (data) { return { ok: r.ok, data: data }; }); })
+          .then(function (r) { return readJson(r); })
           .then(function (res) {
             if (!res.ok) throw new Error((res.data && res.data.error) || 'Ошибка загрузки');
             photo.url = res.data.url;
@@ -627,7 +648,7 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(gallery)
       })
-        .then(function (r) { return r.json().then(function (data) { return { ok: r.ok, data: data }; }); })
+        .then(function (r) { return readJson(r); })
         .then(function (res) {
           btn.disabled = false;
           if (!res.ok) throw new Error((res.data && res.data.error) || 'Ошибка сохранения');
@@ -719,7 +740,7 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(content)
       })
-        .then(function (r) { return r.json().then(function (data) { return { ok: r.ok, data: data }; }); })
+        .then(function (r) { return readJson(r); })
         .then(function (res) {
           btn.disabled = false;
           if (!res.ok) throw new Error((res.data && res.data.error) || 'Ошибка сохранения');
@@ -814,7 +835,7 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password: password })
       })
-        .then(function (r) { return r.json().then(function (data) { return { ok: r.ok, data: data }; }); })
+        .then(function (r) { return readJson(r); })
         .then(function (res) {
           btn.disabled = false;
           if (!res.ok) {

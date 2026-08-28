@@ -1,7 +1,8 @@
 const { put } = require('@vercel/blob');
 const { isAuthorized } = require('../lib/auth');
+const { withJsonErrors } = require('../lib/guard');
 
-module.exports = async function handler(req, res) {
+module.exports = withJsonErrors(async function handler(req, res) {
   if (req.method !== 'POST') {
     res.status(405).json({ error: 'Method not allowed' });
     return;
@@ -43,4 +44,4 @@ module.exports = async function handler(req, res) {
 
   const blob = await put(pathname, buffer, { access: 'public', contentType: contentType });
   res.status(200).json({ ok: true, url: blob.url });
-};
+});

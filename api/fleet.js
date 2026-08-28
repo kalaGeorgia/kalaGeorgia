@@ -1,5 +1,6 @@
 const { readFleet, writeFleet } = require('../lib/blob');
 const { isAuthorized } = require('../lib/auth');
+const { withJsonErrors } = require('../lib/guard');
 
 const DEFAULT_FLEET = [
   { id: 'f1', image: '/images/Toyota%20Camry.jpg', name: 'Toyota Camry', year: '2020', color: 'black', category: 'sedan', max: '2', priceAirport: '100', priceGudauri: '350', priceKutaisi: '600', priceFullday: '400' },
@@ -32,7 +33,7 @@ function sanitizeCar(c) {
   };
 }
 
-module.exports = async function handler(req, res) {
+module.exports = withJsonErrors(async function handler(req, res) {
   if (req.method === 'GET') {
     const stored = await readFleet();
     const fleet = stored === null ? DEFAULT_FLEET : stored;
@@ -61,4 +62,4 @@ module.exports = async function handler(req, res) {
   }
 
   res.status(405).json({ error: 'Method not allowed' });
-};
+});

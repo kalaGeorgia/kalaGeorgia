@@ -1,5 +1,6 @@
 const { readGallery, writeGallery } = require('../lib/blob');
 const { isAuthorized } = require('../lib/auth');
+const { withJsonErrors } = require('../lib/guard');
 
 function sanitizePhoto(p) {
   p = p || {};
@@ -21,7 +22,7 @@ function sanitizeVideo(v) {
   };
 }
 
-module.exports = async function handler(req, res) {
+module.exports = withJsonErrors(async function handler(req, res) {
   if (req.method === 'GET') {
     const gallery = await readGallery();
     res.setHeader('Cache-Control', 'no-store');
@@ -52,4 +53,4 @@ module.exports = async function handler(req, res) {
   }
 
   res.status(405).json({ error: 'Method not allowed' });
-};
+});

@@ -1,6 +1,7 @@
 const defaultContent = require('../content.default.json');
 const { readContent, writeContent } = require('../lib/blob');
 const { isAuthorized } = require('../lib/auth');
+const { withJsonErrors } = require('../lib/guard');
 
 function mergeWithDefaults(stored) {
   if (!stored || typeof stored !== 'object') return defaultContent;
@@ -16,7 +17,7 @@ function mergeWithDefaults(stored) {
   return merged;
 }
 
-module.exports = async function handler(req, res) {
+module.exports = withJsonErrors(async function handler(req, res) {
   if (req.method === 'GET') {
     const stored = await readContent(null);
     const content = mergeWithDefaults(stored);
@@ -44,4 +45,4 @@ module.exports = async function handler(req, res) {
   }
 
   res.status(405).json({ error: 'Method not allowed' });
-};
+});
