@@ -39,10 +39,10 @@ switcher navigate between real URLs instead of swapping text in place.
 Migrated to the structure §3.1 prefers:
 
 ```
-/            → 301 → /en/
-/index.html  → 301 → /en/
-/ru.html     → 301 → /ru/
-/ka.html     → 301 → /ka/
+/            → 308 → /en/
+/index.html  → 308 → /en/
+/ru.html     → 308 → /ru/
+/ka.html     → 308 → /ka/
 ```
 
 Wave-1 landing pages, with localized slugs and localized group segments:
@@ -68,7 +68,7 @@ updated to the new addresses.
 ### Trailing slash
 
 Canonical form is **with** a trailing slash. Rather than setting Vercel's
-global `trailingSlash: true`, the generator emits one explicit 301 per
+global `trailingSlash: true`, the generator emits one explicit redirect per
 canonical URL (`/en/foo` → `/en/foo/`). The global flag also rewrites `/api/*`,
 and the site depends on those endpoints for the fleet, tours, gallery and
 visit tracking — §22 requires analytics to keep working. The per-URL table is
@@ -127,9 +127,25 @@ content in `seo/pages.js` — never the generated HTML, which is overwritten.
 `scripts/migrate-homepages.js` is the one-off migration helper for the
 `/en/ /ru/ /ka/` move. It is idempotent and already applied.
 
-## 6. After deploying
+## 6. Deployment
 
-- Submit `https://kala-georgia.com/sitemap.xml` in Search Console.
-- Watch the `/`, `/ru.html`, `/ka.html` 301s land, and request re-indexing.
-- Confirm `POST /api/track` and `GET /api/fleet|tours|gallery` still return
-  200 — the redirect table should not touch them, but verify on the live host.
+Merged to `master` and deployed 2026-08-28 (commit `19e8253`). Verified live:
+
+- all 35 sitemap URLs return 200;
+- `/`, `/index.html`, `/ru.html`, `/ka.html` redirect to `/en/`, `/en/`,
+  `/ru/`, `/ka/`;
+- trailing-slash variants (`/en`, `/ru/transfer-iz-aeroporta-tbilisi`, …)
+  redirect to the canonical slashed form;
+- `GET /api/fleet`, `GET /api/content`, `POST /api/track` and `/admin` all
+  still return 200 — the redirect table does not touch them;
+- canonical, hreflang and the three JSON-LD blocks render correctly on the
+  deployed HTML.
+
+Vercel emits **308 Permanent Redirect** for `"permanent": true`, not 301.
+Google treats 308 the same as 301 for canonicalisation, so this is equivalent
+for ranking purposes.
+
+Still to do by hand:
+
+- submit `https://kala-georgia.com/sitemap.xml` in Search Console;
+- request re-indexing for the moved homepages.
