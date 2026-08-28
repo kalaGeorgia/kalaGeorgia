@@ -2,6 +2,11 @@
   "name": "kala-georgia-landing",
   "version": "1.0.0",
   "private": true,
+  "scripts": {
+    "build:seo": "node scripts/build-seo.js",
+    "validate:seo": "node scripts/validate-seo.js",
+    "seo": "npm run build:seo && npm run validate:seo"
+  },
   "dependencies": {
     "@vercel/blob": "^0.27.1"
   }

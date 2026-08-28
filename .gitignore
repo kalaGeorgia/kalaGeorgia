@@ -1,0 +1,4 @@
+node_modules/
+
+# Local Claude Code tooling config (personal permissions, dev server ports)
+.claude/
