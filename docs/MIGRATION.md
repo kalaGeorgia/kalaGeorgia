@@ -99,6 +99,20 @@ In the new Vercel account (`vercel.com/kala15`):
    adds `BLOB_READ_WRITE_TOKEN` to the project's environment automatically.
    Without it every admin save fails — that is exactly what broke on the old
    project.
+
+   **The store must be created with public access.** Vercel now offers
+   private stores, and a private one fails every write with:
+
+   ```
+   Vercel Blob: Cannot use public access on a private store.
+   ```
+
+   This site needs public blobs: the browser loads gallery photos, fleet
+   images and the hero straight from their blob URL, and `lib/blob.js` reads
+   the saved content JSON by plain `fetch(url)`. A private store would mean
+   signing a URL for every one of those. If a store was created private, make
+   a new public one, connect it, disconnect the private one and redeploy —
+   there is nothing to lose while it is still empty.
 3. **Settings → Environment Variables**, add for **Production**:
 
    - `ADMIN_PASSWORD` — the admin panel password. Pick a new one.
