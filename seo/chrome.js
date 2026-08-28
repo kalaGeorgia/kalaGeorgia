@@ -8,6 +8,16 @@
 
 const SITE = 'https://kala-georgia.com';
 
+/**
+ * The admin-driven Tours and Gallery pages are empty, so they are hidden:
+ * no nav or footer links, left out of the sitemap, and marked noindex.
+ * The pages themselves stay reachable by direct URL.
+ *
+ * Flip this to true and run `npm run seo && node scripts/migrate-homepages.js`
+ * to bring them back everywhere at once.
+ */
+const SHOW_TOURS_AND_GALLERY = false;
+
 const LANGS = ['en', 'ru', 'ka'];
 
 const HTML_LANG = { en: 'en', ru: 'ru', ka: 'ka' };
@@ -141,4 +151,4 @@ const CHROME = {
   }
 };
 
-module.exports = { SITE, LANGS, HTML_LANG, OG_LOCALE, CHROME };
+module.exports = { SITE, LANGS, HTML_LANG, OG_LOCALE, CHROME, SHOW_TOURS_AND_GALLERY };

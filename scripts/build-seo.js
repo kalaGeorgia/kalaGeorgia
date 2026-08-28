@@ -15,7 +15,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const { SITE, LANGS, OG_LOCALE, CHROME } = require('../seo/chrome.js');
+const { SITE, LANGS, OG_LOCALE, CHROME, SHOW_TOURS_AND_GALLERY } = require('../seo/chrome.js');
 const { GROUP_SEGMENT, GROUP_HUB, FOOTER_CLUSTER, PAGES } = require('../seo/pages.js');
 
 const ROOT = path.join(__dirname, '..');
@@ -199,9 +199,9 @@ function nav(page, lang) {
       <a href="${home}#process">${esc(c.nav.process)}</a>
       <a href="${home}#b2b">${esc(c.nav.b2b)}</a>
       <a href="${home}#faq">${esc(c.nav.faq)}</a>
-      <a href="/tours.html">${esc(c.nav.tours)}</a>
+${SHOW_TOURS_AND_GALLERY ? `      <a href="/tours.html">${esc(c.nav.tours)}</a>
       <a href="/gallery.html">${esc(c.nav.gallery)}</a>
-      <div class="lang-switch" id="langSwitch">
+` : ''}      <div class="lang-switch" id="langSwitch">
 ${langLinks}
       </div>
       <a href="#" class="btn btn-gold site-nav__cta js-wa" data-wa-text="${escAttr(c.waGeneric)}">${esc(c.nav.cta)}</a>
@@ -324,9 +324,9 @@ function footer(lang) {
           <li><a href="${home}#process">${esc(c.nav.process)}</a></li>
           <li><a href="${home}#b2b">${esc(c.nav.b2b)}</a></li>
           <li><a href="${home}#faq">${esc(c.nav.faq)}</a></li>
-          <li><a href="/tours.html">${esc(c.nav.tours)}</a></li>
+${SHOW_TOURS_AND_GALLERY ? `          <li><a href="/tours.html">${esc(c.nav.tours)}</a></li>
           <li><a href="/gallery.html">${esc(c.nav.gallery)}</a></li>
-        </ul>
+` : ''}        </ul>
       </div>
       <div>
         <h4>${esc(c.footer.servicesTitle)}</h4>
@@ -448,8 +448,10 @@ function sitemap() {
     }
   }
 
-  entries.push({ loc: SITE + '/tours.html', priority: '0.7', alternates: null });
-  entries.push({ loc: SITE + '/gallery.html', priority: '0.6', alternates: null });
+  if (SHOW_TOURS_AND_GALLERY) {
+    entries.push({ loc: SITE + '/tours.html', priority: '0.7', alternates: null });
+    entries.push({ loc: SITE + '/gallery.html', priority: '0.6', alternates: null });
+  }
 
   const body = entries
     .map((e) => {

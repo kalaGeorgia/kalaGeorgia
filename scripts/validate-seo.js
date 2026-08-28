@@ -41,6 +41,12 @@ function walk(dir, out = []) {
 
 const NON_INDEXABLE = new Set(['admin.html', 'google809c1c02293832c3.html']);
 
+// Tours and Gallery are admin-driven and currently empty, so they are hidden:
+// noindex, and out of the sitemap. Toggled by SHOW_TOURS_AND_GALLERY in
+// seo/chrome.js — when that flips, these stop being exempt.
+const { SHOW_TOURS_AND_GALLERY } = require('../seo/chrome.js');
+const HIDDEN = SHOW_TOURS_AND_GALLERY ? new Set() : new Set(['tours.html', 'gallery.html']);
+
 const files = walk(ROOT)
   .map((f) => path.relative(ROOT, f).split(path.sep).join('/'))
   .filter((f) => !NON_INDEXABLE.has(f))
@@ -108,7 +114,8 @@ for (const rel of files) {
   // robots must not exclude a commercial page.
   const robots = (html.match(/<meta name="robots" content="([^"]*)"/) || [])[1];
   if (!robots) warn(`${rel}: no meta robots tag`);
-  else if (/noindex/i.test(robots)) err(`${rel}: page is noindex`);
+  else if (/noindex/i.test(robots) && !HIDDEN.has(rel)) err(`${rel}: page is noindex`);
+  else if (HIDDEN.has(rel) && !/noindex/i.test(robots)) err(`${rel}: hidden page must be noindex`);
 
   // Uniqueness.
   for (const [value, store, label] of [
@@ -228,6 +235,10 @@ for (const loc of locs) {
   if (!urlToFile.has(p)) err(`sitemap lists a URL that does not resolve: ${p}`);
 }
 for (const [url, file] of urlToFile) {
+  if (HIDDEN.has(file)) {
+    if (locSet.has(SITE + url)) err(`hidden page is still listed in the sitemap: ${url}`);
+    continue;
+  }
   if (!locSet.has(SITE + url)) warn(`not in sitemap: ${url} (${file})`);
 }
 
