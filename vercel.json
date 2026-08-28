@@ -184,6 +184,96 @@
       "source": "/ka/korporatiuli-transporti-saqartveloshi",
       "destination": "/ka/korporatiuli-transporti-saqartveloshi/",
       "permanent": true
+    },
+    {
+      "source": "/en/kutaisi-airport-transfer",
+      "destination": "/en/kutaisi-airport-transfer/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/transfer-iz-aeroporta-kutaisi",
+      "destination": "/ru/transfer-iz-aeroporta-kutaisi/",
+      "permanent": true
+    },
+    {
+      "source": "/ka/qutaisis-aeroportis-transferi",
+      "destination": "/ka/qutaisis-aeroportis-transferi/",
+      "permanent": true
+    },
+    {
+      "source": "/en/vip-transport-georgia",
+      "destination": "/en/vip-transport-georgia/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/vip-transport-gruziya",
+      "destination": "/ru/vip-transport-gruziya/",
+      "permanent": true
+    },
+    {
+      "source": "/ka/vip-transporti-saqartveloshi",
+      "destination": "/ka/vip-transporti-saqartveloshi/",
+      "permanent": true
+    },
+    {
+      "source": "/en/transfers/tbilisi-kutaisi",
+      "destination": "/en/transfers/tbilisi-kutaisi/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/transfery/tbilisi-kutaisi",
+      "destination": "/ru/transfery/tbilisi-kutaisi/",
+      "permanent": true
+    },
+    {
+      "source": "/ka/transferebi/tbilisi-qutaisi",
+      "destination": "/ka/transferebi/tbilisi-qutaisi/",
+      "permanent": true
+    },
+    {
+      "source": "/en/tours/kakheti",
+      "destination": "/en/tours/kakheti/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/tury/kakhetiya",
+      "destination": "/ru/tury/kakhetiya/",
+      "permanent": true
+    },
+    {
+      "source": "/ka/turebi/kakheti",
+      "destination": "/ka/turebi/kakheti/",
+      "permanent": true
+    },
+    {
+      "source": "/en/tours/mtskheta",
+      "destination": "/en/tours/mtskheta/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/tury/mtskheta",
+      "destination": "/ru/tury/mtskheta/",
+      "permanent": true
+    },
+    {
+      "source": "/ka/turebi/mtskheta",
+      "destination": "/ka/turebi/mtskheta/",
+      "permanent": true
+    },
+    {
+      "source": "/en/tours/borjomi",
+      "destination": "/en/tours/borjomi/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/tury/borjomi",
+      "destination": "/ru/tury/borjomi/",
+      "permanent": true
+    },
+    {
+      "source": "/ka/turebi/borjomi",
+      "destination": "/ka/turebi/borjomi/",
+      "permanent": true
     }
   ],
   "rewrites": [

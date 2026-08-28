@@ -45,7 +45,8 @@ Migrated to the structure §3.1 prefers:
 /ka.html     → 308 → /ka/
 ```
 
-Wave-1 landing pages, with localized slugs and localized group segments:
+Landing pages, with localized slugs and localized group segments. Wave 1 is
+the spec's §28 priority list; wave 2 completes the §3.2 architecture:
 
 ```
 /en/airport-transfer-tbilisi/        /ru/transfer-iz-aeroporta-tbilisi/        /ka/tbilisis-aeroportis-transferi/
@@ -58,10 +59,21 @@ Wave-1 landing pages, with localized slugs and localized group segments:
 /en/transfers/tbilisi-borjomi/       /ru/transfery/tbilisi-borjomi/            /ka/transferebi/tbilisi-borjomi/
 /en/transfers/tbilisi-batumi/        /ru/transfery/tbilisi-batumi/             /ka/transferebi/tbilisi-batumi/
 /en/tours/kazbegi/                   /ru/tury/kazbegi/                         /ka/turebi/yazbegi/
+
+# wave 2
+/en/kutaisi-airport-transfer/        /ru/transfer-iz-aeroporta-kutaisi/        /ka/qutaisis-aeroportis-transferi/
+/en/vip-transport-georgia/           /ru/vip-transport-gruziya/                /ka/vip-transporti-saqartveloshi/
+/en/transfers/tbilisi-kutaisi/       /ru/transfery/tbilisi-kutaisi/            /ka/transferebi/tbilisi-qutaisi/
+/en/tours/kakheti/                   /ru/tury/kakhetiya/                       /ka/turebi/kakheti/
+/en/tours/mtskheta/                  /ru/tury/mtskheta/                        /ka/turebi/mtskheta/
+/en/tours/borjomi/                   /ru/tury/borjomi/                         /ka/turebi/borjomi/
 ```
 
+With wave 2 the URL architecture in spec §3.2 is fully built: 16 landing
+pages in three languages, 48 in total.
+
 `tours.html` and `gallery.html` stay at the root. They are admin-driven pages
-outside the wave-1 scope, they still translate client-side, and moving them
+outside the landing-page scope, they still translate client-side, and moving them
 would add migration risk for no ranking benefit. Their internal links were
 updated to the new addresses.
 
@@ -90,9 +102,11 @@ resolves to a real file and never to a redirect source.
 
 A deliberate split, confirmed with the client on 2026-08-28:
 
-- **Homepage and `corporate-transport-georgia`** keep the strict B2B/VIP tone
-  from the v3 positioning — delegations, partners, contracts, escort.
-- **The other nine landing pages** address individual travellers, couples,
+- **Homepage, `corporate-transport-georgia` and `vip-transport-georgia`** keep
+  the strict B2B/VIP tone from the v3 positioning — delegations, partners,
+  contracts, discretion, escort. These pages carry `tone: 'b2b'` in the
+  registry.
+- **The other fourteen landing pages** address individual travellers, couples,
   families and small groups (up to the Toyota Alphard's 6 seats), because that
   is the actual search intent behind "Tbilisi airport transfer", "private
   driver Georgia" and "private tours Georgia". Child seats and family framing
@@ -106,13 +120,21 @@ before or shortly after publication:
 1. **Prices.** No figures anywhere; every page routes pricing to WhatsApp.
    Add real numbers once calibrated, or leave the wording as it stands.
 2. **Route durations.** Kazbegi 2.5–3 h, Gudauri 2–2.5 h, Borjomi 2–2.5 h,
-   Batumi 5–6 h are general geographic estimates, not measured times — confirm
-   or correct.
+   Batumi 5–6 h, Kutaisi 3–3.5 h, Kutaisi airport to Batumi 2–2.5 h, and the
+   tour day-lengths (Kazbegi and Kakheti 8–10 h, Mtskheta 4–5 h, Borjomi 7–8 h
+   or 11–12 h with Vardzia) are general estimates, not measured times —
+   confirm or correct.
 3. **Georgian copy** needs a native-speaker read-through before it is
    promoted; it is published as supplied.
-4. **Guiding on tours.** The FAQ on the two tour pages says basic site
-   information is included and in-depth guiding is arranged separately.
-   Confirm this matches what KALA actually offers.
+4. **Guiding on tours.** The FAQ on the tours hub says basic site information
+   is included and in-depth guiding is arranged separately. Confirm this
+   matches what KALA actually offers.
+5. **Kakheti tastings.** The page states that tastings are booked at the
+   wineries themselves and that KALA plans the driving around them. Confirm
+   this, or tell us if you book tastings on the client's behalf.
+6. **Personal security on the VIP page.** The wording follows what the
+   homepage already claims — escort and security available on request,
+   arranged in advance. Confirm nothing more specific should be promised.
 
 ## 5. Working on this
 
@@ -120,12 +142,31 @@ before or shortly after publication:
 npm run seo
 ```
 
-Regenerates the 30 landing pages, `sitemap.xml` and `vercel.json` from
+Regenerates the 48 landing pages, `sitemap.xml` and `vercel.json` from
 `seo/pages.js` + `seo/chrome.js`, then validates the whole site. Edit the
 content in `seo/pages.js` — never the generated HTML, which is overwritten.
 
-`scripts/migrate-homepages.js` is the one-off migration helper for the
-`/en/ /ru/ /ka/` move. It is idempotent and already applied.
+`scripts/migrate-homepages.js` handles the three hand-written homepages: it
+pins each to its language, turns the language switcher into real links, and
+rewrites the footer cluster column between the `cluster:start` / `cluster:end`
+markers. Re-run it after changing `FOOTER_CLUSTER` in `seo/pages.js`; it is
+idempotent and reports when nothing changed.
+
+### Trap: paths in API and admin data must be root-relative
+
+The pages no longer sit at the root, so any path served from `/api/*` or saved
+through the admin has to start with `/`. This was missed in the wave-1 audit:
+`api/fleet.js` seeded its cars with `images/car.jpg` and `content.default.json`
+seeded the hero the same way, which resolved as `/en/images/car.jpg` once the
+homepage moved, and every fleet photo plus the hero background 404'd in
+production. The local static server has no `/api/*`, so nothing caught it
+before deploy.
+
+Two defences are now in place: the seeded paths are root-relative, and
+`window.KALA.assetUrl` (in `js/script.js`) anchors anything that is not
+already absolute, protocol-relative or a `data:` URI. Route new image sources
+through it. When testing anything that depends on `/api/*`, test against the
+deployed site or `vercel dev` — not the plain static server.
 
 ## 6. Deployment
 

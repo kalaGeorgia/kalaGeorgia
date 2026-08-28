@@ -25,6 +25,16 @@ const GROUP_HUB = {
   tours: 'private-tours-georgia'
 };
 
+// Landing pages promoted into the footer of every page on the site.
+const FOOTER_CLUSTER = [
+  'private-transfers-georgia',
+  'airport-transfer-tbilisi',
+  'private-driver-georgia',
+  'private-tours-georgia',
+  'vip-transport-georgia',
+  'corporate-transport-georgia'
+];
+
 const PAGES = [
   // ------------------------------------------------------------------ 1
   {
@@ -37,7 +47,7 @@ const PAGES = [
       ru: 'transfer-iz-aeroporta-tbilisi',
       ka: 'tbilisis-aeroportis-transferi'
     },
-    related: ['private-driver-georgia', 'private-transfers-georgia', 'tbilisi-kazbegi'],
+    related: ['kutaisi-airport-transfer', 'private-driver-georgia', 'private-transfers-georgia', 'tbilisi-kazbegi'],
     l: {
       en: {
         title: 'Tbilisi Airport Transfer | Private Driver | KALA Georgia',
@@ -128,7 +138,7 @@ const PAGES = [
       ru: 'individualnyy-voditel-gruziya',
       ka: 'piradi-mdzgholi-saqartveloshi'
     },
-    related: ['airport-transfer-tbilisi', 'private-transfers-georgia', 'private-tours-georgia'],
+    related: ['airport-transfer-tbilisi', 'private-transfers-georgia', 'private-tours-georgia', 'vip-transport-georgia'],
     l: {
       en: {
         title: 'Private Driver in Georgia — Hourly, Daily, or for Your Whole Visit | KALA Georgia',
@@ -216,7 +226,7 @@ const PAGES = [
       ru: 'individualnye-transfery-gruziya',
       ka: 'individualuri-transferebi-saqartveloshi'
     },
-    related: ['airport-transfer-tbilisi', 'tbilisi-kazbegi', 'tbilisi-batumi', 'private-tours-georgia'],
+    related: ['airport-transfer-tbilisi', 'kutaisi-airport-transfer', 'tbilisi-kazbegi', 'tbilisi-gudauri', 'tbilisi-borjomi', 'tbilisi-batumi', 'tbilisi-kutaisi'],
     l: {
       en: {
         title: 'Private Transfers Across Georgia — Fixed Price | KALA Georgia',
@@ -444,7 +454,7 @@ const PAGES = [
       ru: 'tbilisi-borjomi',
       ka: 'tbilisi-borjomi'
     },
-    related: ['private-transfers-georgia', 'private-tours-georgia', 'tbilisi-batumi'],
+    related: ['private-transfers-georgia', 'tour-borjomi', 'tbilisi-batumi'],
     l: {
       en: {
         title: 'Tbilisi to Borjomi Transfer | Private Driver | KALA Georgia',
@@ -520,7 +530,7 @@ const PAGES = [
       ru: 'tbilisi-batumi',
       ka: 'tbilisi-batumi'
     },
-    related: ['private-transfers-georgia', 'tbilisi-borjomi', 'private-driver-georgia'],
+    related: ['private-transfers-georgia', 'tbilisi-kutaisi', 'tbilisi-borjomi', 'private-driver-georgia'],
     l: {
       en: {
         title: 'Tbilisi to Batumi Transfer | Private Driver | KALA Georgia',
@@ -596,7 +606,7 @@ const PAGES = [
       ru: 'individualnye-tury-gruziya',
       ka: 'individualuri-turebi-saqartveloshi'
     },
-    related: ['tour-kazbegi', 'private-driver-georgia', 'private-transfers-georgia'],
+    related: ['tour-kazbegi', 'tour-kakheti', 'tour-mtskheta', 'tour-borjomi'],
     l: {
       en: {
         title: 'Private Tours in Georgia — No Group, No Fixed Schedule | KALA Georgia',
@@ -687,7 +697,7 @@ const PAGES = [
       ru: 'kazbegi',
       ka: 'yazbegi'
     },
-    related: ['private-tours-georgia', 'tbilisi-kazbegi', 'tbilisi-gudauri'],
+    related: ['private-tours-georgia', 'tour-kakheti', 'tour-mtskheta', 'tbilisi-kazbegi'],
     l: {
       en: {
         title: 'Private Kazbegi Tour from Tbilisi | Full Day | KALA Georgia',
@@ -766,7 +776,7 @@ const PAGES = [
       ru: 'korporativnyy-transport-gruziya',
       ka: 'korporatiuli-transporti-saqartveloshi'
     },
-    related: ['private-driver-georgia', 'airport-transfer-tbilisi', 'private-transfers-georgia'],
+    related: ['vip-transport-georgia', 'private-driver-georgia', 'airport-transfer-tbilisi'],
     l: {
       en: {
         title: 'Corporate Transportation in Georgia | Delegations & Conferences | KALA Georgia',
@@ -841,7 +851,502 @@ const PAGES = [
         ]
       }
     }
+  },
+
+  // ============================ WAVE 2 ============================
+  // The remaining pages from the URL architecture in spec §3.2, added
+  // once the wave-1 foundation was live and verified (spec §28).
+
+  // ----------------------------------------------------------------- 11
+  {
+    key: 'kutaisi-airport-transfer',
+    group: null,
+    serviceType: 'Airport Transfer',
+    areaServed: 'Kutaisi, Georgia',
+    slug: {
+      en: 'kutaisi-airport-transfer',
+      ru: 'transfer-iz-aeroporta-kutaisi',
+      ka: 'qutaisis-aeroportis-transferi'
+    },
+    related: ['airport-transfer-tbilisi', 'tbilisi-kutaisi', 'private-transfers-georgia'],
+    l: {
+      en: {
+        title: 'Kutaisi Airport Transfer | Private Driver | KALA Georgia',
+        description: 'Private transfer from Kutaisi International Airport to Batumi, Tbilisi or Kutaisi city. Meet & greet, flight tracking, free waiting for delays, up to 6 passengers.',
+        h1: 'Private Kutaisi Airport Transfer',
+        crumb: 'Kutaisi Airport Transfer',
+        lead: 'Kutaisi International is where most low-cost flights into Georgia land, and it sits well outside the cities passengers are actually heading for. A car waiting at arrivals saves the scramble for onward transport — which matters most on the late-night arrivals these routes are known for.',
+        sections: [
+          { h: 'What is included', ul: [
+            'a name sign in arrivals and help with luggage;',
+            'free waiting if your flight is delayed;',
+            'water, phone chargers, and Wi-Fi on board;',
+            'a child seat available on advance request.'
+          ] },
+          { h: 'Where we drive from Kutaisi', p: 'Kutaisi city and its hotels, Batumi and the coast, Tbilisi, and onward points elsewhere in Georgia by arrangement. Tell us the destination with your flight number and the price is fixed before you land.' },
+          { h: 'Vehicle', p: 'Toyota Alphard 2018, up to 6 passengers with luggage — worth having on the longer runs to Batumi or Tbilisi rather than a compact car after a night flight.' },
+          { h: 'How it works', p: 'Send your flight number and destination on WhatsApp, get a fixed price, and your driver meets you in the arrivals hall with a sign.' },
+          { h: 'Pricing', p: 'Confirmed on WhatsApp before the trip. No night surcharge and no extra for waiting when a flight runs late.' }
+        ],
+        faq: [
+          { q: 'Do you meet late-night flights at Kutaisi?', a: 'Yes. Most arrivals here are late, so night pickups are routine — book them in advance so a driver is assigned.' },
+          { q: 'How long is the drive to Batumi or Tbilisi?', a: 'Batumi is usually around 2–2.5 hours, Tbilisi around 3–3.5 hours depending on traffic and stops. We confirm at booking.' },
+          { q: 'What if my flight is delayed?', a: 'We track it by flight number and adjust the pickup. Waiting is free.' },
+          { q: 'Can you take us straight to a hotel outside the city?', a: 'Yes — give us the address when booking and we drive to the door.' }
+        ]
+      },
+      ru: {
+        title: 'Трансфер из аэропорта Кутаиси | Индивидуально | KALA Georgia',
+        description: 'Индивидуальный трансфер из аэропорта Кутаиси в Батуми, Тбилиси или город Кутаиси. Встреча с табличкой, отслеживание рейса, бесплатное ожидание, до 6 пассажиров.',
+        h1: 'Трансфер из аэропорта Кутаиси',
+        crumb: 'Трансфер из аэропорта Кутаиси',
+        lead: 'В Кутаиси приземляется большинство лоукост-рейсов в Грузию, а сам аэропорт находится далеко от тех городов, куда пассажиры на самом деле едут. Машина, которая ждёт в зале прилёта, снимает главную проблему этих рейсов — искать транспорт поздно ночью.',
+        sections: [
+          { h: 'Что входит в поездку', ul: [
+            'табличка с именем в зале прилёта, помощь с чемоданами;',
+            'бесплатное ожидание при задержке рейса;',
+            'вода, зарядки для телефона, Wi-Fi в салоне;',
+            'детское кресло — по предварительному запросу.'
+          ] },
+          { h: 'Куда возим из Кутаиси', p: 'Город Кутаиси и его отели, Батуми и побережье, Тбилиси, а также другие точки Грузии по договорённости. Напишите направление вместе с номером рейса — цену зафиксируем до вашего прилёта.' },
+          { h: 'Автомобиль', p: 'Toyota Alphard 2018, до 6 пассажиров с багажом — на длинных перегонах до Батуми или Тбилиси это заметно комфортнее компактной машины после ночного перелёта.' },
+          { h: 'Как это работает', p: 'Отправляете номер рейса и точку назначения в WhatsApp, получаете фиксированную цену, водитель встречает в зале прилёта с табличкой.' },
+          { h: 'Цена', p: 'Фиксируется в WhatsApp до поездки. Без ночной доплаты и без доплаты за ожидание, если рейс задерживается.' }
+        ],
+        faq: [
+          { q: 'Встречаете ночные рейсы в Кутаиси?', a: 'Да. Здесь большинство прилётов ночные, так что это обычная практика — просто забронируйте заранее, чтобы за вами закрепили водителя.' },
+          { q: 'Сколько ехать до Батуми или Тбилиси?', a: 'До Батуми обычно около 2–2,5 часов, до Тбилиси около 3–3,5 часов в зависимости от трафика и остановок. Уточним при бронировании.' },
+          { q: 'Что если рейс задержится?', a: 'Отслеживаем по номеру рейса и сдвигаем подачу. Ожидание бесплатное.' },
+          { q: 'Довезёте сразу до отеля за городом?', a: 'Да, дайте адрес при бронировании — везём до двери.' }
+        ]
+      },
+      ka: {
+        title: 'ქუთაისის აეროპორტის ტრანსფერი | KALA Georgia',
+        description: 'ინდივიდუალური ტრანსფერი ქუთაისის საერთაშორისო აეროპორტიდან ბათუმში, თბილისში ან ქუთაისში. დახვედრა ტაბლოთი, რეისის მონიტორინგი, უფასო ლოდინი, 6 მგზავრამდე.',
+        h1: 'ქუთაისის აეროპორტის ინდივიდუალური ტრანსფერი',
+        crumb: 'ქუთაისის აეროპორტის ტრანსფერი',
+        lead: 'ქუთაისის საერთაშორისო აეროპორტში ჩამოდის საქართველოში შემომავალი დაბალბიუჯეტიანი რეისების უმეტესობა, თავად აეროპორტი კი შორსაა იმ ქალაქებიდან, სადაც მგზავრები მიემართებიან. ჩამოსვლის დარბაზში მომლოდინე მანქანა ხსნის ამ რეისების მთავარ პრობლემას — ღამით ტრანსპორტის ძებნას.',
+        sections: [
+          { h: 'რა შედის მომსახურებაში', ul: [
+            'სახელიანი ტაბლო ჩამოსვლის დარბაზში, დახმარება ბარგით;',
+            'უფასო ლოდინი რეისის დაგვიანების შემთხვევაში;',
+            'წყალი, დამტენები, Wi-Fi სალონში;',
+            'საბავშვო სავარძელი — წინასწარი მოთხოვნით.'
+          ] },
+          { h: 'საით ვმგზავრობთ ქუთაისიდან', p: 'ქუთაისი და მისი სასტუმროები, ბათუმი და ზღვისპირეთი, თბილისი, ასევე საქართველოს სხვა წერტილები შეთანხმებით. მოგვწერეთ მიმართულება რეისის ნომერთან ერთად — ფასს დავაფიქსირებთ თქვენს ჩამოსვლამდე.' },
+          { h: 'ავტომობილი', p: 'Toyota Alphard 2018, 6 მგზავრამდე ბარგით — ბათუმამდე ან თბილისამდე გრძელ გზაზე ღამის ფრენის შემდეგ ეს კომპაქტურ მანქანაზე შესამჩნევად კომფორტულია.' },
+          { h: 'როგორ მუშაობს', p: 'გამოგზავნეთ რეისის ნომერი და დანიშნულების ადგილი WhatsApp-ში, მიიღეთ ფიქსირებული ფასი, მძღოლი დაგხვდებათ ჩამოსვლის დარბაზში ტაბლოთი.' },
+          { h: 'ფასი', p: 'ფიქსირდება WhatsApp-ში მგზავრობამდე. ღამის დანამატის გარეშე და ლოდინის დამატებითი გადასახადის გარეშე.' }
+        ],
+        faq: [
+          { q: 'ხვდებით ღამის რეისებს ქუთაისში?', a: 'დიახ. აქ ჩამოსვლების უმეტესობა ღამითაა, ასე რომ ეს ჩვეული პრაქტიკაა — უბრალოდ დაჯავშნეთ წინასწარ.' },
+          { q: 'რამდენი ხანი სჭირდება ბათუმამდე ან თბილისამდე?', a: 'ბათუმამდე ჩვეულებრივ დაახლოებით 2–2.5 საათი, თბილისამდე დაახლოებით 3–3.5 საათი, ტრაფიკისა და გაჩერებების მიხედვით.' },
+          { q: 'რა მოხდება, თუ რეისი დაგვიანდება?', a: 'ვაკონტროლებთ რეისის ნომრით და მიწოდებას ვარეგულირებთ. ლოდინი უფასოა.' },
+          { q: 'მიგვიყვანთ პირდაპირ ქალაქგარეთ სასტუმრომდე?', a: 'დიახ, მიუთითეთ მისამართი დაჯავშნისას.' }
+        ]
+      }
+    }
+  },
+
+  // ----------------------------------------------------------------- 12
+  {
+    key: 'vip-transport-georgia',
+    group: null,
+    serviceType: 'VIP Transportation',
+    areaServed: 'Georgia',
+    // Second page in this wave that keeps the strict B2B/VIP tone.
+    tone: 'b2b',
+    slug: {
+      en: 'vip-transport-georgia',
+      ru: 'vip-transport-gruziya',
+      ka: 'vip-transporti-saqartveloshi'
+    },
+    related: ['corporate-transport-georgia', 'private-driver-georgia', 'airport-transfer-tbilisi'],
+    l: {
+      en: {
+        title: 'VIP Transport in Georgia — Discreet and Unbranded | KALA Georgia',
+        description: 'VIP transport in Georgia: unbranded vehicles, drivers in business attire, confidentiality as standard, personal escort and security available on request.',
+        h1: 'VIP Transport in Georgia',
+        crumb: 'VIP Transport',
+        lead: 'For visits where discretion matters more than anything else: an unbranded car, one driver for the whole stay rather than a rotating pool, and nothing about the trip discussed outside it.',
+        sections: [
+          { h: 'What VIP means here', ul: [
+            'unbranded vehicles — no livery, no advertising, nothing that identifies the trip;',
+            'drivers in business attire, briefed on the schedule before the visit;',
+            'confidentiality as standard rather than as an add-on;',
+            'the same driver for the whole visit, so the routine is not re-explained daily.'
+          ] },
+          { h: 'Personal escort and security', p: 'Available on request and arranged around the specific visit rather than sold as a package. Raise the requirement while the dates are still being set — it shapes the planning, and it is not something to arrange the night before.' },
+          { h: 'Vehicle', p: 'Toyota Alphard 2018 as the primary car: a business-class cabin with room to work or take a call between meetings. Partner vehicles are brought in when the party is larger than six.' },
+          { h: 'How a visit is arranged', p: 'Send the dates and the format on WhatsApp, we propose a plan and assign a driver, and the terms are fixed in writing before arrival. Nothing about the schedule changes en route without your say-so.' },
+          { h: 'Pricing', p: 'Agreed per day or per visit in writing before arrival. Contracts and invoicing are available for companies.' }
+        ],
+        faq: [
+          { q: 'Are the cars marked in any way?', a: 'No. Vehicles carry no livery or advertising.' },
+          { q: 'Can you provide personal security?', a: 'Personal escort and security are available on request and arranged in advance around the visit — tell us early, while dates are still flexible.' },
+          { q: 'Will we have the same driver throughout?', a: 'Yes, that is the default here rather than an upgrade.' },
+          { q: 'Do you work with companies on contract?', a: 'Yes — contracts, cashless invoicing and closing documents for accounting.' }
+        ]
+      },
+      ru: {
+        title: 'VIP-транспорт в Грузии — конфиденциально, без брендинга | KALA Georgia',
+        description: 'VIP-транспорт в Грузии: автомобили без брендинга, водители в деловой одежде, конфиденциальность по умолчанию, личное сопровождение и охрана по запросу.',
+        h1: 'VIP-транспорт в Грузии',
+        crumb: 'VIP-транспорт',
+        lead: 'Для визитов, где важнее всего сдержанность: автомобиль без опознавательных знаков, один водитель на весь визит вместо сменяющихся людей и ничего о поездке за её пределами.',
+        sections: [
+          { h: 'Что здесь означает VIP', ul: [
+            'автомобили без брендинга — никакой оклейки, рекламы и ничего, что обозначает поездку;',
+            'водители в деловой одежде, ознакомленные с графиком до начала визита;',
+            'конфиденциальность по умолчанию, а не как отдельная опция;',
+            'один и тот же водитель на весь визит — распорядок не приходится объяснять заново каждый день.'
+          ] },
+          { h: 'Личное сопровождение и охрана', p: 'Доступны по запросу и выстраиваются под конкретный визит, а не продаются пакетом. Поднимайте этот вопрос, пока даты ещё согласуются: он влияет на планирование, и это не та задача, которую решают накануне.' },
+          { h: 'Автомобиль', p: 'Toyota Alphard 2018 как основная машина: салон бизнес-класса, в котором можно поработать или спокойно поговорить по телефону между встречами. Партнёрские автомобили подключаются, когда в группе больше шести человек.' },
+          { h: 'Как организуется визит', p: 'Присылаете даты и формат в WhatsApp, мы предлагаем план и закрепляем водителя, условия фиксируем письменно до вашего приезда. В дороге в графике ничего не меняется без вашего согласия.' },
+          { h: 'Цена', p: 'Согласуется письменно за день или за визит целиком до приезда. Для компаний доступны договор и безналичная оплата.' }
+        ],
+        faq: [
+          { q: 'Автомобили как-то обозначены?', a: 'Нет. На машинах нет оклейки и рекламы.' },
+          { q: 'Можете обеспечить личную охрану?', a: 'Личное сопровождение и охрана доступны по запросу и организуются заранее под конкретный визит — сообщите об этом рано, пока даты ещё подвижны.' },
+          { q: 'Водитель будет один и тот же весь визит?', a: 'Да, здесь это норма, а не платное улучшение.' },
+          { q: 'Работаете с компаниями по договору?', a: 'Да — договор, безналичный расчёт и закрывающие документы для бухгалтерии.' }
+        ]
+      },
+      ka: {
+        title: 'VIP ტრანსპორტი საქართველოში — დისკრეტულად, ბრენდირების გარეშე | KALA Georgia',
+        description: 'VIP ტრანსპორტი საქართველოში: ავტომობილები ბრენდირების გარეშე, მძღოლები საქმიან ჩაცმულობაში, კონფიდენციალურობა სტანდარტულად, პირადი თანხლება და დაცვა მოთხოვნით.',
+        h1: 'VIP ტრანსპორტი საქართველოში',
+        crumb: 'VIP ტრანსპორტი',
+        lead: 'ვიზიტებისთვის, სადაც ყველაფერზე მეტად დისკრეტულობაა მნიშვნელოვანი: ავტომობილი ამოსაცნობი ნიშნების გარეშე, ერთი მძღოლი მთელი ვიზიტისთვის და არაფერი მგზავრობის შესახებ მის ფარგლებს გარეთ.',
+        sections: [
+          { h: 'რას ნიშნავს აქ VIP', ul: [
+            'ავტომობილები ბრენდირების გარეშე — არანაირი გაწებება ან რეკლამა;',
+            'მძღოლები საქმიან ჩაცმულობაში, გრაფიკს გაცნობილი ვიზიტის დაწყებამდე;',
+            'კონფიდენციალურობა სტანდარტულად, არა ცალკე ოფციად;',
+            'ერთი და იგივე მძღოლი მთელი ვიზიტისთვის — რუტინის ყოველდღიური ახსნა საჭირო აღარაა.'
+          ] },
+          { h: 'პირადი თანხლება და დაცვა', p: 'ხელმისაწვდომია მოთხოვნით და ეწყობა კონკრეტული ვიზიტისთვის, არა პაკეტად. წამოაყენეთ ეს საკითხი, სანამ თარიღები ჯერ კიდევ თანხმდება — ის გავლენას ახდენს დაგეგმვაზე.' },
+          { h: 'ავტომობილი', p: 'Toyota Alphard 2018 ძირითად მანქანად: ბიზნეს-კლასის სალონი, სადაც შეხვედრებს შორის შესაძლებელია მუშაობა ან სატელეფონო საუბარი. პარტნიორული ავტომობილები ერთვება, როცა ჯგუფი ექვს კაცზე მეტია.' },
+          { h: 'როგორ ეწყობა ვიზიტი', p: 'გამოგზავნეთ თარიღები და ფორმატი WhatsApp-ში, ჩვენ შემოგთავაზებთ გეგმას და დაგინიშნავთ მძღოლს, პირობებს წერილობით ვაფიქსირებთ ჩამოსვლამდე.' },
+          { h: 'ფასი', p: 'თანხმდება წერილობით დღეში ან მთელ ვიზიტზე ჩამოსვლამდე. კომპანიებისთვის ხელმისაწვდომია ხელშეკრულება და უნაღდო ანგარიშსწორება.' }
+        ],
+        faq: [
+          { q: 'ავტომობილები რაიმენაირად არის აღნიშნული?', a: 'არა. მანქანებზე არ არის გაწებება ან რეკლამა.' },
+          { q: 'შეგიძლიათ პირადი დაცვის უზრუნველყოფა?', a: 'პირადი თანხლება და დაცვა ხელმისაწვდომია მოთხოვნით და ეწყობა წინასწარ — შეგვატყობინეთ ადრე.' },
+          { q: 'მძღოლი ერთი და იგივე იქნება მთელი ვიზიტის განმავლობაში?', a: 'დიახ, აქ ეს ნორმაა და არა ფასიანი გაუმჯობესება.' },
+          { q: 'მუშაობთ კომპანიებთან ხელშეკრულებით?', a: 'დიახ — ხელშეკრულება, უნაღდო ანგარიშსწორება და საბუღალტრო დოკუმენტები.' }
+        ]
+      }
+    }
+  },
+
+  // ----------------------------------------------------------------- 13
+  {
+    key: 'tbilisi-kutaisi',
+    group: 'transfers',
+    serviceType: 'Intercity Private Transfer',
+    areaServed: 'Tbilisi and Kutaisi, Georgia',
+    slug: {
+      en: 'tbilisi-kutaisi',
+      ru: 'tbilisi-kutaisi',
+      ka: 'tbilisi-qutaisi'
+    },
+    related: ['private-transfers-georgia', 'kutaisi-airport-transfer', 'tbilisi-batumi'],
+    l: {
+      en: {
+        title: 'Tbilisi to Kutaisi Transfer | Private Driver | KALA Georgia',
+        description: 'Private transfer from Tbilisi to Kutaisi on the main highway: stops as you like, fixed price, up to 6 passengers with luggage.',
+        h1: 'Private Transfer from Tbilisi to Kutaisi',
+        crumb: 'Tbilisi to Kutaisi',
+        lead: 'Kutaisi works both as a stop on the way west and as a base in its own right — the airport, the Gelati and Bagrati monuments, and the canyons and caves of Imereti are all close to the city.',
+        sections: [
+          { h: 'About the route', p: 'Roughly 230 km on the main highway, typically a 3–3.5 hour drive without stops. It is the easiest of the long routes: motorway most of the way, no mountain passes.' },
+          { h: 'What is included', p: 'Pickup at your Tbilisi hotel or address, stops along the way at your request, water and chargers on board, help with luggage at both ends.' },
+          { h: 'Vehicle', p: 'Toyota Alphard 2018, up to 6 passengers with luggage — a spacious second row and climate control for the three hours on the road.' },
+          { h: 'Trip formats', p: 'One-way when you are moving west, a round trip, a drop at Kutaisi airport instead of the city, or continuing to Batumi the same day — Kutaisi sits roughly half-way.' },
+          { h: 'Pricing', p: 'Confirmed on WhatsApp for your date and format before the trip.' }
+        ],
+        faq: [
+          { q: 'Can we stop at Gelati or one of the canyons on the way?', a: 'Yes, by arrangement — tell us in advance so the day is planned around it rather than squeezed in.' },
+          { q: 'Can you continue to Batumi the same day?', a: 'Yes. Kutaisi is roughly half-way to the coast, so this is a common combination.' },
+          { q: 'How long does the drive take?', a: 'Usually 3–3.5 hours without stops, depending on traffic.' },
+          { q: 'Can you drop us at Kutaisi airport instead of the city?', a: 'Yes — say so when booking and we plan the timing around your flight.' }
+        ]
+      },
+      ru: {
+        title: 'Трансфер Тбилиси — Кутаиси | Индивидуально | KALA Georgia',
+        description: 'Индивидуальный трансфер из Тбилиси в Кутаиси по основной трассе: остановки по желанию, фиксированная цена, до 6 пассажиров с багажом.',
+        h1: 'Трансфер из Тбилиси в Кутаиси',
+        crumb: 'Тбилиси — Кутаиси',
+        lead: 'Кутаиси работает и как остановка по дороге на запад, и как самостоятельная база: аэропорт, Гелати и Баграти, а также каньоны и пещеры Имеретии находятся рядом с городом.',
+        sections: [
+          { h: 'О маршруте', p: 'Расстояние — около 230 км по основной трассе, время в пути обычно 3–3,5 часа без остановок. Самый простой из длинных маршрутов: почти всю дорогу автомагистраль, без горных перевалов.' },
+          { h: 'Что входит', p: 'Подача к отелю или адресу в Тбилиси, остановки в пути по желанию, вода и зарядки в салоне, помощь с багажом на посадке и высадке.' },
+          { h: 'Автомобиль', p: 'Toyota Alphard 2018, до 6 пассажиров с багажом — просторный второй ряд и климат-контроль на три часа дороги.' },
+          { h: 'Варианты поездки', p: 'В одну сторону при переезде на запад, туда-обратно, высадка в аэропорту Кутаиси вместо города или продолжение до Батуми тем же днём — Кутаиси находится примерно на полпути.' },
+          { h: 'Цена', p: 'Фиксируется в WhatsApp по вашей дате и формату до поездки.' }
+        ],
+        faq: [
+          { q: 'Можно заехать в Гелати или в один из каньонов по пути?', a: 'Да, по договорённости — предупредите заранее, чтобы день был спланирован под это, а не втиснут в остаток времени.' },
+          { q: 'Можно продолжить до Батуми тем же днём?', a: 'Да. Кутаиси примерно на полпути к побережью, это частое сочетание.' },
+          { q: 'Сколько занимает дорога?', a: 'Обычно 3–3,5 часа без остановок, в зависимости от трафика.' },
+          { q: 'Можно высадиться в аэропорту Кутаиси вместо города?', a: 'Да — скажите при бронировании, подстроим время под ваш рейс.' }
+        ]
+      },
+      ka: {
+        title: 'ტრანსფერი თბილისი — ქუთაისი | ინდივიდუალურად | KALA Georgia',
+        description: 'ინდივიდუალური ტრანსფერი თბილისიდან ქუთაისში მთავარი ტრასით: გაჩერებები სურვილისამებრ, ფიქსირებული ფასი, 6 მგზავრამდე ბარგით.',
+        h1: 'ტრანსფერი თბილისიდან ქუთაისში',
+        crumb: 'თბილისი — ქუთაისი',
+        lead: 'ქუთაისი მუშაობს როგორც გაჩერება დასავლეთისკენ მიმავალ გზაზე, ისე დამოუკიდებელ ბაზად: აეროპორტი, გელათი და ბაგრატი, ასევე იმერეთის კანიონები და გამოქვაბულები ქალაქთან ახლოსაა.',
+        sections: [
+          { h: 'მარშრუტის შესახებ', p: 'მანძილი — დაახლოებით 230 კმ მთავარი ტრასით, გზაში დრო ჩვეულებრივ 3–3.5 საათია გაჩერების გარეშე. ყველაზე მარტივია გრძელ მარშრუტებს შორის: თითქმის მთელი გზა ავტომაგისტრალია, მთის უღელტეხილების გარეშე.' },
+          { h: 'რა შედის', p: 'მიწოდება თქვენს სასტუმროზე ან მისამართზე თბილისში, გაჩერებები გზაში სურვილისამებრ, წყალი და დამტენები სალონში, დახმარება ბარგით.' },
+          { h: 'ავტომობილი', p: 'Toyota Alphard 2018, 6 მგზავრამდე ბარგით — ვრცელი მეორე რიგი და კლიმატ-კონტროლი სამსაათიან გზაზე.' },
+          { h: 'მგზავრობის ფორმატები', p: 'ცალმხრივად დასავლეთში გადასვლისას, იმავე დღეს დაბრუნებით, ჩამოსხმა ქუთაისის აეროპორტში ქალაქის ნაცვლად, ან ბათუმამდე გაგრძელება იმავე დღეს — ქუთაისი დაახლოებით ნახევარ გზაზეა.' },
+          { h: 'ფასი', p: 'ფიქსირდება WhatsApp-ში თქვენი თარიღისა და ფორმატის მიხედვით.' }
+        ],
+        faq: [
+          { q: 'შესაძლებელია გელათში ან რომელიმე კანიონში შესვლა გზად?', a: 'დიახ, შეთანხმებით — გვაცნობეთ წინასწარ, რომ დღე ამის გარშემო დაიგეგმოს.' },
+          { q: 'შესაძლებელია ბათუმამდე გაგრძელება იმავე დღეს?', a: 'დიახ. ქუთაისი დაახლოებით ნახევარ გზაზეა ზღვისპირეთამდე.' },
+          { q: 'რამდენ ხანს გრძელდება გზა?', a: 'ჩვეულებრივ 3–3.5 საათი გაჩერების გარეშე, ტრაფიკის მიხედვით.' },
+          { q: 'შესაძლებელია ქუთაისის აეროპორტში ჩამოსხმა ქალაქის ნაცვლად?', a: 'დიახ — შეგვატყობინეთ დაჯავშნისას და დროს თქვენს რეისზე მოვარგებთ.' }
+        ]
+      }
+    }
+  },
+
+  // ----------------------------------------------------------------- 14
+  {
+    key: 'tour-kakheti',
+    group: 'tours',
+    serviceType: 'Private Day Tour',
+    areaServed: 'Kakheti, Georgia',
+    slug: {
+      en: 'kakheti',
+      ru: 'kakhetiya',
+      ka: 'kakheti'
+    },
+    related: ['private-tours-georgia', 'tour-mtskheta', 'private-driver-georgia'],
+    l: {
+      en: {
+        title: 'Private Kakheti Tour from Tbilisi | Wine Region Day Trip | KALA Georgia',
+        description: 'A private day tour from Tbilisi to Kakheti: Sighnaghi, Bodbe Monastery, Telavi and the wineries. Your own pace, up to 6 people, fixed price for the day.',
+        h1: 'Private Kakheti Tour from Tbilisi',
+        crumb: 'Kakheti Tour',
+        lead: 'Georgia’s wine region at whatever pace suits the day. Kakheti rewards a long lunch and an unhurried tasting far more than a tight schedule — which is exactly what a group tour cannot give you.',
+        sections: [
+          { h: 'Along the route', p: 'Sighnaghi, the walled hill town above the Alazani valley, and Bodbe Monastery just below it; Telavi as the regional centre; and the wineries around Tsinandali and Kvareli. How many of these fit into one day depends entirely on how long you stop at each.' },
+          { h: 'What is included', p: 'Pickup at your Tbilisi hotel, the driving between wineries and monasteries, waiting while you visit, stops for lunch and photos, water and chargers on board.' },
+          { h: 'About the tastings', p: 'Tastings are booked at the wineries themselves — tell us in advance which ones you have in mind and we plan the driving around them. Because the car is private, nobody in your group has to choose between tasting and driving.' },
+          { h: 'Vehicle', p: 'Toyota Alphard 2018, up to 6 passengers — comfortable for a group spending a full day moving between estates.' },
+          { h: 'Duration', p: 'Typically a full day, roughly 8–10 hours door to door including stops. A shorter Sighnaghi-only day is also fine.' },
+          { h: 'Pricing', p: 'Fixed for the day on WhatsApp by the route you choose. Winery entrance and tasting fees are paid at the wineries.' }
+        ],
+        faq: [
+          { q: 'Do you book the wine tastings for us?', a: 'We plan the route around the wineries you want to visit; the tasting itself is booked at the winery. Tell us in advance for the better-known estates.' },
+          { q: 'Is it a problem if everyone in our group is drinking?', a: 'No — that is rather the point of having a private driver for the day.' },
+          { q: 'How many wineries fit into one day?', a: 'Two or three comfortably, alongside a monastery and a proper lunch. More is possible but starts to feel rushed.' },
+          { q: 'Can we just go to Sighnaghi and come back early?', a: 'Yes. A shorter Kakheti day is a normal request — say so at booking and we price it accordingly.' }
+        ]
+      },
+      ru: {
+        title: 'Тур в Кахетию из Тбилиси | Винный регион на день | KALA Georgia',
+        description: 'Индивидуальный однодневный тур из Тбилиси в Кахетию: Сигнахи, монастырь Бодбе, Телави и винодельни. Свой темп, до 6 человек, фиксированная цена за день.',
+        h1: 'Тур в Кахетию из Тбилиси',
+        crumb: 'Тур в Кахетию',
+        lead: 'Винный регион Грузии в том темпе, который подходит именно вашему дню. Кахетия куда лучше отвечает на долгий обед и неспешную дегустацию, чем на плотный график, — а именно этого групповой тур дать не может.',
+        sections: [
+          { h: 'Что по маршруту', p: 'Сигнахи — городок за крепостной стеной на holme над Алазанской долиной — и монастырь Бодбе чуть ниже; Телави как центр региона; винодельни в окрестностях Цинандали и Кварели. Сколько из этого поместится в один день, зависит только от того, насколько долго вы задерживаетесь в каждой точке.' },
+          { h: 'Что входит', p: 'Подача к отелю в Тбилиси, переезды между винодельнями и монастырями, ожидание, пока вы внутри, остановки на обед и фото, вода и зарядки в салоне.' },
+          { h: 'О дегустациях', p: 'Дегустации бронируются на самих винодельнях — скажите заранее, какие вам интересны, и мы выстроим маршрут вокруг них. Машина индивидуальная, поэтому никому в группе не придётся выбирать между дегустацией и рулём.' },
+          { h: 'Автомобиль', p: 'Toyota Alphard 2018, до 6 пассажиров — комфортно для компании, которая весь день перемещается между хозяйствами.' },
+          { h: 'Продолжительность', p: 'Обычно полный день, ориентировочно 8–10 часов с учётом остановок. Короткий вариант только до Сигнахи тоже возможен.' },
+          { h: 'Цена', p: 'Фиксируется в WhatsApp за день по выбранному маршруту. Входные билеты и дегустации оплачиваются на винодельнях.' }
+        ],
+        faq: [
+          { q: 'Вы бронируете дегустации за нас?', a: 'Мы выстраиваем маршрут вокруг тех виноделен, которые вам нужны; сама дегустация бронируется на винодельне. По известным хозяйствам предупредите заранее.' },
+          { q: 'Ничего, если пьёт вся группа?', a: 'Ничего — ради этого индивидуальный водитель на день и берётся.' },
+          { q: 'Сколько виноделен реально успеть за день?', a: 'Две-три спокойно, вместе с монастырём и нормальным обедом. Больше возможно, но начинает ощущаться спешка.' },
+          { q: 'Можно съездить только в Сигнахи и вернуться пораньше?', a: 'Да. Короткий кахетинский день — обычный запрос, скажите при бронировании, и цену посчитаем под него.' }
+        ]
+      },
+      ka: {
+        title: 'ტური კახეთში თბილისიდან | ღვინის რეგიონი ერთ დღეში | KALA Georgia',
+        description: 'ინდივიდუალური ერთდღიანი ტური თბილისიდან კახეთში: სიღნაღი, ბოდბის მონასტერი, თელავი და მარნები. თქვენი ტემპით, 6 კაცამდე, ფიქსირებული დღიური ფასი.',
+        h1: 'ტური კახეთში თბილისიდან',
+        crumb: 'ტური კახეთში',
+        lead: 'საქართველოს ღვინის რეგიონი იმ ტემპით, რომელიც თქვენს დღეს შეეფერება. კახეთი ბევრად უკეთ პასუხობს ხანგრძლივ სადილსა და აუჩქარებელ დეგუსტაციას, ვიდრე მჭიდრო განრიგს — და სწორედ ამის მოცემა არ შეუძლია ჯგუფურ ტურს.',
+        sections: [
+          { h: 'რა არის მარშრუტზე', p: 'სიღნაღი — გალავნიანი ქალაქი ალაზნის ველის თავზე — და ბოდბის მონასტერი ოდნავ ქვემოთ; თელავი რეგიონის ცენტრად; მარნები წინანდლისა და ყვარლის შემოგარენში. რამდენი მოთავსდება ერთ დღეში, მთლიანად იმაზეა დამოკიდებული, რამდენ ხანს ჩერდებით თითოეულში.' },
+          { h: 'რა შედის', p: 'მიწოდება თბილისში სასტუმროზე, გადაადგილება მარნებსა და მონასტრებს შორის, ლოდინი სანამ შიგნით ხართ, გაჩერებები სადილისა და ფოტოსთვის, წყალი და დამტენები.' },
+          { h: 'დეგუსტაციების შესახებ', p: 'დეგუსტაციები ჯავშნდება თავად მარნებში — გვითხარით წინასწარ, რომლები გაინტერესებთ, და მარშრუტს მათ გარშემო ავაგებთ. მანქანა ინდივიდუალურია, ამიტომ ჯგუფში არავის მოუწევს არჩევანი დეგუსტაციასა და საჭეს შორის.' },
+          { h: 'ავტომობილი', p: 'Toyota Alphard 2018, 6 მგზავრამდე — კომფორტულია კომპანიისთვის, რომელიც მთელი დღე მარნებს შორის გადაადგილდება.' },
+          { h: 'ხანგრძლივობა', p: 'ჩვეულებრივ სრული დღე, დაახლოებით 8–10 საათი გაჩერებების ჩათვლით. მოკლე ვარიანტი მხოლოდ სიღნაღამდე ასევე შესაძლებელია.' },
+          { h: 'ფასი', p: 'ფიქსირდება WhatsApp-ში დღისთვის არჩეული მარშრუტის მიხედვით. შესვლისა და დეგუსტაციის საფასური მარნებში იხდება.' }
+        ],
+        faq: [
+          { q: 'დეგუსტაციებს თქვენ ჯავშნით?', a: 'ჩვენ ვაგებთ მარშრუტს იმ მარნების გარშემო, რომლებიც გჭირდებათ; დეგუსტაცია თავად მარანში ჯავშნდება. ცნობილი მარნებისთვის გვაცნობეთ წინასწარ.' },
+          { q: 'პრობლემაა, თუ მთელი ჯგუფი სვამს?', a: 'არა — სწორედ ამიტომ ქირავდება პირადი მძღოლი დღით.' },
+          { q: 'რამდენი მარანი ეტევა ერთ დღეში?', a: 'ორი ან სამი მშვიდად, მონასტერთან და სრულფასოვან სადილთან ერთად.' },
+          { q: 'შეიძლება მხოლოდ სიღნაღში წასვლა და ადრე დაბრუნება?', a: 'დიახ. მოკლე კახური დღე ჩვეული მოთხოვნაა — შეგვატყობინეთ დაჯავშნისას.' }
+        ]
+      }
+    }
+  },
+
+  // ----------------------------------------------------------------- 15
+  {
+    key: 'tour-mtskheta',
+    group: 'tours',
+    serviceType: 'Private Day Tour',
+    areaServed: 'Mtskheta, Georgia',
+    slug: {
+      en: 'mtskheta',
+      ru: 'mtskheta',
+      ka: 'mtskheta'
+    },
+    related: ['private-tours-georgia', 'tour-kakheti', 'tour-kazbegi'],
+    l: {
+      en: {
+        title: 'Private Mtskheta Tour from Tbilisi | Half Day | KALA Georgia',
+        description: 'A private half-day tour from Tbilisi to Mtskheta: Jvari Monastery and Svetitskhoveli Cathedral, both UNESCO sites. Up to 6 people, at your own pace.',
+        h1: 'Private Mtskheta Tour from Tbilisi',
+        crumb: 'Mtskheta Tour',
+        lead: 'The shortest of our tours and the easiest to fit into a full trip — Georgia’s ancient capital sits about half an hour from central Tbilisi, and half a day covers it without rushing.',
+        sections: [
+          { h: 'Along the route', p: 'Jvari Monastery on the ridge above the confluence of the Mtkvari and Aragvi rivers, and Svetitskhoveli Cathedral in the old town below — both UNESCO World Heritage sites. Shio-Mgvime monastery in the gorge nearby can be added if you have the time.' },
+          { h: 'What is included', p: 'Pickup at your Tbilisi hotel, driving between the sites, waiting while you walk around, water and chargers on board.' },
+          { h: 'Vehicle', p: 'Toyota Alphard 2018, up to 6 passengers — a short drive, so this one works well with young children or older relatives.' },
+          { h: 'Duration', p: 'Typically 4–5 hours door to door. Because the driving day is short, it is often paired with something else — Mtskheta sits on the road north, so Ananuri or Gudauri can follow the same afternoon.' },
+          { h: 'Pricing', p: 'Fixed on WhatsApp. Half-day and full-day formats are both available — the full day is the one that adds a second destination.' }
+        ],
+        faq: [
+          { q: 'Is half a day really enough?', a: 'For Jvari and Svetitskhoveli at a comfortable pace, yes. Adding Shio-Mgvime pushes it closer to a full day.' },
+          { q: 'Can we combine Mtskheta with somewhere else the same day?', a: 'Yes, and it is a common request. Mtskheta is on the road north, so Ananuri or Gudauri follow naturally.' },
+          { q: 'Is there a dress code at the churches?', a: 'Both are working churches — shoulders and knees covered, and women are usually asked to cover their heads. Scarves are normally available at the entrance.' },
+          { q: 'Does it work with young children?', a: 'Yes. The drive is short and both main sites are walkable.' }
+        ]
+      },
+      ru: {
+        title: 'Тур в Мцхету из Тбилиси | Полдня | KALA Georgia',
+        description: 'Индивидуальный тур на полдня из Тбилиси в Мцхету: монастырь Джвари и собор Светицховели, оба в списке ЮНЕСКО. До 6 человек, в своём темпе.',
+        h1: 'Тур в Мцхету из Тбилиси',
+        crumb: 'Тур в Мцхету',
+        lead: 'Самый короткий из наших туров и проще всего встраивается в насыщенную поездку: древняя столица Грузии находится примерно в получасе от центра Тбилиси, и полдня хватает, чтобы осмотреть её без спешки.',
+        sections: [
+          { h: 'Что по маршруту', p: 'Монастырь Джвари на гребне над слиянием Мтквари и Арагви и собор Светицховели в старом городе внизу — оба объекта Всемирного наследия ЮНЕСКО. При наличии времени можно добавить монастырь Шио-Мгвиме в ущелье неподалёку.' },
+          { h: 'Что входит', p: 'Подача к отелю в Тбилиси, переезды между объектами, ожидание, пока вы гуляете, вода и зарядки в салоне.' },
+          { h: 'Автомобиль', p: 'Toyota Alphard 2018, до 6 пассажиров — дорога короткая, поэтому этот маршрут хорошо подходит и с маленькими детьми, и с пожилыми родственниками.' },
+          { h: 'Продолжительность', p: 'Обычно 4–5 часов от двери до двери. Поскольку дорога короткая, маршрут часто совмещают: Мцхета стоит на дороге на север, так что Ананури или Гудаури логично добавляются во второй половине дня.' },
+          { h: 'Цена', p: 'Фиксируется в WhatsApp. Доступны форматы на полдня и на полный день — полный день это тот, в который добавляется второе направление.' }
+        ],
+        faq: [
+          { q: 'Полдня действительно хватает?', a: 'На Джвари и Светицховели в спокойном темпе — да. С Шио-Мгвиме это уже ближе к полному дню.' },
+          { q: 'Можно совместить Мцхету с чем-то ещё в тот же день?', a: 'Да, и это частый запрос. Мцхета стоит на дороге на север, поэтому Ананури или Гудаури добавляются естественно.' },
+          { q: 'Есть ли дресс-код в храмах?', a: 'Оба храма действующие: плечи и колени закрыты, женщин обычно просят покрыть голову. Платки, как правило, есть на входе.' },
+          { q: 'Подходит с маленькими детьми?', a: 'Да. Дорога короткая, оба основных объекта проходятся пешком.' }
+        ]
+      },
+      ka: {
+        title: 'ტური მცხეთაში თბილისიდან | ნახევარი დღე | KALA Georgia',
+        description: 'ინდივიდუალური ნახევარდღიანი ტური თბილისიდან მცხეთაში: ჯვრის მონასტერი და სვეტიცხოვლის ტაძარი, ორივე UNESCO-ს ძეგლი. 6 კაცამდე, თქვენი ტემპით.',
+        h1: 'ტური მცხეთაში თბილისიდან',
+        crumb: 'ტური მცხეთაში',
+        lead: 'ყველაზე მოკლე ტური ჩვენს შორის და ყველაზე ადვილად ჩასასმელი დატვირთულ მოგზაურობაში — საქართველოს ძველი დედაქალაქი თბილისის ცენტრიდან დაახლოებით ნახევარ საათშია, და ნახევარი დღე საკმარისია მის დასათვალიერებლად აჩქარების გარეშე.',
+        sections: [
+          { h: 'რა არის მარშრუტზე', p: 'ჯვრის მონასტერი მთქვრისა და არაგვის შესართავის თავზე და სვეტიცხოვლის ტაძარი ძველ ქალაქში ქვემოთ — ორივე UNESCO-ს მსოფლიო მემკვიდრეობის ძეგლი. დროის არსებობის შემთხვევაში შესაძლებელია შიომღვიმის მონასტრის დამატება.' },
+          { h: 'რა შედის', p: 'მიწოდება თბილისში სასტუმროზე, გადაადგილება ობიექტებს შორის, ლოდინი სანამ სეირნობთ, წყალი და დამტენები სალონში.' },
+          { h: 'ავტომობილი', p: 'Toyota Alphard 2018, 6 მგზავრამდე — გზა მოკლეა, ამიტომ ეს მარშრუტი კარგად ერგება როგორც პატარა ბავშვებს, ისე ხანდაზმულებს.' },
+          { h: 'ხანგრძლივობა', p: 'ჩვეულებრივ 4–5 საათი კარიდან კარამდე. რადგან სამგზავრო დღე მოკლეა, მარშრუტს ხშირად აერთიანებენ: მცხეთა ჩრდილოეთის გზაზეა, ასე რომ ანანური ან გუდაური ბუნებრივად ემატება.' },
+          { h: 'ფასი', p: 'ფიქსირდება WhatsApp-ში. ხელმისაწვდომია ნახევარდღიანი და სრულდღიანი ფორმატები.' }
+        ],
+        faq: [
+          { q: 'ნახევარი დღე ნამდვილად საკმარისია?', a: 'ჯვრისა და სვეტიცხოვლისთვის მშვიდი ტემპით — დიახ. შიომღვიმის დამატებით ეს უკვე სრულ დღესთან ახლოსაა.' },
+          { q: 'შესაძლებელია მცხეთის სხვა რამესთან გაერთიანება იმავე დღეს?', a: 'დიახ, და ეს ხშირი მოთხოვნაა. მცხეთა ჩრდილოეთის გზაზეა.' },
+          { q: 'არის თუ არა ჩაცმის წესი ტაძრებში?', a: 'ორივე მოქმედი ტაძარია — მხრები და მუხლები დაფარული, ქალებს ჩვეულებრივ თავსაბურავს სთხოვენ. თავსაფრები, როგორც წესი, შესასვლელთანაა.' },
+          { q: 'გამოდგება პატარა ბავშვებთან ერთად?', a: 'დიახ. გზა მოკლეა და ორივე ძირითადი ობიექტი ფეხით ივლის.' }
+        ]
+      }
+    }
+  },
+
+  // ----------------------------------------------------------------- 16
+  {
+    key: 'tour-borjomi',
+    group: 'tours',
+    serviceType: 'Private Day Tour',
+    areaServed: 'Borjomi, Georgia',
+    slug: {
+      en: 'borjomi',
+      ru: 'borjomi',
+      ka: 'borjomi'
+    },
+    related: ['private-tours-georgia', 'tbilisi-borjomi', 'tour-kakheti'],
+    l: {
+      en: {
+        title: 'Private Borjomi Tour from Tbilisi | Park, Springs and Vardzia | KALA Georgia',
+        description: 'A private day tour from Tbilisi to Borjomi: the mineral park and springs, with Rabati Castle or Vardzia added for a fuller day. Up to 6 people.',
+        h1: 'Private Borjomi Tour from Tbilisi',
+        crumb: 'Borjomi Tour',
+        lead: 'An easy day out of Tbilisi that can stay gentle or turn into a long one. The park and the springs alone make a relaxed trip; Rabati Castle and the Vardzia cave city are close enough to add if you want the drive to earn more.',
+        sections: [
+          { h: 'Along the route', p: 'Borjomi Central Park with the mineral water springs and the cable car above the valley, and the forest edge of Borjomi-Kharagauli National Park. Rabati Castle in Akhaltsikhe and the Vardzia cave monastery lie further west and turn this into an extended day.' },
+          { h: 'What is included', p: 'Pickup at your Tbilisi hotel, waiting while you walk the park, stops for lunch and photos, water and chargers on board.' },
+          { h: 'Vehicle', p: 'Toyota Alphard 2018, up to 6 passengers — comfortable for a family day out, with room for a stroller and everything a day in a park needs.' },
+          { h: 'Duration', p: 'The park on its own is a comfortable day, roughly 7–8 hours door to door. Adding Akhaltsikhe or Vardzia makes it a long one, closer to 11–12 hours with considerably more driving.' },
+          { h: 'Pricing', p: 'Fixed for the day on WhatsApp, by which version of the route you choose. Park entrance and the cable car are paid on site.' }
+        ],
+        faq: [
+          { q: 'Can we do Borjomi and Vardzia in one day?', a: 'Yes, but it is a long day with a lot of driving. Worth deciding before you set off rather than halfway there.' },
+          { q: 'Do you wait while we are in the park?', a: 'Yes, the waiting is part of the day, not an extra.' },
+          { q: 'Is the park good with small children?', a: 'Yes — it is a walkable valley park, and there is room in the car for a stroller.' },
+          { q: 'How is this different from your Tbilisi to Borjomi transfer?', a: 'The transfer takes you there and drops you off. The tour is a planned day: the driver waits, moves you between stops and brings you back.' }
+        ]
+      },
+      ru: {
+        title: 'Тур в Боржоми из Тбилиси | Парк, источники и Вардзиа | KALA Georgia',
+        description: 'Индивидуальный однодневный тур из Тбилиси в Боржоми: парк и минеральные источники, с добавлением крепости Рабат или Вардзиа. До 6 человек.',
+        h1: 'Тур в Боржоми из Тбилиси',
+        crumb: 'Тур в Боржоми',
+        lead: 'Необременительный выезд из Тбилиси, который может остаться спокойным, а может превратиться в长 длинный день. Парка и источников достаточно для расслабленной поездки; крепость Рабат и пещерный город Вардзиа находятся достаточно близко, чтобы добавить их, если хочется, чтобы дорога окупилась сильнее.',
+        sections: [
+          { h: 'Что по маршруту', p: 'Центральный парк Боржоми с минеральными источниками и канатной дорогой над долиной, а также кромка лесов национального парка Боржоми-Харагаули. Крепость Рабат в Ахалцихе и пещерный монастырь Вардзиа лежат западнее и превращают поездку в расширенный день.' },
+          { h: 'Что входит', p: 'Подача к отелю в Тбилиси, ожидание, пока вы гуляете по парку, остановки на обед и фото, вода и зарядки в салоне.' },
+          { h: 'Автомобиль', p: 'Toyota Alphard 2018, до 6 пассажиров — комфортно для семейного выезда, с местом под коляску и всё, что нужно на день в парке.' },
+          { h: 'Продолжительность', p: 'Только парк — это спокойный день, ориентировочно 7–8 часов от двери до двери. С Ахалцихе или Вардзиа день становится длинным, ближе к 11–12 часам и с заметно большим временем за рулём.' },
+          { h: 'Цена', p: 'Фиксируется в WhatsApp за день, в зависимости от выбранной версии маршрута. Вход в парк и канатная дорога оплачиваются на месте.' }
+        ],
+        faq: [
+          { q: 'Можно успеть Боржоми и Вардзиа за один день?', a: 'Да, но это длинный день с большим количеством дороги. Решать об этом лучше до выезда, а не на полпути.' },
+          { q: 'Вы ждёте, пока мы в парке?', a: 'Да, ожидание — часть дня, а не доплата.' },
+          { q: 'Парк подходит с маленькими детьми?', a: 'Да — это проходимый пешком парк в долине, и в машине есть место для коляски.' },
+          { q: 'Чем это отличается от вашего трансфера Тбилиси — Боржоми?', a: 'Трансфер довозит и высаживает. Тур — это спланированный день: водитель ждёт, перевозит между точками и возвращает обратно.' }
+        ]
+      },
+      ka: {
+        title: 'ტური ბორჯომში თბილისიდან | პარკი, წყლები და ვარძია | KALA Georgia',
+        description: 'ინდივიდუალური ერთდღიანი ტური თბილისიდან ბორჯომში: პარკი და მინერალური წყლები, რაბათის ციხის ან ვარძიის დამატებით. 6 კაცამდე.',
+        h1: 'ტური ბორჯომში თბილისიდან',
+        crumb: 'ტური ბორჯომში',
+        lead: 'მარტივი გასვლა თბილისიდან, რომელიც შეიძლება მშვიდი დარჩეს ან გრძელ დღედ იქცეს. პარკი და წყლები თავისთავად საკმარისია მოდუნებული მოგზაურობისთვის; რაბათის ციხე და ვარძიის გამოქვაბულების ქალაქი საკმარისად ახლოსაა დასამატებლად.',
+        sections: [
+          { h: 'რა არის მარშრუტზე', p: 'ბორჯომის ცენტრალური პარკი მინერალური წყლებითა და საბაგიროთი ხეობის თავზე, ასევე ბორჯომ-ხარაგაულის ეროვნული პარკის ტყის კიდე. რაბათის ციხე ახალციხეში და ვარძიის გამოქვაბულთა მონასტერი დასავლეთითაა და მოგზაურობას გაფართოებულ დღედ აქცევს.' },
+          { h: 'რა შედის', p: 'მიწოდება თბილისში სასტუმროზე, ლოდინი სანამ პარკში სეირნობთ, გაჩერებები სადილისა და ფოტოსთვის, წყალი და დამტენები სალონში.' },
+          { h: 'ავტომობილი', p: 'Toyota Alphard 2018, 6 მგზავრამდე — კომფორტულია საოჯახო გასვლისთვის, ეტლისთვის ადგილით.' },
+          { h: 'ხანგრძლივობა', p: 'მხოლოდ პარკი — მშვიდი დღეა, დაახლოებით 7–8 საათი კარიდან კარამდე. ახალციხის ან ვარძიის დამატებით დღე გრძელდება, 11–12 საათამდე და მნიშვნელოვნად მეტი გზით.' },
+          { h: 'ფასი', p: 'ფიქსირდება WhatsApp-ში დღისთვის, არჩეული ვერსიის მიხედვით. პარკში შესვლა და საბაგირო ადგილზე იხდება.' }
+        ],
+        faq: [
+          { q: 'შესაძლებელია ბორჯომი და ვარძია ერთ დღეში?', a: 'დიახ, მაგრამ ეს გრძელი დღეა დიდი გზით. ჯობია გადაწყვეტილება გასვლამდე მიიღოთ.' },
+          { q: 'ელოდებით, სანამ პარკში ვართ?', a: 'დიახ, ლოდინი დღის ნაწილია და არა დამატებითი გადასახადი.' },
+          { q: 'პარკი გამოდგება პატარა ბავშვებთან?', a: 'დიახ — ეს ფეხით სავალი პარკია ხეობაში, მანქანაში კი ეტლისთვის ადგილია.' },
+          { q: 'რით განსხვავდება ეს თქვენი თბილისი — ბორჯომის ტრანსფერისგან?', a: 'ტრანსფერი მიგიყვანთ და ჩამოგსვამთ. ტური დაგეგმილი დღეა: მძღოლი გელოდებათ, გადაგიყვანთ გაჩერებებს შორის და დაგაბრუნებთ.' }
+        ]
+      }
+    }
   }
 ];
 
-module.exports = { GROUP_SEGMENT, GROUP_HUB, PAGES };
+module.exports = { GROUP_SEGMENT, GROUP_HUB, FOOTER_CLUSTER, PAGES };

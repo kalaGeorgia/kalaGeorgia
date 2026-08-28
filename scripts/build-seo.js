@@ -16,7 +16,7 @@ const fs = require('fs');
 const path = require('path');
 
 const { SITE, LANGS, OG_LOCALE, CHROME } = require('../seo/chrome.js');
-const { GROUP_SEGMENT, GROUP_HUB, PAGES } = require('../seo/pages.js');
+const { GROUP_SEGMENT, GROUP_HUB, FOOTER_CLUSTER, PAGES } = require('../seo/pages.js');
 
 const ROOT = path.join(__dirname, '..');
 const CSS_VERSION = 7;
@@ -162,7 +162,7 @@ ${schemas.map((s) => `<script type="application/ld+json">\n${jsonLd(s)}\n</scrip
 
 /** Cluster links shared by the nav/footer of every generated page. */
 function clusterLinks(lang) {
-  return ['private-transfers-georgia', 'airport-transfer-tbilisi', 'private-driver-georgia', 'private-tours-georgia', 'corporate-transport-georgia']
+  return FOOTER_CLUSTER
     .map((key) => {
       const p = byKey(key);
       return `          <li><a href="${pageUrl(p, lang)}">${esc(p.l[lang].crumb)}</a></li>`;

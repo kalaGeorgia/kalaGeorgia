@@ -16,17 +16,13 @@ const fs = require('fs');
 const path = require('path');
 
 const { LANGS, CHROME } = require('../seo/chrome.js');
-const { GROUP_SEGMENT, PAGES } = require('../seo/pages.js');
+const { GROUP_SEGMENT, FOOTER_CLUSTER, PAGES } = require('../seo/pages.js');
 
 const ROOT = path.join(__dirname, '..');
 
-const CLUSTER = [
-  'private-transfers-georgia',
-  'airport-transfer-tbilisi',
-  'private-driver-georgia',
-  'private-tours-georgia',
-  'corporate-transport-georgia'
-];
+const START = '<!-- cluster:start -->';
+const END = '<!-- cluster:end -->';
+const LEGACY = '<!-- site-footer__grid-cluster-added -->';
 
 function esc(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -47,17 +43,19 @@ function langSwitchLinks(lang, indent) {
 
 function footerColumn(lang) {
   const c = CHROME[lang];
-  const links = CLUSTER.map((key) => {
+  const links = FOOTER_CLUSTER.map((key) => {
     const p = PAGES.find((x) => x.key === key);
     return `          <li><a href="${pageUrl(p, lang)}">${esc(p.l[lang].crumb)}</a></li>`;
   }).join('\n');
 
-  return `      <div>
+  return `${START}
+      <div>
         <h4>${esc(c.footer.servicesTitle)}</h4>
         <ul>
 ${links}
         </ul>
       </div>
+${END}
 `;
 }
 
@@ -85,15 +83,28 @@ function migrate(file, lang) {
     done.push('KALA_FORCE_LANG');
   }
 
-  // 3. Footer column linking into the new landing-page cluster.
-  if (!html.includes('site-footer__grid-cluster-added')) {
+  // 3. Footer column linking into the landing-page cluster. Rewritten in
+  //    place on every run so adding a page to FOOTER_CLUSTER reaches the
+  //    homepages too, not just the generated pages.
+  const column = footerColumn(lang);
+
+  if (html.includes(START) && html.includes(END)) {
+    const current = html.slice(html.indexOf(START), html.indexOf(END) + END.length + 1);
+    if (current !== column) {
+      html = html.slice(0, html.indexOf(START)) + column + html.slice(html.indexOf(END) + END.length + 1);
+      done.push('footer cluster column updated');
+    }
+  } else if (html.includes(LEGACY)) {
+    // Upgrade the first version, which had only an opening marker.
+    const from = html.indexOf(LEGACY);
+    const to = html.indexOf('</div>', html.indexOf('</ul>', from)) + '</div>\n'.length;
+    html = html.slice(0, from) + column + html.slice(to);
+    done.push('footer cluster column migrated to paired markers');
+  } else {
     const anchor = /(\n)( *)(<div>\n\s*<h4 data-i18n="footer_contacts">)/;
     if (anchor.test(html)) {
-      html = html.replace(
-        anchor,
-        `$1<!-- site-footer__grid-cluster-added -->\n${footerColumn(lang)}$2$3`
-      );
-      done.push('footer cluster column');
+      html = html.replace(anchor, `$1${column}$2$3`);
+      done.push('footer cluster column added');
     }
   }
 
